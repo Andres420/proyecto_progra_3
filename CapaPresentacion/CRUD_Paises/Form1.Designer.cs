@@ -1,4 +1,4 @@
-﻿namespace CapaPresentacion
+﻿namespace CRUD_Paises
 {
     partial class Form1
     {

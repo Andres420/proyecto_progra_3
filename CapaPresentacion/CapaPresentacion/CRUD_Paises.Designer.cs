@@ -28,103 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Txt_ID1 = new System.Windows.Forms.TextBox();
+            this.PBox1 = new System.Windows.Forms.PictureBox();
+            this.Txt_Nombre1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Txt_ID = new System.Windows.Forms.TextBox();
-            this.Txt_Nombre = new System.Windows.Forms.TextBox();
-            this.PB1 = new System.Windows.Forms.PictureBox();
-            this.BtnAgregar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Btn_Imagen = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Btn_Limpiar = new System.Windows.Forms.Button();
+            this.Btn_Eliminar = new System.Windows.Forms.Button();
+            this.Btn_mod = new System.Windows.Forms.Button();
+            this.Btn_Reg = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // groupBox1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(12, 23);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(327, 296);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(319, 270);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(319, 270);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(562, 270);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(562, 270);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.Btn_Imagen);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Txt_ID1);
+            this.groupBox1.Controls.Add(this.PBox1);
+            this.groupBox1.Controls.Add(this.Txt_Nombre1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(231, 244);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Paises";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 6);
+            this.label1.Location = new System.Drawing.Point(13, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Identificador";
             // 
+            // Txt_ID1
+            // 
+            this.Txt_ID1.Location = new System.Drawing.Point(101, 24);
+            this.Txt_ID1.Name = "Txt_ID1";
+            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
+            this.Txt_ID1.TabIndex = 3;
+            // 
+            // PBox1
+            // 
+            this.PBox1.Location = new System.Drawing.Point(100, 117);
+            this.PBox1.Name = "PBox1";
+            this.PBox1.Size = new System.Drawing.Size(101, 80);
+            this.PBox1.TabIndex = 5;
+            this.PBox1.TabStop = false;
+            // 
+            // Txt_Nombre1
+            // 
+            this.Txt_Nombre1.Location = new System.Drawing.Point(101, 70);
+            this.Txt_Nombre1.Name = "Txt_Nombre1";
+            this.Txt_Nombre1.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Nombre1.TabIndex = 4;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 55);
+            this.label2.Location = new System.Drawing.Point(13, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -133,172 +109,126 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 104);
+            this.label3.Location = new System.Drawing.Point(13, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Bandera";
             // 
-            // Txt_ID
+            // groupBox2
             // 
-            this.Txt_ID.Location = new System.Drawing.Point(93, 3);
-            this.Txt_ID.Name = "Txt_ID";
-            this.Txt_ID.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID.TabIndex = 3;
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(14, 269);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(396, 249);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Registro de Paises";
             // 
-            // Txt_Nombre
+            // dataGridView1
             // 
-            this.Txt_Nombre.Location = new System.Drawing.Point(93, 55);
-            this.Txt_Nombre.Name = "Txt_Nombre";
-            this.Txt_Nombre.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Nombre.TabIndex = 4;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(367, 211);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // PB1
+            // Btn_Imagen
             // 
-            this.PB1.Location = new System.Drawing.Point(92, 99);
-            this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(109, 89);
-            this.PB1.TabIndex = 5;
-            this.PB1.TabStop = false;
+            this.Btn_Imagen.Location = new System.Drawing.Point(100, 203);
+            this.Btn_Imagen.Name = "Btn_Imagen";
+            this.Btn_Imagen.Size = new System.Drawing.Size(101, 23);
+            this.Btn_Imagen.TabIndex = 18;
+            this.Btn_Imagen.Text = "Cargar Imagen";
+            this.Btn_Imagen.UseVisualStyleBackColor = true;
             // 
-            // BtnAgregar
+            // groupBox3
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(97, 221);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(103, 24);
-            this.BtnAgregar.TabIndex = 6;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.Btn_Limpiar);
+            this.groupBox3.Controls.Add(this.Btn_Eliminar);
+            this.groupBox3.Controls.Add(this.Btn_mod);
+            this.groupBox3.Controls.Add(this.Btn_Reg);
+            this.groupBox3.Location = new System.Drawing.Point(267, 21);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(142, 241);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Opciones";
             // 
-            // panel1
+            // Btn_Limpiar
             // 
-            this.panel1.Controls.Add(this.Txt_ID);
-            this.panel1.Controls.Add(this.BtnAgregar);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.PB1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Txt_Nombre);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(18, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 254);
-            this.panel1.TabIndex = 7;
+            this.Btn_Limpiar.Location = new System.Drawing.Point(34, 48);
+            this.Btn_Limpiar.Name = "Btn_Limpiar";
+            this.Btn_Limpiar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Limpiar.TabIndex = 21;
+            this.Btn_Limpiar.Text = "Limpiar";
+            this.Btn_Limpiar.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // Btn_Eliminar
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.Btn_Buscar);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(19, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(282, 258);
-            this.panel2.TabIndex = 0;
+            this.Btn_Eliminar.Location = new System.Drawing.Point(34, 169);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Eliminar.TabIndex = 20;
+            this.Btn_Eliminar.Text = "Eliminar";
+            this.Btn_Eliminar.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // Btn_mod
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.Btn_mod.Location = new System.Drawing.Point(34, 126);
+            this.Btn_mod.Name = "Btn_mod";
+            this.Btn_mod.Size = new System.Drawing.Size(75, 23);
+            this.Btn_mod.TabIndex = 19;
+            this.Btn_mod.Text = "Modificar";
+            this.Btn_mod.UseVisualStyleBackColor = true;
             // 
-            // Btn_Buscar
+            // Btn_Reg
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(201, 5);
-            this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(71, 24);
-            this.Btn_Buscar.TabIndex = 13;
-            this.Btn_Buscar.Text = "Buscar";
-            this.Btn_Buscar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Identificador";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(94, 104);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 89);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Nombre";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Bandera";
+            this.Btn_Reg.Location = new System.Drawing.Point(34, 86);
+            this.Btn_Reg.Name = "Btn_Reg";
+            this.Btn_Reg.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Reg.TabIndex = 18;
+            this.Btn_Reg.Text = "Registrar";
+            this.Btn_Reg.UseVisualStyleBackColor = true;
             // 
             // CRUD_Paises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 331);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(442, 530);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "CRUD_Paises";
             this.Text = "CRUD_Paises";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.PictureBox PB1;
-        private System.Windows.Forms.TextBox Txt_Nombre;
-        private System.Windows.Forms.TextBox Txt_ID;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button Btn_Buscar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox PBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox Txt_Nombre1;
+        private System.Windows.Forms.TextBox Txt_ID1;
+        private System.Windows.Forms.Button Btn_Imagen;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button Btn_Limpiar;
+        private System.Windows.Forms.Button Btn_Eliminar;
+        private System.Windows.Forms.Button Btn_mod;
+        private System.Windows.Forms.Button Btn_Reg;
     }
 }

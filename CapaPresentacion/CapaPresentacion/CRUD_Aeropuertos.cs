@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class CRUD_Paises : Form
+    public partial class CRUD_Aeropuertos : Form
     {
-        public CRUD_Paises()
+        public CRUD_Aeropuertos()
         {
             InitializeComponent();
         }
 
-      
+     
     }
 }

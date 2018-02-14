@@ -101,6 +101,9 @@
     <Compile Include="CRUD_Rutas.Designer.cs">
       <DependentUpon>CRUD_Rutas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Crear_Usuario.resx">
+      <DependentUpon>Crear_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRUD_Aeropuertos.resx">
       <DependentUpon>CRUD_Aeropuertos.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{108204e7-3b68-4483-9826-3db00a2fd531}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

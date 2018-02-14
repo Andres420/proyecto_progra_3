@@ -16,5 +16,16 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Crear_Usuario cu = new Crear_Usuario();
+            cu.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

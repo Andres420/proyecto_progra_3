@@ -75,6 +75,18 @@
     <Compile Include="CRUD_Tarifas_Hoteles.Designer.cs">
       <DependentUpon>CRUD_Tarifas_Hoteles.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRUD_Vehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUD_Vehiculos.Designer.cs">
+      <DependentUpon>CRUD_Vehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD_Vuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUD_Vuelos.Designer.cs">
+      <DependentUpon>CRUD_Vuelos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CRUD_Rutas.cs">
@@ -97,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CRUD_Tarifas_Hoteles.resx">
       <DependentUpon>CRUD_Tarifas_Hoteles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_Vehiculos.resx">
+      <DependentUpon>CRUD_Vehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD_Vuelos.resx">
+      <DependentUpon>CRUD_Vuelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

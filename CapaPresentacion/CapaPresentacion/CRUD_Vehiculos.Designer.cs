@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class CRUD_Hoteles
+    partial class CRUD_Vehiculos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.CBox_Lugar = new System.Windows.Forms.ComboBox();
-            this.CBox_Pais = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Txt_Habitaciones = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_ID1 = new System.Windows.Forms.TextBox();
-            this.Txt_Nombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Btn_Limpiar = new System.Windows.Forms.Button();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
@@ -49,8 +38,17 @@
             this.Btn_Reg = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Txt_Marca = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Tipo = new System.Windows.Forms.TextBox();
+            this.Txt_Precio = new System.Windows.Forms.TextBox();
+            this.Txt_Cantidad = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,92 +56,24 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.CBox_Lugar);
-            this.groupBox1.Controls.Add(this.CBox_Pais);
+            this.groupBox1.Controls.Add(this.Txt_Cantidad);
+            this.groupBox1.Controls.Add(this.Txt_Precio);
+            this.groupBox1.Controls.Add(this.Txt_Tipo);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Txt_Marca);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.Txt_Habitaciones);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Txt_ID1);
-            this.groupBox1.Controls.Add(this.Txt_Nombre);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(18, 18);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(354, 248);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hoteles";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(248, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 21);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Agregar Foto";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(248, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 94);
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
-            // 
-            // CBox_Lugar
-            // 
-            this.CBox_Lugar.FormattingEnabled = true;
-            this.CBox_Lugar.Location = new System.Drawing.Point(89, 152);
-            this.CBox_Lugar.Name = "CBox_Lugar";
-            this.CBox_Lugar.Size = new System.Drawing.Size(100, 21);
-            this.CBox_Lugar.TabIndex = 42;
-            // 
-            // CBox_Pais
-            // 
-            this.CBox_Pais.FormattingEnabled = true;
-            this.CBox_Pais.Location = new System.Drawing.Point(89, 107);
-            this.CBox_Pais.Name = "CBox_Pais";
-            this.CBox_Pais.Size = new System.Drawing.Size(100, 21);
-            this.CBox_Pais.TabIndex = 41;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Lugar";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 195);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Habitaciones";
-            // 
-            // Txt_Habitaciones
-            // 
-            this.Txt_Habitaciones.Location = new System.Drawing.Point(89, 192);
-            this.Txt_Habitaciones.Name = "Txt_Habitaciones";
-            this.Txt_Habitaciones.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Habitaciones.TabIndex = 38;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Pais";
+            this.groupBox1.Text = "Vehiculos";
             // 
             // label1
             // 
@@ -161,41 +91,16 @@
             this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
             this.Txt_ID1.TabIndex = 34;
             // 
-            // Txt_Nombre
-            // 
-            this.Txt_Nombre.Location = new System.Drawing.Point(89, 64);
-            this.Txt_Nombre.Name = "Txt_Nombre";
-            this.Txt_Nombre.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Nombre.TabIndex = 35;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Nombre";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Foto";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Btn_Limpiar);
             this.groupBox2.Controls.Add(this.Btn_Eliminar);
             this.groupBox2.Controls.Add(this.Btn_mod);
             this.groupBox2.Controls.Add(this.Btn_Reg);
-            this.groupBox2.Location = new System.Drawing.Point(378, 18);
+            this.groupBox2.Location = new System.Drawing.Point(386, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(126, 247);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
             // 
@@ -238,12 +143,12 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(21, 282);
+            this.groupBox3.Location = new System.Drawing.Point(12, 280);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(483, 184);
-            this.groupBox3.TabIndex = 2;
+            this.groupBox3.Size = new System.Drawing.Size(500, 184);
+            this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Registro de  Hoteles";
+            this.groupBox3.Text = "Registro de Vehiculos";
             // 
             // dataGridView1
             // 
@@ -255,19 +160,98 @@
             this.dataGridView1.Size = new System.Drawing.Size(439, 142);
             this.dataGridView1.TabIndex = 0;
             // 
-            // CRUD_Hoteles
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Marca";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Modelo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Tipo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Precio";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 179);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Cantidad";
+            // 
+            // Txt_Marca
+            // 
+            this.Txt_Marca.Location = new System.Drawing.Point(89, 55);
+            this.Txt_Marca.Name = "Txt_Marca";
+            this.Txt_Marca.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Marca.TabIndex = 40;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(89, 83);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 41;
+            // 
+            // Txt_Tipo
+            // 
+            this.Txt_Tipo.Location = new System.Drawing.Point(89, 111);
+            this.Txt_Tipo.Name = "Txt_Tipo";
+            this.Txt_Tipo.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Tipo.TabIndex = 42;
+            // 
+            // Txt_Precio
+            // 
+            this.Txt_Precio.Location = new System.Drawing.Point(89, 141);
+            this.Txt_Precio.Name = "Txt_Precio";
+            this.Txt_Precio.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Precio.TabIndex = 43;
+            // 
+            // Txt_Cantidad
+            // 
+            this.Txt_Cantidad.Location = new System.Drawing.Point(89, 172);
+            this.Txt_Cantidad.Name = "Txt_Cantidad";
+            this.Txt_Cantidad.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Cantidad.TabIndex = 44;
+            // 
+            // CRUD_Vehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 478);
+            this.ClientSize = new System.Drawing.Size(536, 476);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "CRUD_Hoteles";
-            this.Text = "CRUD_Hoteles";
+            this.Name = "CRUD_Vehiculos";
+            this.Text = "CRUD_Vehiculos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -278,25 +262,24 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_mod;
         private System.Windows.Forms.Button Btn_Reg;
-        private System.Windows.Forms.TextBox Txt_Habitaciones;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
-        private System.Windows.Forms.TextBox Txt_Nombre;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox Txt_Marca;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox CBox_Lugar;
-        private System.Windows.Forms.ComboBox CBox_Pais;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Txt_Tipo;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Cantidad;
+        private System.Windows.Forms.TextBox Txt_Precio;
     }
 }

@@ -91,6 +91,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "CRUD_Aeropuertos";
             this.Text = "CRUD_Aeropuertos";
+            this.Load += new System.EventHandler(this.CRUD_Aeropuertos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Capadbo
 {
-    public class CRUD_Aeropuertos
+    public class DB_CRUD_Aeropuertos
     {
         static NpgsqlConnection conexion;
         static NpgsqlCommand cmd;

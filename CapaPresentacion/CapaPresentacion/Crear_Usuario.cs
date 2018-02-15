@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
-
 namespace CapaPresentacion
 {
     public partial class Crear_Usuario : Form
@@ -18,7 +17,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnCrear_Cuenta_Click(object sender, EventArgs e)
         {
 
             if (txtClave.Text == txtClave_Conf.Text && !txtClave.Text.Equals(""))

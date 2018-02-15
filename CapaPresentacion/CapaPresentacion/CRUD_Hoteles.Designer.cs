@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PBImagen = new System.Windows.Forms.PictureBox();
             this.CBox_Lugar = new System.Windows.Forms.ComboBox();
             this.CBox_Pais = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Txt_Habitaciones = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,8 +46,10 @@
             this.Btn_Reg = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBImagen)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,15 +58,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.PBImagen);
             this.groupBox1.Controls.Add(this.CBox_Lugar);
             this.groupBox1.Controls.Add(this.CBox_Pais);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.Txt_Habitaciones);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Txt_ID1);
             this.groupBox1.Controls.Add(this.Txt_Nombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -78,35 +75,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoteles";
             // 
-            // button1
+            // PBImagen
             // 
-            this.button1.Location = new System.Drawing.Point(248, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 21);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Agregar Foto";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(248, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 94);
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
+            this.PBImagen.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.PBImagen.Location = new System.Drawing.Point(206, 43);
+            this.PBImagen.Name = "PBImagen";
+            this.PBImagen.Size = new System.Drawing.Size(130, 122);
+            this.PBImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBImagen.TabIndex = 43;
+            this.PBImagen.TabStop = false;
             // 
             // CBox_Lugar
             // 
+            this.CBox_Lugar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBox_Lugar.FormattingEnabled = true;
-            this.CBox_Lugar.Location = new System.Drawing.Point(89, 152);
+            this.CBox_Lugar.Location = new System.Drawing.Point(89, 111);
             this.CBox_Lugar.Name = "CBox_Lugar";
             this.CBox_Lugar.Size = new System.Drawing.Size(100, 21);
             this.CBox_Lugar.TabIndex = 42;
             // 
             // CBox_Pais
             // 
+            this.CBox_Pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBox_Pais.FormattingEnabled = true;
-            this.CBox_Pais.Location = new System.Drawing.Point(89, 107);
+            this.CBox_Pais.Location = new System.Drawing.Point(89, 66);
             this.CBox_Pais.Name = "CBox_Pais";
             this.CBox_Pais.Size = new System.Drawing.Size(100, 21);
             this.CBox_Pais.TabIndex = 41;
@@ -114,7 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 160);
+            this.label6.Location = new System.Drawing.Point(6, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 40;
@@ -123,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 195);
+            this.label5.Location = new System.Drawing.Point(0, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 39;
@@ -131,39 +123,24 @@
             // 
             // Txt_Habitaciones
             // 
-            this.Txt_Habitaciones.Location = new System.Drawing.Point(89, 192);
+            this.Txt_Habitaciones.Location = new System.Drawing.Point(89, 154);
             this.Txt_Habitaciones.Name = "Txt_Habitaciones";
             this.Txt_Habitaciones.Size = new System.Drawing.Size(100, 20);
             this.Txt_Habitaciones.TabIndex = 38;
+            this.Txt_Habitaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Habitaciones_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 115);
+            this.label4.Location = new System.Drawing.Point(6, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 37;
             this.label4.Text = "Pais";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(89, 22);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 34;
-            // 
             // Txt_Nombre
             // 
-            this.Txt_Nombre.Location = new System.Drawing.Point(89, 64);
+            this.Txt_Nombre.Location = new System.Drawing.Point(89, 23);
             this.Txt_Nombre.Name = "Txt_Nombre";
             this.Txt_Nombre.Size = new System.Drawing.Size(100, 20);
             this.Txt_Nombre.TabIndex = 35;
@@ -171,7 +148,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Location = new System.Drawing.Point(6, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 32;
@@ -255,10 +232,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(439, 142);
             this.dataGridView1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(229, 171);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 21);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Agregar Foto";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CRUD_Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(528, 478);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -267,7 +259,7 @@
             this.Text = "CRUD_Hoteles";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBImagen)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -286,17 +278,16 @@
         private System.Windows.Forms.Button Btn_Reg;
         private System.Windows.Forms.TextBox Txt_Habitaciones;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.TextBox Txt_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PBImagen;
         private System.Windows.Forms.ComboBox CBox_Lugar;
         private System.Windows.Forms.ComboBox CBox_Pais;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

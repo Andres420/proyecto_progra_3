@@ -60,7 +60,9 @@ namespace CapaPresentacion
                 MessageBox.Show("Escriba en los cuadros");
             }
         }
-
+        /// <summary>
+        /// This method clean the textboxs
+        /// </summary>
         private void Limpiar_Textbox()
         {
             txtUsuario.Clear();

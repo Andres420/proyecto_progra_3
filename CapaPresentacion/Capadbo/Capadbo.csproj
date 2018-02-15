@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Npgsql">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\net451\Npgsql.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,6 +55,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DB_CRUD_Aeropuertos.cs" />
     <Compile Include="DB_CrearUsuario.cs" />
+    <Compile Include="DB_CRUD_Hoteles.cs" />
     <Compile Include="DB_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

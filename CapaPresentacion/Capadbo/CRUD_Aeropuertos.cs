@@ -12,7 +12,7 @@ namespace Capadbo
     public class CRUD_Aeropuertos
     {
         static NpgsqlConnection conexion;
-        static NpgsqlCommand cmd;
+        //static NpgsqlCommand cmd;
         DataSet datos = new DataSet();
 
         public static void Conexion()

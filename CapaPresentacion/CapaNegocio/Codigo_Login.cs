@@ -15,21 +15,17 @@ namespace CapaNegocio
         {
             Usuario usuario = null;
             DB_Login DB_log = new DB_Login();
-            NpgsqlDataReader dr = DB_log.Buscar_Usuario_db(cuenta, clave);
-            if (dr.HasRows)
+            object[] arreglo = DB_log.Buscar_Usuario_db(cuenta, clave);
+            if(arreglo != null)
             {
-                dr.Read();
-                int cedula = dr.GetInt32(0);
-                string nombre = dr.GetString(1);
-                string clave_usu = dr.GetString(2);
-                bool tipo = dr.GetBoolean(3);
-                usuario = new Usuario(cedula, nombre, clave_usu, tipo);
+                usuario = new Usuario((int)arreglo[0], (string)arreglo[1], (string)arreglo[2], (bool)arreglo[3]);
                 return usuario;
             }
             else
             {
                 return usuario;
             }
+                
         }
     }
 }

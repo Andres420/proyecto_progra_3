@@ -12,16 +12,23 @@ namespace Capadbo
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
 
-        public NpgsqlDataReader Buscar_Usuario_db(string cuenta, string clave)
+        public object[] Buscar_Usuario_db(string cuenta, string clave)
         {
+            object[] arreglo = null;
             try
             {
-                conn = new NpgsqlConnection("Server=localhost;User Id=postgres;Password=Admin;Database=programacion;");
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("SELECT cedula, nombre, clave, tipo FROM registros WHERE nombre = " + cuenta + " AND clave = MD5('" + clave + "');", conn);
+                cmd = new NpgsqlCommand("SELECT cedula, nombre, clave, tipo FROM registros WHERE cedula = " + cuenta + " AND clave = MD5('" + clave + "');", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
+                if(dr.HasRows)
+                {
+                    dr.Read();
+                    arreglo = new object[] {dr.GetInt32(0),dr.GetString(1),dr.GetString(2),dr.GetBoolean(3) };
+                }
+                
                 conn.Close();
-                return dr;
+                return arreglo;
             }
             catch (Exception ex)
             {

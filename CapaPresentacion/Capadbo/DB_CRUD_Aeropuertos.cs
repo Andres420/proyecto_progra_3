@@ -9,7 +9,7 @@ using Npgsql;
 
 namespace Capadbo
 {
-    public class CRUD_Aeropuertos
+    public class DB_CRUD_Aeropuertos
     {
         static NpgsqlConnection conexion;
         //static NpgsqlCommand cmd;

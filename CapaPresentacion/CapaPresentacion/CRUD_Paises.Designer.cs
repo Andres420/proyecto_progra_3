@@ -29,20 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
+            this.Btn_Imagen = new System.Windows.Forms.Button();
             this.PBox1 = new System.Windows.Forms.PictureBox();
             this.Txt_Nombre1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Btn_Imagen = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Btn_Limpiar = new System.Windows.Forms.Button();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_mod = new System.Windows.Forms.Button();
             this.Btn_Reg = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -53,8 +52,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Btn_Imagen);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Txt_ID1);
             this.groupBox1.Controls.Add(this.PBox1);
             this.groupBox1.Controls.Add(this.Txt_Nombre1);
             this.groupBox1.Controls.Add(this.label2);
@@ -66,33 +63,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Paises";
             // 
-            // label1
+            // Btn_Imagen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(101, 24);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 3;
+            this.Btn_Imagen.Location = new System.Drawing.Point(93, 163);
+            this.Btn_Imagen.Name = "Btn_Imagen";
+            this.Btn_Imagen.Size = new System.Drawing.Size(101, 23);
+            this.Btn_Imagen.TabIndex = 18;
+            this.Btn_Imagen.Text = "Cargar Imagen";
+            this.Btn_Imagen.UseVisualStyleBackColor = true;
+            this.Btn_Imagen.Click += new System.EventHandler(this.Btn_Imagen_Click);
             // 
             // PBox1
             // 
-            this.PBox1.Location = new System.Drawing.Point(100, 117);
+            this.PBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.PBox1.Location = new System.Drawing.Point(93, 77);
             this.PBox1.Name = "PBox1";
             this.PBox1.Size = new System.Drawing.Size(101, 80);
+            this.PBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBox1.TabIndex = 5;
             this.PBox1.TabStop = false;
+            this.PBox1.Click += new System.EventHandler(this.PBox1_Click);
             // 
             // Txt_Nombre1
             // 
-            this.Txt_Nombre1.Location = new System.Drawing.Point(101, 70);
+            this.Txt_Nombre1.Location = new System.Drawing.Point(94, 30);
             this.Txt_Nombre1.Name = "Txt_Nombre1";
             this.Txt_Nombre1.Size = new System.Drawing.Size(100, 20);
             this.Txt_Nombre1.TabIndex = 4;
@@ -100,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 73);
+            this.label2.Location = new System.Drawing.Point(6, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -109,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 117);
+            this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 2;
@@ -129,20 +123,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(14, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(367, 211);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Btn_Imagen
-            // 
-            this.Btn_Imagen.Location = new System.Drawing.Point(100, 203);
-            this.Btn_Imagen.Name = "Btn_Imagen";
-            this.Btn_Imagen.Size = new System.Drawing.Size(101, 23);
-            this.Btn_Imagen.TabIndex = 18;
-            this.Btn_Imagen.Text = "Cargar Imagen";
-            this.Btn_Imagen.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -192,6 +176,11 @@
             this.Btn_Reg.TabIndex = 18;
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
+            this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // CRUD_Paises
             // 
@@ -203,6 +192,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CRUD_Paises";
             this.Text = "CRUD_Paises";
+            this.Load += new System.EventHandler(this.CRUD_Paises_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBox1)).EndInit();
@@ -218,17 +208,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_Nombre1;
-        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.Button Btn_Imagen;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_mod;
         private System.Windows.Forms.Button Btn_Reg;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

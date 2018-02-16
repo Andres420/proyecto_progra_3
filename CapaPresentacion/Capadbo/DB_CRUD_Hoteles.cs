@@ -48,6 +48,15 @@ namespace Capadbo
 
         }
         /// <summary>
+        /// This method make a conection with the database
+        /// </summary>
+        /// <returns>And return the conection</returns>
+        public NpgsqlConnection Conexion()
+        {
+            conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+            return conn;
+        }
+        /// <summary>
         /// This method insert all information of a hotel in a database
         /// </summary>
         /// <param name="nombre"></param>
@@ -76,7 +85,6 @@ namespace Capadbo
                 return agregado;
             }
         }
-
         /// <summary>
         /// This method insert a price in database and check the room price code
         /// </summary>
@@ -146,7 +154,6 @@ namespace Capadbo
                 return cod;
             }
         }
-
         /// <summary>
         /// This method search all countries name
         /// </summary>

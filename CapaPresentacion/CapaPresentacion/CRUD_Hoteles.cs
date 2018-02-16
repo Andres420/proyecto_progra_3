@@ -18,7 +18,15 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             Cargar_Combos();
+            Cargar_Data_Grid();
         }
+
+        private void Cargar_Data_Grid()
+        {
+            Codigo_CRUD_Hoteles ccrud_hoteles = new Codigo_CRUD_Hoteles();
+            ccrud_hoteles.Cargar_Data_Grid(dataGridView1);
+        }
+
         /// <summary>
         /// This method send combobox to other method
         /// </summary>

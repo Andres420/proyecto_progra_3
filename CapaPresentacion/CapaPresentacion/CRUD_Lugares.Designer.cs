@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.Lugares = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,8 +46,6 @@
             // 
             // Lugares
             // 
-            this.Lugares.Controls.Add(this.label1);
-            this.Lugares.Controls.Add(this.Txt_ID1);
             this.Lugares.Controls.Add(this.Txt_Nombre);
             this.Lugares.Controls.Add(this.label2);
             this.Lugares.Location = new System.Drawing.Point(12, 12);
@@ -59,25 +55,9 @@
             this.Lugares.TabStop = false;
             this.Lugares.Text = "Lugares";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(109, 39);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 21;
-            // 
             // Txt_Nombre
             // 
-            this.Txt_Nombre.Location = new System.Drawing.Point(109, 81);
+            this.Txt_Nombre.Location = new System.Drawing.Point(63, 85);
             this.Txt_Nombre.Name = "Txt_Nombre";
             this.Txt_Nombre.Size = new System.Drawing.Size(100, 20);
             this.Txt_Nombre.TabIndex = 22;
@@ -121,6 +101,7 @@
             this.Btn_Eliminar.TabIndex = 30;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
@@ -130,6 +111,7 @@
             this.Btn_mod.TabIndex = 29;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -139,6 +121,7 @@
             this.Btn_Reg.TabIndex = 28;
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
+            this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
             // 
             // groupBox1
             // 
@@ -159,6 +142,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(472, 160);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // CRUD_Lugares
             // 
@@ -182,8 +166,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Lugares;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.TextBox Txt_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;

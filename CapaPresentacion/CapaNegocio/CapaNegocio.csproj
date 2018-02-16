@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Codigo_CRUD_Hoteles.cs" />
+    <Compile Include="Codigo_CRUD_Lugares.cs" />
     <Compile Include="Codigo_Login.cs" />
     <Compile Include="Codigo_CrearUsuario.cs" />
     <Compile Include="Codigo_CRUD_Aeropuertos.cs" />

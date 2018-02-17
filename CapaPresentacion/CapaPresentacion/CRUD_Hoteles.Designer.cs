@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCosto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.PBImagen = new System.Windows.Forms.PictureBox();
             this.CBox_Lugar = new System.Windows.Forms.ComboBox();
@@ -48,8 +50,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCosto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBImagen)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,6 +78,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoteles";
+            // 
+            // txtCosto
+            // 
+            this.txtCosto.Location = new System.Drawing.Point(114, 194);
+            this.txtCosto.Name = "txtCosto";
+            this.txtCosto.Size = new System.Drawing.Size(100, 20);
+            this.txtCosto.TabIndex = 46;
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 194);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Costo de habitacion";
             // 
             // button1
             // 
@@ -198,6 +215,7 @@
             this.Btn_Limpiar.TabIndex = 35;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 
@@ -207,6 +225,7 @@
             this.Btn_Eliminar.TabIndex = 34;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
@@ -216,6 +235,7 @@
             this.Btn_mod.TabIndex = 33;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -250,23 +270,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Costo de habitacion";
-            // 
-            // txtCosto
-            // 
-            this.txtCosto.Location = new System.Drawing.Point(114, 194);
-            this.txtCosto.Name = "txtCosto";
-            this.txtCosto.Size = new System.Drawing.Size(100, 20);
-            this.txtCosto.TabIndex = 46;
-            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // CRUD_Hoteles
             // 

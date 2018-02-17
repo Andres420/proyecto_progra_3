@@ -120,6 +120,27 @@ namespace Capadbo
                 return cod;
             }
         }
+
+        public bool Eliminar_Hotel(int codigo_hotel)
+        {
+            try
+            {
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+                conn.Open();
+                cmd = new NpgsqlCommand("DELETE FROM hoteles WHERE id_hotel = " + codigo_hotel + "; ", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("hewrt" + ex);
+                conn.Close();
+                return false;
+            }
+            
+        }
+
         /// <summary>
         /// This method check the room price code
         /// </summary>

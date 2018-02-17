@@ -1,5 +1,6 @@
 ﻿using Capadbo;
 using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -78,6 +79,13 @@ namespace CapaNegocio
                 agregado = db_hoteles.Agregar_Hotel(nombre, imagen, pais, lugar, habitaciones, cod_tarifa);
             }
             return agregado;
+        }
+
+        public bool Eliminar_Hotel(int codigo_hotel)
+        {
+            DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
+            bool eliminado = db_hoteles.Eliminar_Hotel(codigo_hotel);
+            throw new NotImplementedException();
         }
     }
 }

@@ -18,7 +18,9 @@ namespace Capadbo
         static NpgsqlCommand cmd;
         DataSet datos = new DataSet();
 
-
+        /// <summary>
+        /// This method make the connection to the database
+        /// </summary>
         public static void Conexion()
         {
             string servidor = "localhost";
@@ -31,6 +33,34 @@ namespace Capadbo
             conexion = new NpgsqlConnection(cadenaConexion);
         }
 
+        /// <summary>
+        /// This method search in database the information of the country
+        /// </summary>
+        /// <returns>And return the list</returns>
+        public List<object> ConsultarDatos(int id)
+        {
+            Conexion();
+            conexion.Open();
+            List<object> lista = new List<object>();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * from paises WHERE id_paises = '" + id + "'", conexion);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                    lista.Add(dr.GetString(1));
+                    lista.Add(dr.GetString(2));
+                }
+            }
+            conexion.Close();
+            return lista;
+        }
+
+        /// <summary>
+        /// This method search in database all countries
+        /// </summary>
+        /// <param name="dataGridView"></param>
         public void Cargar(DataGridView dataGridView1)
         {
             Conexion();
@@ -43,38 +73,46 @@ namespace Capadbo
                 MessageBox.Show("ERROR" + error.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            string query1 = "SELECT id_paises,nombre_pais from paises";
-           // string query2 = "SELECT bandera from paises";
-
+            string query1 = "SELECT id_paises,nombre_pais from paises ORDER BY id_paises ASC";
             NpgsqlDataAdapter add = new NpgsqlDataAdapter(query1, conexion);
             add.Fill(datos);
             dataGridView1.DataSource = datos.Tables[0];
             dataGridView1.Columns[0].HeaderCell.Value = "ID";
             dataGridView1.Columns[1].HeaderCell.Value = "Nombre";
-            //dataGridView1.Columns[2].HeaderCell.Value = "Bandera";
-
             DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
             imgCol.HeaderText = "Bandera";
             imgCol.Name = "Bandera";
             dataGridView1.Columns.Add(imgCol);
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // dataGridView1.CurrentRow.Cells("Bandera").Value = Image.FromFile("C:\LaCarpeta\LaImagen.jpg");
-
-            //Image img = Image.FromFile("C:/imagenes/bandera - de - costa - rica.png");
-            // object imagen = "C:/imagenes/bandera - de - costa - rica.png";
-            // dataGridView1.Rows.Add(imagen);
-
-            //String ruta = "Documents....imagen";
-            //magen = Image.FromFile(ruta);
-
-
-            //Agregar la imagen en la fila 1 (posición 0) columna Imagen
-            //dataGridView1.Rows[0].Cells["Foto"].Value = img;
-
             conexion.Close();
         }
 
+        /// <summary>
+        /// This method search in database the flags of each country
+        /// </summary>
+        /// <returns>And return the list of the flags</returns>
+        public List<object> CargarBandera()
+        {
+            Conexion();
+            conexion.Open();
+            List<object> lista = new List<object>();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT bandera from paises ORDER BY id_paises ASC", conexion);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                }
+            }
+            conexion.Close();
+            return lista;
+        }
+
+        /// <summary>
+        /// This method insert all information of the countries in a database
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="bandera"></param>
         public void InsertarDatos(string nombre_pais, string bandera)
         {
             Conexion();
@@ -83,6 +121,33 @@ namespace Capadbo
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
-        
+
+        /// <summary>
+        /// This method update all information of the countries in a database
+        /// </summary>
+        /// <param name="id_pais"></param>
+        /// <param name="nombre"></param>
+        /// <param name="bandera"></param>
+        public void ModificarDatos(int id_pais, string nombre,string bandera)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE paises SET nombre_pais = '" + nombre + "', bandera = '" + bandera + "' WHERE id_paises = '" + id_pais + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        /// <summary>
+        /// This method delete all information of the countries in a database
+        /// </summary>
+        /// <param name="id_pais"></param>
+        public void EliminarDatos(int id_pais)
+        {
+            Conexion();
+            conexion.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM paises WHERE id_paises = '" + id_pais + "'", conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+        }
     }
 }

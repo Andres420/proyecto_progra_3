@@ -13,7 +13,7 @@ namespace CapaPresentacion
 {
     public partial class CRUD_Paises : Form
     {
-        string direccion;
+        string direccion = "";
         public CRUD_Paises()
         {
             InitializeComponent();
@@ -28,54 +28,126 @@ namespace CapaPresentacion
                     string imagen = openFileDialog1.FileName;
                     PBox1.Image = Image.FromFile(imagen);
                     direccion = imagen;
-                
-            }
+
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido"+ ex);
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido" + ex);
             }
         }
 
         private void Btn_Reg_Click(object sender, EventArgs e)
         {
-            Codigo_Paises cp = new Codigo_Paises();
-            cp.Agregar_Registro(Txt_Nombre1.Text,direccion);
-            MessageBox.Show("Se ha agregado el registro");
+            if (Txt_Nombre1.Text == String.Empty || direccion == "")
+            {
+                MessageBox.Show("Rellene todos los campos");
+            }
+            else
+            {
+                Codigo_Paises cp = new Codigo_Paises();
+                cp.Agregar_Registro(Txt_Nombre1.Text, direccion);
+                MessageBox.Show("Se ha agregado el registro");
+                Cargar_Dta_Grid();
+                Limpiar();
+            }
         }
 
         public void Cargar_Dta_Grid()
         {
             Codigo_Paises cp = new Codigo_Paises();
+            dataGridView1.Columns.Clear();
             cp.Cargar_Grid(dataGridView1);
-            String ruta1 = "C:/imagenes/Francia1.jpg";
-            String ruta2 = "C:/imagenes/Japon1.jpg";
-            String ruta3 = "C:/imagenes/bandera-de-costa-rica1.jpg";
-            String ruta4 = "C:/imagenes/Singapur1.jpg";
-            String ruta5 = "C:/imagenes/USA1.jpg";
-            Image img1 = Image.FromFile(ruta1);
-            Image img2 = Image.FromFile(ruta2);
-            Image img3 = Image.FromFile(ruta3);
-            Image img4 = Image.FromFile(ruta4);
-            Image img5 = Image.FromFile(ruta5);
-            //Agregar la imagen en la fila 1 (posición 0) columna Imagen
-            dataGridView1.Rows[0].Cells["Bandera"].Value = img1;
-            dataGridView1.Rows[1].Cells["Bandera"].Value = img2;
-            dataGridView1.Rows[2].Cells["Bandera"].Value = img3;
-            dataGridView1.Rows[3].Cells["Bandera"].Value = img4;
-            dataGridView1.Rows[4].Cells["Bandera"].Value = img5;
+            Cargar_Bandera();
+        }
+
+        public void Cargar_Bandera()
+        {
+            Codigo_Paises cp = new Codigo_Paises();
+            List<object> lista = new List<object>();
+            lista = cp.Cargar_Bandera();
+            String ruta1;
+            for(int i= 0; i < dataGridView1.RowCount; i++ )
+            {
+                ruta1 = Convert.ToString(lista[i]);
+                Image img1 = Image.FromFile(ruta1);
+                dataGridView1.Rows[i].Cells["Bandera"].Value = img1;
+            }
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
         }
 
-        private void CRUD_Paises_Load(object sender, EventArgs e)
+            private void CRUD_Paises_Load(object sender, EventArgs e)
         {
             Cargar_Dta_Grid();
         }
 
-        private void PBox1_Click(object sender, EventArgs e)
+        private void Btn_mod_Click(object sender, EventArgs e)
         {
+            if (Txt_Nombre1.Text == String.Empty || direccion == "")
+            {
+                MessageBox.Show("Rellene todos los campos");
+            }
+            else
+            {
+                Codigo_Paises cp = new Codigo_Paises();
+                int id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+                cp.ModificarDatos(id, Txt_Nombre1.Text, direccion);
+                MessageBox.Show("Se ha modificado el registro");
+                Cargar_Dta_Grid();
+                Limpiar();
+            }
+        }
 
+        private void Btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            Codigo_Paises cp = new Codigo_Paises();
+            int id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+            cp.EliminarDatos(id);
+            MessageBox.Show("Se ha eliminado el registro");
+            Cargar_Dta_Grid();
+            Limpiar();
+        }
+
+        private void Btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+
+        }
+
+        public void Limpiar()
+        {
+            Txt_Nombre1.Clear();
+            direccion = "";
+            PBox1.Image = null;
+            Btn_Limpiar.Enabled = false;
+            Btn_mod.Enabled = false;
+            Btn_Eliminar.Enabled = false;
+            Btn_Reg.Enabled = true;
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Btn_Limpiar.Enabled = true;
+            Btn_mod.Enabled = true;
+            Btn_Eliminar.Enabled = true;
+            Btn_Reg.Enabled = false;
+            int id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+            Codigo_Paises cp = new Codigo_Paises();
+            List<object> lista = cp.Consulta_Datos(id);
+            Txt_Nombre1.Text = Convert.ToString(lista[1]);
+            PBox1.Image = Image.FromFile(Convert.ToString(lista[2]));
+            direccion = Convert.ToString(lista[2]);
+        }
+
+        private void Txt_Nombre1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

@@ -59,6 +59,7 @@ namespace CapaPresentacion
             dataGridView1.Columns.Clear();
             cp.Cargar_Grid(dataGridView1);
             Cargar_Bandera();
+            dataGridView1.CurrentRow.Selected = false;
         }
 
         public void Cargar_Bandera()
@@ -124,6 +125,7 @@ namespace CapaPresentacion
             Btn_mod.Enabled = false;
             Btn_Eliminar.Enabled = false;
             Btn_Reg.Enabled = true;
+            dataGridView1.CurrentRow.Selected = false;
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

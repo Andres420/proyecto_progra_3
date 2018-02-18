@@ -58,6 +58,7 @@
     <Compile Include="DB_CRUD_Paises.cs" />
     <Compile Include="DB_CRUD_Hoteles.cs" />
     <Compile Include="DB_CRUD_Lugares.cs" />
+    <Compile Include="DB_CRUD_Vehiculos.cs" />
     <Compile Include="DB_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -250,7 +250,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(21, 282);
+            this.groupBox3.Location = new System.Drawing.Point(23, 282);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(483, 184);
             this.groupBox3.TabIndex = 2;

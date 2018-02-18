@@ -16,7 +16,16 @@ namespace CapaPresentacion
         public CRUD_Lugares()
         {
             InitializeComponent();
+            Cargar_Data_Grid();
         }
+        private void Cargar_Data_Grid()
+        {
+            Codigo_CRUD_Lugares ccrud_hoteles = new Codigo_CRUD_Lugares();
+            ccrud_hoteles.Cargar_Data_Grid(dataGridView1);
+        }
+        /// <summary>
+        /// This method clean the textboxs
+        /// </summary>
         private void Limpiar_Ventanas()
         {
             Txt_Nombre.Clear();
@@ -43,7 +52,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Escriba en el cuadro");
             }
-            
+            Cargar_Data_Grid();
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -63,8 +72,9 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("El lugar no pudo ser eliminado por que esta en uso");
+                MessageBox.Show("El lugar no pudo ser eliminado");
             }
+            Cargar_Data_Grid();
         }
 
         private void Btn_mod_Click(object sender, EventArgs e)
@@ -80,6 +90,13 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("El lugar no pudo ser modificado");
             }
+            Cargar_Data_Grid();
+        }
+
+        private void Btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar_Ventanas();
+            Cargar_Data_Grid();
         }
     }
 }

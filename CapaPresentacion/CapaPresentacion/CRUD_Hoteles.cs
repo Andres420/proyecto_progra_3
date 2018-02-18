@@ -41,6 +41,7 @@ namespace CapaPresentacion
         {
             Txt_Nombre.Clear();
             Txt_Habitaciones.Clear();
+            Cargar_Combos();
             txtCosto.Clear();
             imagen = "";
         }

@@ -92,6 +92,7 @@
             this.Btn_Limpiar.TabIndex = 31;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 

@@ -117,5 +117,10 @@ namespace CapaPresentacion
                 MessageBox.Show("El hotel no pudo ser eliminado");
             }
         }
+
+        private void CRUD_Hoteles_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

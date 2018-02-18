@@ -82,7 +82,6 @@
             this.PBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBox1.TabIndex = 5;
             this.PBox1.TabStop = false;
-            this.PBox1.Click += new System.EventHandler(this.PBox1_Click);
             // 
             // Txt_Nombre1
             // 
@@ -90,6 +89,7 @@
             this.Txt_Nombre1.Name = "Txt_Nombre1";
             this.Txt_Nombre1.Size = new System.Drawing.Size(100, 20);
             this.Txt_Nombre1.TabIndex = 4;
+            this.Txt_Nombre1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nombre1_KeyPress);
             // 
             // label2
             // 
@@ -125,8 +125,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Location = new System.Drawing.Point(14, 27);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(367, 211);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // groupBox3
             // 
@@ -143,30 +146,36 @@
             // 
             // Btn_Limpiar
             // 
+            this.Btn_Limpiar.Enabled = false;
             this.Btn_Limpiar.Location = new System.Drawing.Point(34, 48);
             this.Btn_Limpiar.Name = "Btn_Limpiar";
             this.Btn_Limpiar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Limpiar.TabIndex = 21;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 
+            this.Btn_Eliminar.Enabled = false;
             this.Btn_Eliminar.Location = new System.Drawing.Point(34, 169);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Eliminar.TabIndex = 20;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
+            this.Btn_mod.Enabled = false;
             this.Btn_mod.Location = new System.Drawing.Point(34, 126);
             this.Btn_mod.Name = "Btn_mod";
             this.Btn_mod.Size = new System.Drawing.Size(75, 23);
             this.Btn_mod.TabIndex = 19;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -191,6 +200,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "CRUD_Paises";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CRUD_Paises";
             this.Load += new System.EventHandler(this.CRUD_Paises_Load);
             this.groupBox1.ResumeLayout(false);

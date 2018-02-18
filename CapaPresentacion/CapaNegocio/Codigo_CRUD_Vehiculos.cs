@@ -71,8 +71,5 @@ namespace CapaNegocio
             DB_CRUD_Vehiculos a = new DB_CRUD_Vehiculos();
             a.EliminarDatos(id_vehiculo);
         }
-
-
-
     }
 }

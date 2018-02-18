@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.Tarifas = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
             this.Txt_Precio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,8 +46,6 @@
             // 
             // Tarifas
             // 
-            this.Tarifas.Controls.Add(this.label1);
-            this.Tarifas.Controls.Add(this.Txt_ID1);
             this.Tarifas.Controls.Add(this.Txt_Precio);
             this.Tarifas.Controls.Add(this.label2);
             this.Tarifas.Location = new System.Drawing.Point(12, 12);
@@ -59,33 +55,18 @@
             this.Tarifas.TabStop = false;
             this.Tarifas.Text = "Tarifas Hoteles";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(109, 39);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 21;
-            // 
             // Txt_Precio
             // 
-            this.Txt_Precio.Location = new System.Drawing.Point(109, 81);
+            this.Txt_Precio.Location = new System.Drawing.Point(70, 46);
             this.Txt_Precio.Name = "Txt_Precio";
             this.Txt_Precio.Size = new System.Drawing.Size(100, 20);
             this.Txt_Precio.TabIndex = 22;
+            this.Txt_Precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Precio_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 88);
+            this.label2.Location = new System.Drawing.Point(13, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 19;
@@ -106,30 +87,36 @@
             // 
             // Btn_Limpiar
             // 
+            this.Btn_Limpiar.Enabled = false;
             this.Btn_Limpiar.Location = new System.Drawing.Point(58, 36);
             this.Btn_Limpiar.Name = "Btn_Limpiar";
             this.Btn_Limpiar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Limpiar.TabIndex = 31;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 
+            this.Btn_Eliminar.Enabled = false;
             this.Btn_Eliminar.Location = new System.Drawing.Point(58, 157);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Eliminar.TabIndex = 30;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
+            this.Btn_mod.Enabled = false;
             this.Btn_mod.Location = new System.Drawing.Point(58, 114);
             this.Btn_mod.Name = "Btn_mod";
             this.Btn_mod.Size = new System.Drawing.Size(75, 23);
             this.Btn_mod.TabIndex = 29;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -139,6 +126,7 @@
             this.Btn_Reg.TabIndex = 28;
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
+            this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
             // 
             // groupBox1
             // 
@@ -157,8 +145,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(472, 147);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(248, 170);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // CRUD_Tarifas_Hoteles
             // 
@@ -169,7 +160,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Tarifas);
             this.Name = "CRUD_Tarifas_Hoteles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CRUD_Tarifas_Hoteles";
+            this.Load += new System.EventHandler(this.CRUD_Tarifas_Hoteles_Load);
             this.Tarifas.ResumeLayout(false);
             this.Tarifas.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -182,8 +175,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Tarifas;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.TextBox Txt_Precio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;

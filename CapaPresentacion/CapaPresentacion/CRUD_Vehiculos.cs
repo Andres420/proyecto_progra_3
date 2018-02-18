@@ -20,9 +20,9 @@ namespace CapaPresentacion
 
         public void Cargar_Dta_Grid()
         {
-            Codigo_CRUD_Vehiculos cp = new Codigo_CRUD_Vehiculos();
+            Codigo_CRUD_Vehiculos cv = new Codigo_CRUD_Vehiculos();
             dataGridView1.Columns.Clear();
-            cp.Cargar_Grid(dataGridView1);
+            cv.Cargar_Grid(dataGridView1);
             dataGridView1.CurrentRow.Selected = false;
         }
 

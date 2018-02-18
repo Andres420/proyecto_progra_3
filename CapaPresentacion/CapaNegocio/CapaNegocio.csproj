@@ -52,6 +52,7 @@
     <Compile Include="Codigo_CrearUsuario.cs" />
     <Compile Include="Codigo_CRUD_Aeropuertos.cs" />
     <Compile Include="Codigo_Paises.cs" />
+    <Compile Include="Codigo_CRUD_Tarifas_Hoteles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

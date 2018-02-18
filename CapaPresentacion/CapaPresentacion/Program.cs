@@ -17,8 +17,7 @@ namespace CapaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-            //Application.Run(new CRUD_Vehiculos());
-
+            //Application.Run(new CRUD_Paises());
         }
     }
 }

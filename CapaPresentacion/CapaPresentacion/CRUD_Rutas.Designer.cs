@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
-            this.Txt_Origen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Rutas = new System.Windows.Forms.GroupBox();
             this.Txt_Duracion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Txt_Destino = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -44,39 +40,18 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_mod = new System.Windows.Forms.Button();
             this.Btn_Reg = new System.Windows.Forms.Button();
+            this.cb_Origen = new System.Windows.Forms.ComboBox();
+            this.cb_Destino = new System.Windows.Forms.ComboBox();
             this.Rutas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(102, 26);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 21;
-            // 
-            // Txt_Origen
-            // 
-            this.Txt_Origen.Location = new System.Drawing.Point(102, 68);
-            this.Txt_Origen.Name = "Txt_Origen";
-            this.Txt_Origen.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Origen.TabIndex = 22;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 75);
+            this.label2.Location = new System.Drawing.Point(6, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 19;
@@ -85,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 119);
+            this.label3.Location = new System.Drawing.Point(6, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 20;
@@ -93,12 +68,10 @@
             // 
             // Rutas
             // 
+            this.Rutas.Controls.Add(this.cb_Destino);
+            this.Rutas.Controls.Add(this.cb_Origen);
             this.Rutas.Controls.Add(this.Txt_Duracion);
             this.Rutas.Controls.Add(this.label4);
-            this.Rutas.Controls.Add(this.Txt_Destino);
-            this.Rutas.Controls.Add(this.label1);
-            this.Rutas.Controls.Add(this.Txt_ID1);
-            this.Rutas.Controls.Add(this.Txt_Origen);
             this.Rutas.Controls.Add(this.label2);
             this.Rutas.Controls.Add(this.label3);
             this.Rutas.Location = new System.Drawing.Point(12, 12);
@@ -110,7 +83,7 @@
             // 
             // Txt_Duracion
             // 
-            this.Txt_Duracion.Location = new System.Drawing.Point(102, 151);
+            this.Txt_Duracion.Location = new System.Drawing.Point(102, 126);
             this.Txt_Duracion.Name = "Txt_Duracion";
             this.Txt_Duracion.Size = new System.Drawing.Size(100, 20);
             this.Txt_Duracion.TabIndex = 30;
@@ -118,18 +91,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 158);
+            this.label4.Location = new System.Drawing.Point(6, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 29;
             this.label4.Text = "Duracion";
-            // 
-            // Txt_Destino
-            // 
-            this.Txt_Destino.Location = new System.Drawing.Point(102, 112);
-            this.Txt_Destino.Name = "Txt_Destino";
-            this.Txt_Destino.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Destino.TabIndex = 28;
             // 
             // groupBox1
             // 
@@ -200,6 +166,24 @@
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
             // 
+            // cb_Origen
+            // 
+            this.cb_Origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Origen.FormattingEnabled = true;
+            this.cb_Origen.Location = new System.Drawing.Point(102, 33);
+            this.cb_Origen.Name = "cb_Origen";
+            this.cb_Origen.Size = new System.Drawing.Size(121, 21);
+            this.cb_Origen.TabIndex = 31;
+            // 
+            // cb_Destino
+            // 
+            this.cb_Destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Destino.FormattingEnabled = true;
+            this.cb_Destino.Location = new System.Drawing.Point(102, 81);
+            this.cb_Destino.Name = "cb_Destino";
+            this.cb_Destino.Size = new System.Drawing.Size(121, 21);
+            this.cb_Destino.TabIndex = 32;
+            // 
             // CRUD_Rutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,13 +204,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
-        private System.Windows.Forms.TextBox Txt_Origen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox Rutas;
-        private System.Windows.Forms.TextBox Txt_Destino;
         private System.Windows.Forms.TextBox Txt_Duracion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -236,5 +216,7 @@
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_mod;
         private System.Windows.Forms.Button Btn_Reg;
+        private System.Windows.Forms.ComboBox cb_Destino;
+        private System.Windows.Forms.ComboBox cb_Origen;
     }
 }

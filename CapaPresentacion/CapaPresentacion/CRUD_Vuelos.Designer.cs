@@ -31,10 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CBox_Ruta = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Txt_Precio = new System.Windows.Forms.TextBox();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Txt_ID1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Btn_Limpiar = new System.Windows.Forms.Button();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
@@ -52,10 +50,8 @@
             // 
             this.groupBox1.Controls.Add(this.CBox_Ruta);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.Txt_Precio);
+            this.groupBox1.Controls.Add(this.txt_Precio);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Txt_ID1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(354, 248);
@@ -65,8 +61,9 @@
             // 
             // CBox_Ruta
             // 
+            this.CBox_Ruta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBox_Ruta.FormattingEnabled = true;
-            this.CBox_Ruta.Location = new System.Drawing.Point(89, 51);
+            this.CBox_Ruta.Location = new System.Drawing.Point(89, 19);
             this.CBox_Ruta.Name = "CBox_Ruta";
             this.CBox_Ruta.Size = new System.Drawing.Size(100, 21);
             this.CBox_Ruta.TabIndex = 41;
@@ -80,37 +77,21 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "Precio";
             // 
-            // Txt_Precio
+            // txt_Precio
             // 
-            this.Txt_Precio.Location = new System.Drawing.Point(89, 84);
-            this.Txt_Precio.Name = "Txt_Precio";
-            this.Txt_Precio.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Precio.TabIndex = 38;
+            this.txt_Precio.Location = new System.Drawing.Point(89, 84);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(100, 20);
+            this.txt_Precio.TabIndex = 38;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 59);
+            this.label4.Location = new System.Drawing.Point(6, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 37;
             this.label4.Text = "Ruta";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Identificador";
-            // 
-            // Txt_ID1
-            // 
-            this.Txt_ID1.Location = new System.Drawing.Point(89, 22);
-            this.Txt_ID1.Name = "Txt_ID1";
-            this.Txt_ID1.Size = new System.Drawing.Size(100, 20);
-            this.Txt_ID1.TabIndex = 34;
             // 
             // groupBox2
             // 
@@ -133,6 +114,7 @@
             this.Btn_Limpiar.TabIndex = 35;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 
@@ -142,6 +124,7 @@
             this.Btn_Eliminar.TabIndex = 34;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
@@ -151,6 +134,7 @@
             this.Btn_mod.TabIndex = 33;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -160,6 +144,7 @@
             this.Btn_Reg.TabIndex = 32;
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
+            this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
             // 
             // groupBox3
             // 
@@ -178,8 +163,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 27);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(439, 142);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // CRUD_Vuelos
             // 
@@ -205,10 +192,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox CBox_Ruta;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Txt_Precio;
+        private System.Windows.Forms.TextBox txt_Precio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Txt_ID1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.Button Btn_Eliminar;

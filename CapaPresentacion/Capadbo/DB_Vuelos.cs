@@ -4,34 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
-using Objetos;
 
 namespace Capadbo
 {
-    public class DB_Rutas
+    public class DB_Vuelos
     {
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
         NpgsqlDataReader dr;
 
-        public List<string> Cargar_Combos_Paises()
+        public List<int> Id_Rutas()
         {
-            List<string> list = new List<string>();
+            List<int> list = new List<int>();
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("SELECT nombre_pais FROM paises;", conn);
+                cmd = new NpgsqlCommand("SELECT id_rutas FROM rutas;", conn);
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        list.Add(dr.GetString(0));
+                        list.Add(dr.GetInt32(0));
                     }
+                    conn.Close();
+                    return list;
                 }
-                conn.Close();
-                return list;
+                else
+                {
+                    conn.Close();
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -41,62 +45,59 @@ namespace Capadbo
             }
         }
 
-        public bool Eliminar_Ruta(int cod_ruta)
+        public bool Agregar_Vuelo(int ruta, int precio)
         {
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("DELETE FROM rutas WHERE id_rutas = " + cod_ruta + ";", conn);
+                cmd = new NpgsqlCommand("INSERT INTO tarifas_vuelos(ruta_fk,precio) VALUES(" + ruta + "," + precio + ");", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("erge" + ex);
+                Console.WriteLine("sdasd" + ex);
                 conn.Close();
-                return false;
-            }
-            
-        }
-
-        public bool Agregar_Rutas(string origen, string destino, string duracion)
-        {
-            try
-            {
-                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
-                conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO  rutas(pais_origenfk,pais_destinofk,duracion) VALUES((SELECT id_pais FROM paises WHERE nombre_pais = '" + origen + "'), " +
-                    "(SELECT id_pais FROM paises WHERE nombre_pais = '" + destino + "'),'" + duracion + "');", conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                Console.WriteLine("edrh" + ex);
                 return false;
             }
         }
 
-        public bool Modificar_Ruta(int cod_ruta, string pais_origen, string pais_destino, string duracion)
+        public bool Eliminar_Vuelo_Precio(int cod_tarifa_vuelo)
         {
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("UPDATE rutas SET pais_origenfk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais_origen + "')," +
-                    " pais_destinofk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais_origen + "'),duracion = '" + duracion + "' WHERE id_rutas = " + cod_ruta + ";", conn);
+                cmd = new NpgsqlCommand("DELETE FROM tarifas_vuelos WHERE id_tarifa_vuelo = " + cod_tarifa_vuelo + ";", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
+                Console.WriteLine("sdasd" + ex);
                 conn.Close();
-                Console.WriteLine("edrh" + ex);
+                return false;
+            }
+        }
+
+        public bool Modificar_Vuelo_Precio(int cod_tarifa_vuelo, string ruta, string precio)
+        {
+            try
+            {
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+                conn.Open();
+                cmd = new NpgsqlCommand("UPDATE tarifas_vuelos SET ruta_fk = " + ruta + ", precio = " + precio + " WHERE id_tarifa_vuelo = " + cod_tarifa_vuelo + ";", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("sdasd" + ex);
+                conn.Close();
                 return false;
             }
         }

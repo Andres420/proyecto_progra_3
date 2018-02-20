@@ -24,6 +24,7 @@ namespace Capadbo
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO lugares(nombre) VALUES('" + nombre_lugar + "');", conn);
+                cmd.ExecuteNonQuery();
                 conn.Close();
                 agregado = true;
                 return agregado;
@@ -48,6 +49,7 @@ namespace Capadbo
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("DELETE FROM lugares WHERE id_lugar = " + cod_lugar + "; ", conn);
+                cmd.ExecuteNonQuery();
                 conn.Close();
                 eliminado = true;
                 return eliminado;
@@ -73,6 +75,7 @@ namespace Capadbo
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre_lugar + "' WHERE id_lugar = " + cod_lugar + ";", conn);
+                cmd.ExecuteNonQuery();
                 conn.Close();
                 modificado = true;
                 return modificado;

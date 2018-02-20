@@ -31,6 +31,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Rutas = new System.Windows.Forms.GroupBox();
+            this.cb_Destino = new System.Windows.Forms.ComboBox();
+            this.cb_Origen = new System.Windows.Forms.ComboBox();
             this.Txt_Duracion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,8 +42,6 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_mod = new System.Windows.Forms.Button();
             this.Btn_Reg = new System.Windows.Forms.Button();
-            this.cb_Origen = new System.Windows.Forms.ComboBox();
-            this.cb_Destino = new System.Windows.Forms.ComboBox();
             this.Rutas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,6 +81,24 @@
             this.Rutas.TabStop = false;
             this.Rutas.Text = "Rutas";
             // 
+            // cb_Destino
+            // 
+            this.cb_Destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Destino.FormattingEnabled = true;
+            this.cb_Destino.Location = new System.Drawing.Point(102, 81);
+            this.cb_Destino.Name = "cb_Destino";
+            this.cb_Destino.Size = new System.Drawing.Size(121, 21);
+            this.cb_Destino.TabIndex = 32;
+            // 
+            // cb_Origen
+            // 
+            this.cb_Origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Origen.FormattingEnabled = true;
+            this.cb_Origen.Location = new System.Drawing.Point(102, 33);
+            this.cb_Origen.Name = "cb_Origen";
+            this.cb_Origen.Size = new System.Drawing.Size(121, 21);
+            this.cb_Origen.TabIndex = 31;
+            // 
             // Txt_Duracion
             // 
             this.Txt_Duracion.Location = new System.Drawing.Point(102, 126);
@@ -114,8 +132,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 24);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(472, 147);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // groupBox2
             // 
@@ -138,6 +158,7 @@
             this.Btn_Limpiar.TabIndex = 31;
             this.Btn_Limpiar.Text = "Limpiar";
             this.Btn_Limpiar.UseVisualStyleBackColor = true;
+            this.Btn_Limpiar.Click += new System.EventHandler(this.Btn_Limpiar_Click);
             // 
             // Btn_Eliminar
             // 
@@ -147,6 +168,7 @@
             this.Btn_Eliminar.TabIndex = 30;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_mod
             // 
@@ -156,6 +178,7 @@
             this.Btn_mod.TabIndex = 29;
             this.Btn_mod.Text = "Modificar";
             this.Btn_mod.UseVisualStyleBackColor = true;
+            this.Btn_mod.Click += new System.EventHandler(this.Btn_mod_Click);
             // 
             // Btn_Reg
             // 
@@ -165,24 +188,7 @@
             this.Btn_Reg.TabIndex = 28;
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
-            // 
-            // cb_Origen
-            // 
-            this.cb_Origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Origen.FormattingEnabled = true;
-            this.cb_Origen.Location = new System.Drawing.Point(102, 33);
-            this.cb_Origen.Name = "cb_Origen";
-            this.cb_Origen.Size = new System.Drawing.Size(121, 21);
-            this.cb_Origen.TabIndex = 31;
-            // 
-            // cb_Destino
-            // 
-            this.cb_Destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Destino.FormattingEnabled = true;
-            this.cb_Destino.Location = new System.Drawing.Point(102, 81);
-            this.cb_Destino.Name = "cb_Destino";
-            this.cb_Destino.Size = new System.Drawing.Size(121, 21);
-            this.cb_Destino.TabIndex = 32;
+            this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
             // 
             // CRUD_Rutas
             // 

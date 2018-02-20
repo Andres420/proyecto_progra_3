@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Npgsql">
+    <Reference Include="Npgsql, Version=3.2.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -48,6 +49,7 @@
     <Compile Include="Codigo_CRUD_Hoteles.cs" />
     <Compile Include="Codigo_CRUD_Lugares.cs" />
     <Compile Include="Codigo_CRUD_Vehiculos.cs" />
+    <Compile Include="Codigo_CRUD_Vuelos.cs" />
     <Compile Include="Codigo_Login.cs" />
     <Compile Include="Codigo_CrearUsuario.cs" />
     <Compile Include="Codigo_CRUD_Aeropuertos.cs" />

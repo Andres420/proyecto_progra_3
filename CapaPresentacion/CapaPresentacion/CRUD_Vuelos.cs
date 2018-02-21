@@ -24,6 +24,7 @@ namespace CapaPresentacion
 
         private void Cargar_Data_Grid()
         {
+            dataGridView1.Columns.Clear();
             Codigo_CRUD_Vuelos ccrud_vuelos = new Codigo_CRUD_Vuelos();
             ccrud_vuelos.Cargar_Data_Grid(dataGridView1);
         }
@@ -38,7 +39,12 @@ namespace CapaPresentacion
         {
             Cargar_Combo();
             Cargar_Data_Grid();
+            cod_tarifa_vuelo = 0;
             txt_Precio.Clear();
+            Btn_Limpiar.Enabled = false;
+            Btn_mod.Enabled = false;
+            Btn_Eliminar.Enabled = false;
+            Btn_Reg.Enabled = true;
         }
 
         private void Btn_Limpiar_Click(object sender, EventArgs e)
@@ -102,6 +108,10 @@ namespace CapaPresentacion
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
+            Btn_Limpiar.Enabled = true;
+            Btn_mod.Enabled = true;
+            Btn_Eliminar.Enabled = true;
+            Btn_Reg.Enabled = false;
             cod_tarifa_vuelo = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             CBox_Ruta.SelectedItem = this.dataGridView1.CurrentRow.Cells[1].Value;
             txt_Precio.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();

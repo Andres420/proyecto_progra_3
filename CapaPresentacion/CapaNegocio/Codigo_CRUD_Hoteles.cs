@@ -81,6 +81,12 @@ namespace CapaNegocio
             return agregado;
         }
 
+        public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel, string pais, string lugar, string habitaciones, string precio)
+        {
+            DB_CRUD_Hoteles db_hotel = new DB_CRUD_Hoteles();
+            return db_hotel.Modificar_Hotel(cod_hotel, imagen,nombre_hotel,pais,lugar,habitaciones,precio);
+        }
+
         public bool Eliminar_Hotel(int codigo_hotel)
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();

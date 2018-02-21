@@ -22,12 +22,19 @@ namespace CapaPresentacion
         }
         private void Limpiar_Campos()
         {
+            Btn_Eliminar.Enabled = false;
+            Btn_mod.Enabled = false;
+            Btn_Limpiar.Enabled = false;
+            Btn_Reg.Enabled = true;
             Txt_Duracion.Clear();
             Cargar_Combos();
+            cod_ruta = 0;
+            dataGridView1.Columns.Clear();
             Cargar_Data_Grid();
         }
         private void Cargar_Data_Grid()
         {
+            dataGridView1.Columns.Clear();
             Codigo_Rutas cr = new Codigo_Rutas();
             cr.Cargar_Data_Grid(dataGridView1);
         }
@@ -96,6 +103,10 @@ namespace CapaPresentacion
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
+            Btn_Eliminar.Enabled = true;
+            Btn_mod.Enabled = true;
+            Btn_Limpiar.Enabled = true;
+            Btn_Reg.Enabled = false;
             cod_ruta = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             cb_Origen.SelectedItem = this.dataGridView1.CurrentRow.Cells[1].Value;
             cb_Destino.SelectedItem = this.dataGridView1.CurrentRow.Cells[2].Value;

@@ -20,6 +20,7 @@ namespace CapaPresentacion
         }
         private void Cargar_Data_Grid()
         {
+            dataGridView1.Columns.Clear();
             Codigo_CRUD_Lugares ccrud_hoteles = new Codigo_CRUD_Lugares();
             ccrud_hoteles.Cargar_Data_Grid(dataGridView1);
         }
@@ -28,7 +29,14 @@ namespace CapaPresentacion
         /// </summary>
         private void Limpiar_Ventanas()
         {
+            Btn_Eliminar.Enabled = false;
+            Btn_mod.Enabled = false;
+            Btn_Limpiar.Enabled = false;
+            Btn_Reg.Enabled = true;
             Txt_Nombre.Clear();
+            cod_lugar = 0;
+            dataGridView1.Columns.Clear();
+            Cargar_Data_Grid();
         }
         private void Btn_Reg_Click(object sender, EventArgs e)
         {
@@ -52,11 +60,14 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Escriba en el cuadro");
             }
-            Cargar_Data_Grid();
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
+            Btn_Eliminar.Enabled = true;
+            Btn_mod.Enabled = true;
+            Btn_Limpiar.Enabled = true;
+            Btn_Reg.Enabled = false;
             cod_lugar = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             Txt_Nombre.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
@@ -74,29 +85,29 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("El lugar no pudo ser eliminado");
             }
-            Cargar_Data_Grid();
         }
 
         private void Btn_mod_Click(object sender, EventArgs e)
         {
-            Codigo_CRUD_Lugares ccrud_lugares = new Codigo_CRUD_Lugares();
-            bool modificado = ccrud_lugares.Modifcar_Lugar(cod_lugar,Txt_Nombre.Text);
-            Limpiar_Ventanas();
-            if (modificado)
+            if (cod_lugar != 0 && !Txt_Nombre.Text.Equals(""))
             {
-                MessageBox.Show("El lugar fue modificado");
+                Codigo_CRUD_Lugares ccrud_lugares = new Codigo_CRUD_Lugares();
+                bool modificado = ccrud_lugares.Modifcar_Lugar(cod_lugar, Txt_Nombre.Text);
+                Limpiar_Ventanas();
+                if (modificado)
+                {
+                    MessageBox.Show("El lugar fue modificado");
+                }
+                else
+                {
+                    MessageBox.Show("El lugar no pudo ser modificado");
+                }
             }
-            else
-            {
-                MessageBox.Show("El lugar no pudo ser modificado");
-            }
-            Cargar_Data_Grid();
         }
 
         private void Btn_Limpiar_Click(object sender, EventArgs e)
         {
             Limpiar_Ventanas();
-            Cargar_Data_Grid();
         }
     }
 }

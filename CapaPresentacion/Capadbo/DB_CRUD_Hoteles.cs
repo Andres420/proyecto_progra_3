@@ -42,6 +42,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine("efwe" + ex);
                 conn.Close();
                 return null;
             }
@@ -81,6 +82,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return agregado;
             }
@@ -116,6 +118,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return cod;
             }
@@ -192,6 +195,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return cod;
             }
@@ -226,6 +230,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return null;
             }

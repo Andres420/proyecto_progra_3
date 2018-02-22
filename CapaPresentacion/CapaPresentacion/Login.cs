@@ -45,8 +45,9 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        //Abrir Administrador
-                        Console.WriteLine("Admin");
+                        Interfaz_Admin ia = new Interfaz_Admin(usuario);
+                        ia.Show();
+                        this.Dispose();
                     }
                 }
                 else

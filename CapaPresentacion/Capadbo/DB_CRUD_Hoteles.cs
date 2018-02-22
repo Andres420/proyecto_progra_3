@@ -75,7 +75,7 @@ namespace Capadbo
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO hoteles(nombre_hotel, foto_hotel,pais_fk,lugar_fk,habitaciones, preciohab_fk)" +
-                    " VALUES('" + nombre + "', '" + imagen + "', (SELECT id_paises WHERE nombre_pais = +'" + pais + "'), (SELECT id_lugar WHERE nombre = '" + lugar + "'), " + habitaciones + ", " + cod_tarifa + ");", conn);
+                    " VALUES('" + nombre + "', '" + imagen + "', (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais + "'), (SELECT id_lugar FROM lugares WHERE nombre = '" + lugar + "'), " + habitaciones + ", " + cod_tarifa + ");", conn);
                 cmd.ExecuteNonQuery();
                 agregado = true;
                 return agregado;
@@ -99,9 +99,9 @@ namespace Capadbo
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO tarifa_hoteles(precio) VALUES(" + costo + ");", conn);
+                cmd = new NpgsqlCommand("INSERT INTO tarifas_hoteles(precio) VALUES(" + costo + ");", conn);
                 cmd.ExecuteNonQuery();
-                cmd = new NpgsqlCommand("SELECT id_tarifa FROM tarifa_hoteles WHERE precio = " + costo + ";", conn);
+                cmd = new NpgsqlCommand("SELECT id_tarifa FROM tarifas_hoteles WHERE precio = " + costo + ";", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -124,14 +124,14 @@ namespace Capadbo
             }
         }
 
-        public bool Modificar_Hotel(int cod_hotel, string nombre_hotel, string imagen, string pais, string lugar, string habitaciones, string precio)
+        public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel , string pais, string lugar, string habitaciones, string precio)
         {
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("UPDATE hoteles SET nombre_hotel = '" + nombre_hotel + "', foto_hotel = '" + imagen + "', pais_fk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais + "')," +
-                    "lugar_fk = (SELECT id_lugar FROM lugares WHERE nombre = '" + lugar + "'), habitaciones = " + habitaciones + ", precio = (SELECT id_tarifa FROM tarifas_hoteles WHERE precio = " + precio + ") " +
+                    "lugar_fk = (SELECT id_lugar FROM lugares WHERE nombre = '" + lugar + "'), habitaciones = " + habitaciones + ", preciohab_fk = (SELECT id_tarifa FROM tarifas_hoteles WHERE precio = " + precio + ") " +
                     "WHERE id_hotel = " + cod_hotel + ";", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();

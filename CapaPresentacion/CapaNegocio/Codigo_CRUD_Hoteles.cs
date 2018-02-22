@@ -20,14 +20,14 @@ namespace CapaNegocio
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
             List<string> lista_paises = db_hoteles.Info_Combo_Pais();
-            foreach (string name in lista_paises)
+            foreach (string nombre_pais in lista_paises)
             {
-                cBox_Pais.Items.Add(name);
+                cBox_Pais.Items.Add(nombre_pais);
             }
             List<string> lista_lugar = db_hoteles.Info_Combo_Lugares();
-            foreach (string name in lista_lugar)
+            foreach (string nombre_lugar in lista_lugar)
             {
-                cBox_Pais.Items.Add(name);
+                cBox_Lugar.Items.Add(nombre_lugar);
             }
         }
 
@@ -82,16 +82,16 @@ namespace CapaNegocio
             dataGridView1.DataSource = dataSet.Tables[0];
             dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Hotel";
             dataGridView1.Columns[1].HeaderCell.Value = "Nombre Hotel";
-            dataGridView1.Columns[3].HeaderCell.Value = "Pais";
-            dataGridView1.Columns[4].HeaderCell.Value = "Lugar";
-            dataGridView1.Columns[5].HeaderCell.Value = "Habitaciones";
-            dataGridView1.Columns[6].HeaderCell.Value = "Precio";
+            dataGridView1.Columns[2].HeaderCell.Value = "Pais";
+            dataGridView1.Columns[3].HeaderCell.Value = "Lugar";
+            dataGridView1.Columns[4].HeaderCell.Value = "Habitaciones";
+            dataGridView1.Columns[5].HeaderCell.Value = "Precio";
             DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
             imgCol.HeaderText = "Foto Hotel";
             imgCol.Name = "Foto Hotel";
             dataGridView1.Columns.Add(imgCol);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
+            //dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
             conn.Close();
         }
         /// <summary>
@@ -111,8 +111,8 @@ namespace CapaNegocio
             int cod_tarifa = db_hoteles.Buscar_Tarifa(costo);
             if (cod_tarifa == 0)
             {
-                cod_tarifa = db_hoteles.Agregar_Tarifa(costo);
-                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, pais, lugar, habitaciones, cod_tarifa);
+                int tarifa = db_hoteles.Agregar_Tarifa(costo);
+                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, pais, lugar, habitaciones, tarifa);
             }
             else
             {

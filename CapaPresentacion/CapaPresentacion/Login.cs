@@ -40,8 +40,9 @@ namespace CapaPresentacion
                 {
                     if (usuario.getTipo)
                     {
-                        //Abrir la ventana usuario
-                        Console.WriteLine("usuario");
+                        Alojamiento alo = new Alojamiento(usuario);
+                        alo.Show();
+                        this.Dispose();
                     }
                     else
                     {

@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class CRUD_Hoteles : Form
     {
+        int cod_hotel = 0;
         string imagen;
         public CRUD_Hoteles()
         {
@@ -44,6 +45,8 @@ namespace CapaPresentacion
             Cargar_Combos();
             txtCosto.Clear();
             imagen = "";
+            Cargar_Data_Grid();
+            cod_hotel = 0;
         }
         private void Txt_Habitaciones_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -99,9 +102,17 @@ namespace CapaPresentacion
 
         private void Btn_mod_Click(object sender, EventArgs e)
         {
-            int cod_hotel = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+            cod_hotel = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             Codigo_CRUD_Hoteles ccrud_hoteles = new Codigo_CRUD_Hoteles();
-            //bool modificado = ccrud_hoteles.Modificar_Hotel(cod_hotel, Txt_Nombre, CBox_Pais.SelectedIndex,CBox_Lugar.SelectedIndex,Txt_Habitaciones.Text,txtCosto.Text);
+            bool modificado = ccrud_hoteles.Modificar_Hotel(cod_hotel, imagen, Txt_Nombre.Text, CBox_Pais.SelectedItem.ToString(),CBox_Lugar.SelectedItem.ToString(),Txt_Habitaciones.Text,txtCosto.Text);
+            if (modificado)
+            {
+                MessageBox.Show("El hotel ha sido modificado");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el hotel");
+            }
         }
 
         private void Btn_Eliminar_Click(object sender, EventArgs e)

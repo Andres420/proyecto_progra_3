@@ -42,6 +42,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine("efwe" + ex);
                 conn.Close();
                 return null;
             }
@@ -81,6 +82,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return agregado;
             }
@@ -116,8 +118,30 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return cod;
+            }
+        }
+
+        public bool Modificar_Hotel(int cod_hotel, string nombre_hotel, string imagen, string pais, string lugar, string habitaciones, string precio)
+        {
+            try
+            {
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+                conn.Open();
+                cmd = new NpgsqlCommand("UPDATE hoteles SET nombre_hotel = '" + nombre_hotel + "', foto_hotel = '" + imagen + "', pais_fk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais + "')," +
+                    "lugar_fk = (SELECT id_lugar FROM lugares WHERE nombre = '" + lugar + "'), habitaciones = " + habitaciones + ", precio = (SELECT id_tarifa FROM tarifas_hoteles WHERE precio = " + precio + ") " +
+                    "WHERE id_hotel = " + cod_hotel + ";", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("hewrt" + ex);
+                conn.Close();
+                return false;
             }
         }
 
@@ -171,6 +195,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return cod;
             }
@@ -205,6 +230,7 @@ namespace Capadbo
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 conn.Close();
                 return null;
             }

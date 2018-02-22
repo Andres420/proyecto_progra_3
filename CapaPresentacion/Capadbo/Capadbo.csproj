@@ -61,7 +61,15 @@
     <Compile Include="DB_CRUD_Tarifas_Hoteles.cs" />
     <Compile Include="DB_CRUD_Vehiculos.cs" />
     <Compile Include="DB_Login.cs" />
+    <Compile Include="DB_Rutas.cs" />
+    <Compile Include="DB_Vuelos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Objetos\Objetos.csproj">
+      <Project>{5d3f3a85-550e-4528-8f5a-cd4a821db36a}</Project>
+      <Name>Objetos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

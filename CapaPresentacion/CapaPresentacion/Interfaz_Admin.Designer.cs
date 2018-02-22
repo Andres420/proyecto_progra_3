@@ -40,13 +40,22 @@
             this.btnTarifa_Hoteles = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnTarifa_Vuelos = new System.Windows.Forms.Button();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcionesToolStripMenuItem});
+            this.opcionesToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(549, 24);
@@ -65,14 +74,14 @@
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -98,7 +107,7 @@
             // 
             // btnAeropuertos
             // 
-            this.btnAeropuertos.Location = new System.Drawing.Point(386, 49);
+            this.btnAeropuertos.Location = new System.Drawing.Point(392, 49);
             this.btnAeropuertos.Name = "btnAeropuertos";
             this.btnAeropuertos.Size = new System.Drawing.Size(75, 23);
             this.btnAeropuertos.TabIndex = 3;
@@ -138,7 +147,7 @@
             // 
             // btnVehiculos
             // 
-            this.btnVehiculos.Location = new System.Drawing.Point(307, 217);
+            this.btnVehiculos.Location = new System.Drawing.Point(392, 217);
             this.btnVehiculos.Name = "btnVehiculos";
             this.btnVehiculos.Size = new System.Drawing.Size(75, 23);
             this.btnVehiculos.TabIndex = 7;
@@ -148,13 +157,69 @@
             // 
             // btnTarifa_Vuelos
             // 
-            this.btnTarifa_Vuelos.Location = new System.Drawing.Point(143, 217);
+            this.btnTarifa_Vuelos.Location = new System.Drawing.Point(62, 217);
             this.btnTarifa_Vuelos.Name = "btnTarifa_Vuelos";
             this.btnTarifa_Vuelos.Size = new System.Drawing.Size(81, 23);
             this.btnTarifa_Vuelos.TabIndex = 8;
             this.btnTarifa_Vuelos.Text = "Tarifa Vuelos";
             this.btnTarifa_Vuelos.UseVisualStyleBackColor = true;
             this.btnTarifa_Vuelos.Click += new System.EventHandler(this.btnTarifa_Vuelos_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporte1ToolStripMenuItem,
+            this.reporte2ToolStripMenuItem,
+            this.reporte3ToolStripMenuItem,
+            this.reporte4ToolStripMenuItem,
+            this.reporte5ToolStripMenuItem,
+            this.reporte6ToolStripMenuItem,
+            this.reporte7ToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporte1ToolStripMenuItem
+            // 
+            this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
+            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte1ToolStripMenuItem.Text = "Reporte 1";
+            // 
+            // reporte2ToolStripMenuItem
+            // 
+            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
+            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte2ToolStripMenuItem.Text = "Reporte 2";
+            // 
+            // reporte3ToolStripMenuItem
+            // 
+            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
+            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte3ToolStripMenuItem.Text = "Reporte 3";
+            // 
+            // reporte4ToolStripMenuItem
+            // 
+            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
+            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte4ToolStripMenuItem.Text = "Reporte 4";
+            // 
+            // reporte5ToolStripMenuItem
+            // 
+            this.reporte5ToolStripMenuItem.Name = "reporte5ToolStripMenuItem";
+            this.reporte5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte5ToolStripMenuItem.Text = "Reporte 5";
+            // 
+            // reporte6ToolStripMenuItem
+            // 
+            this.reporte6ToolStripMenuItem.Name = "reporte6ToolStripMenuItem";
+            this.reporte6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte6ToolStripMenuItem.Text = "Reporte 6";
+            // 
+            // reporte7ToolStripMenuItem
+            // 
+            this.reporte7ToolStripMenuItem.Name = "reporte7ToolStripMenuItem";
+            this.reporte7ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reporte7ToolStripMenuItem.Text = "Reporte 7";
             // 
             // Interfaz_Admin
             // 
@@ -194,5 +259,13 @@
         private System.Windows.Forms.Button btnTarifa_Hoteles;
         private System.Windows.Forms.Button btnVehiculos;
         private System.Windows.Forms.Button btnTarifa_Vuelos;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporte7ToolStripMenuItem;
     }
 }

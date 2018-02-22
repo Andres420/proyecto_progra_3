@@ -145,6 +145,44 @@ namespace Capadbo
             }
         }
 
+        public List<object> Buscar_Hotel(string codigo_hotel)
+        {
+            List<object> list = new List<object>();
+           try
+            {
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, ho.nombre_hotel, ho.foto_hotel, pa.nombre_pais, lu.nombre, ho.habitaciones, pre.precio FROM hoteles AS ho INNER JOIN lugares AS lu" +
+                " ON lu.id_lugar = ho.lugar_fk INNER JOIN paises AS pa ON pa.id_paises = ho.pais_fk INNER JOIN tarifas_hoteles AS pre ON pre.id_tarifa " +
+                " = ho.preciohab_fk WHERE ho.id_hotel = "+codigo_hotel+";", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    list.Add(dr.GetInt32(0));
+                    list.Add(dr.GetString(1));
+                    list.Add(dr.GetString(2));
+                    list.Add(dr.GetString(3));
+                    list.Add(dr.GetString(4));
+                    list.Add(dr.GetInt32(5));
+                    list.Add(dr.GetInt32(6));
+                    conn.Close();
+                    return list;
+                }
+                else
+                {
+                    conn.Close();
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                conn.Close();
+                return null;
+            }
+        }
+
         public bool Eliminar_Hotel(int codigo_hotel)
         {
             try

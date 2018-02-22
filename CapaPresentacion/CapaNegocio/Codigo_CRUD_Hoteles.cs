@@ -8,9 +8,9 @@ namespace CapaNegocio
 {
     public class Codigo_CRUD_Hoteles
     {
-        string select = "SELECT ho.id_hotel, ho.nombre_hotel, ho.foto_hotel, pa.nombre_pais, lu.nombre, pre.precio FROM hoteles AS ho INNER JOIN lugares AS lu" +
+        string select = "SELECT ho.id_hotel, ho.nombre_hotel, pa.nombre_pais, lu.nombre, ho.habitaciones, pre.precio FROM hoteles AS ho INNER JOIN lugares AS lu" +
 " ON lu.id_lugar = ho.lugar_fk INNER JOIN paises AS pa ON pa.id_paises = ho.pais_fk INNER JOIN tarifas_hoteles AS pre ON pre.id_tarifa "+
-" = ho.preciohab_fk;";
+" = ho.preciohab_fk ORDER BY id_hotel ASC;";
         /// <summary>
         /// This method charge information of the combobox of countries and places
         /// </summary>
@@ -30,6 +30,43 @@ namespace CapaNegocio
                 cBox_Pais.Items.Add(name);
             }
         }
+
+        public List<object> Cargar_Bandera()
+        {
+            List<object> list = new List<object>();
+            DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
+            NpgsqlConnection conn = db_hoteles.Conexion();
+            NpgsqlDataReader dr;
+            NpgsqlCommand cmd;
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT foto_hotel FROM hoteles ORDER BY id_hotel ASC;", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        list.Add(dr.GetString(0));
+                    }
+                    return list;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         /// <summary>
         /// This method charge all information of database in datagridview
         /// </summary>
@@ -45,11 +82,14 @@ namespace CapaNegocio
             dataGridView1.DataSource = dataSet.Tables[0];
             dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Hotel";
             dataGridView1.Columns[1].HeaderCell.Value = "Nombre Hotel";
-            dataGridView1.Columns[2].HeaderCell.Value = "Foto Hotel";
             dataGridView1.Columns[3].HeaderCell.Value = "Pais";
             dataGridView1.Columns[4].HeaderCell.Value = "Lugar";
             dataGridView1.Columns[5].HeaderCell.Value = "Habitaciones";
             dataGridView1.Columns[6].HeaderCell.Value = "Precio";
+            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+            imgCol.HeaderText = "Foto Hotel";
+            imgCol.Name = "Foto Hotel";
+            dataGridView1.Columns.Add(imgCol);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
             conn.Close();
@@ -91,7 +131,14 @@ namespace CapaNegocio
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
             bool eliminado = db_hoteles.Eliminar_Hotel(codigo_hotel);
-            throw new NotImplementedException();
+            return eliminado;
+        }
+
+        public List<object> Buscar_Info(string codigo_hotel)
+        {
+            DB_CRUD_Hoteles db_hotel = new DB_CRUD_Hoteles();
+            List<object> list = db_hotel.Buscar_Hotel(codigo_hotel);
+            return list;
         }
     }
 }

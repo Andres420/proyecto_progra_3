@@ -266,6 +266,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(439, 142);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // openFileDialog1
             // 

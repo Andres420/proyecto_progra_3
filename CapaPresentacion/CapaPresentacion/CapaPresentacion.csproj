@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -187,6 +190,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capadbo\Capadbo.csproj">
+      <Project>{1314788E-605F-4C0D-B6E7-ECE22B6675FB}</Project>
+      <Name>Capadbo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{108204e7-3b68-4483-9826-3db00a2fd531}</Project>
       <Name>CapaNegocio</Name>

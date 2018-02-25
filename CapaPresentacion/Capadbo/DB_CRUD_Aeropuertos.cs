@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using Objetos;
 
 namespace Capadbo
 {
@@ -14,7 +12,7 @@ namespace Capadbo
     {
         static NpgsqlConnection conexion;
         static NpgsqlCommand cmd;
-        
+
 
         /// <summary>
         /// This method make the connection to the database
@@ -29,64 +27,6 @@ namespace Capadbo
 
             string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + usuario + ";" + "Password=" + clave + ";" + "Database=" + baseDatos;
             conexion = new NpgsqlConnection(cadenaConexion);
-        }
-
-        /// <summary>
-        /// This method search in database all airports
-        /// </summary>
-        /// <param name="dataGridView"></param>
-        public void Cargar(DataGridView dataGridView1)
-        {
-            DataSet datos = new DataSet();
-
-            datos.Clear();
-            Conexion();
-            try
-            {
-                conexion.Open();
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("ERROR" + error.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
-                                                                            //l.nombre
-      //      string query = "SELECT a.id_aeropuerto,a.nombre_aeropuerto,a.iata,l.nombre from aeropuertos AS a ORDER BY a.id_aeropuerto "+
-                      //  " INNER JOIN lugares AS l ON a.fk_idlugar = l.id_lugar ORDER BY a.id_aeropuerto;";
-
-            string query2 = "SELECT a.id_aeropuerto,a.nombre_aeropuerto,l.nombre,a.iata from aeropuertos AS a" +
-                        " INNER JOIN lugares AS l ON a.fk_idlugar = l.id_lugar ORDER BY a.id_aeropuerto;";
-            try
-            {
-                NpgsqlDataAdapter add = new NpgsqlDataAdapter(query2, conexion);
-                datos.Tables.Clear();
-                dataGridView1.Columns.Clear();
-                add.Fill(datos);
-                dataGridView1.DataSource = datos.Tables[0];
-                dataGridView1.Columns[0].HeaderCell.Value = "ID";
-                dataGridView1.Columns[1].HeaderCell.Value = "Nombre";
-                dataGridView1.Columns[3].HeaderCell.Value = "IATA";
-                dataGridView1.Columns[2].HeaderCell.Value = "Lugar";
-               // DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
-               // combo.HeaderText = "Lugar";
-               // combo.Name = "Lugar";
-               // ArrayList row = new ArrayList();
-               
-                //combo.Items.AddRange(row.ToArray());
-                //dataGridView1.Columns.Add(combo); */
-                conexion.Close();
-               // List<object> lista = new List<Object>();
-               /* lista = Combo_Lugar();
-                for (int i = 0; i < lista.Count; i+=2)
-                {
-                    combo.Items.Add(lista[i+1]);
-                }
-                dataGridView1.Columns.Add(combo); */
-            }
-            catch
-            {
-
-            }
         }
 
         /// <summary>
@@ -116,14 +56,14 @@ namespace Capadbo
             }
         }
 
-            /// <summary>
-            /// This method update all information of the airports in a database
-            /// </summary>
-            /// <param name="id"></param>
-            /// <param name="nombre_aeropuerto"></param>
-            /// <param name="fk_idlugar"></param>
-            /// <param name="iata"></param>
-            public void ModificarDatos(int id, string nombre_aeropuerto, int fk_idlugar, string iata)
+        /// <summary>
+        /// This method update all information of the airports in a database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre_aeropuerto"></param>
+        /// <param name="fk_idlugar"></param>
+        /// <param name="iata"></param>
+        public void ModificarDatos(int id, string nombre_aeropuerto, int fk_idlugar, string iata)
         {
             Conexion();
             conexion.Open();
@@ -144,7 +84,9 @@ namespace Capadbo
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
-
+        /// <summary>
+        /// This method charge the information of the airports in the combobox
+        /// </summary>
         public List<object> Combo_Lugar()
         {
             Conexion();
@@ -162,6 +104,35 @@ namespace Capadbo
             }
             conexion.Close();
             return lista;
+        }
+
+        /// <summary>
+        /// This method search in database all airports
+        /// </summary>
+        public BindingList<Aeropuertos> Cargar_Grid()
+        {     
+            BindingList<Aeropuertos> lista = new BindingList<Aeropuertos>();
+            {
+                Conexion();
+                conexion.Open();
+                  string query = "SELECT a.id_aeropuerto,a.nombre_aeropuerto,l.nombre,a.iata from aeropuertos AS a" +
+                       " INNER JOIN lugares AS l ON a.fk_idlugar = l.id_lugar ORDER BY a.id_aeropuerto;";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexion);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Aeropuertos aero = new Aeropuertos();
+                    aero.ID_Aero = dr[0].ToString();
+                    aero.Nombre = dr[1].ToString();
+                    aero.ID_Lugar = dr[2].ToString();
+                    aero.IATA = dr[3].ToString();
+                    lista.Add(aero);
+                }
+                BindingList<Aeropuertos> result = new BindingList<Aeropuertos>(lista);
+                conexion.Close();
+                return result;
+            }
         }
     }
 }

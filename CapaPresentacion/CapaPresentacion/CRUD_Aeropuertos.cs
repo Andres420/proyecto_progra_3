@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capadbo;
 using CapaNegocio;
-using Objetos;
 
 namespace CapaPresentacion
 {
     public partial class CRUD_Aeropuertos : Form
     {
-        List<object> lista;
-        string valor;
+        ComboBox combo;
 
-        string lugar_a = "";
+        string combotext = "";
         int fk_lug;
-        string nombre_a = "";
-        string iata_a = "";
+        string val_col1 = "";
+        string val_col2 = "";
         bool p = false;
         bool s = false;
         bool t = false;
@@ -35,12 +31,6 @@ namespace CapaPresentacion
         private void CRUD_Aeropuertos_Load(object sender, EventArgs e)
         {
             Cargar_datagrid(dataGridView1);
-            Codigo_CRUD_Aeropuertos cargar = new Codigo_CRUD_Aeropuertos();
-            lista = cargar.Cargar_Combo_Lugar();
-            for (int i = 0; i < lista.Count; i += 2)
-            {
-                LugarA.Items.Add(lista[i + 1]);
-            }
         }
 
         public void Cargar_datagrid(DataGridView dt)
@@ -48,42 +38,107 @@ namespace CapaPresentacion
             try
             {
                 Codigo_CRUD_Aeropuertos cargar = new Codigo_CRUD_Aeropuertos();
-                BindingList<Aeropuertos> lista = cargar.Cargar_Grid();
-                dt.DataSource = lista;
+                cargar.Cargar_buscar(dt);
             }
             catch
             {
+
             }
+
         }
 
         private void tabControl1_Click(object sender, EventArgs e)
         {
+
             if (tabControl1.SelectedIndex == 0)
             {
-                try
-                {
-                    Cargar_datagrid(dataGridView1);
-                    dataGridView4.Rows.Clear();
-                    dataGridView4.Refresh();
-                }
-                catch
-                {
-                }         
+                Cargar_datagrid(dataGridView1);
             }
             if (tabControl1.SelectedIndex == 1)
             {
-                Codigo_CRUD_Aeropuertos cargar = new Codigo_CRUD_Aeropuertos();
-                lista = cargar.Cargar_Combo_Lugar();
-                for (int i = 0; i < lista.Count; i += 2)
-                {
-                    Lugar2.Items.Add(lista[i + 1]);
-                }
                 Cargar_datagrid(dataGridView2);
             }
             if (tabControl1.SelectedIndex == 2)
             {
                 Cargar_datagrid(dataGridView3);
             }
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = false;
+                dataGridView1.Columns[2].ReadOnly = false;
+                dataGridView1.Columns[3].ReadOnly = false;
+
+                string valor = Convert.ToString(this.dataGridView1.CurrentRow.Cells[0].Value);
+                if (valor == String.Empty)
+                {
+                }
+                else
+                {
+                    dataGridView1.Columns[1].ReadOnly = true;
+                    dataGridView1.Columns[2].ReadOnly = true;
+                    dataGridView1.Columns[3].ReadOnly = true;
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentCell.ColumnIndex == 1)
+                {
+                    val_col1 = Convert.ToString(this.dataGridView1.CurrentRow.Cells[1].Value);
+                }
+
+                if (dataGridView1.CurrentCell.ColumnIndex == 3)
+                {
+                    val_col2 = Convert.ToString(this.dataGridView1.CurrentRow.Cells[3].Value);
+
+                    if (combotext != String.Empty)
+                    {
+                        Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+                        List<object> lista = ca.Cargar_Combo_Lugar();
+                        for (int i = 0; i < lista.Count; i += 2)
+                        {
+                            if (Convert.ToString(lista[i + 1]) == combotext)
+                            {
+                                fk_lug = Convert.ToInt32(lista[i]);
+                                break;
+                            }
+                        }
+                    }
+
+                    if (p == true & s == true & t == true)
+                    {
+                        Agregar(val_col1, fk_lug, val_col2);
+                        p = false;
+                        s = false;
+                        t = false;
+                        combotext = "";
+                    }
+                }
+            }
+
+            catch
+            {
+
+            }
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl dText = (DataGridViewTextBoxEditingControl)e.Control;
+            dText.KeyPress -= new KeyPressEventHandler(dText_KeyPress);
+            dText.KeyPress += new KeyPressEventHandler(dText_KeyPress);
+
         }
 
         void dText_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,10 +173,14 @@ namespace CapaPresentacion
                 else
                 {
                     MessageBox.Show("No se pudo registrar, ID repetido");
-                }  
+                }
+                dataGridView1.Columns.Clear();
+                Cargar_datagrid(dataGridView1);
+                dataGridView1.CurrentRow.Selected = false;
             }
             catch
             {
+
             }
         }
 
@@ -136,6 +195,7 @@ namespace CapaPresentacion
         public void Modificar(int id, string nombre, int fk_idlugar, string iata)
         {
             Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+            //id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
             ca.ModificarDatos(id, nombre, fk_idlugar, iata);
             MessageBox.Show("Se ha modificado el registro");
             Cargar_datagrid(dataGridView2);
@@ -161,33 +221,90 @@ namespace CapaPresentacion
 
         private void dataGridView2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (p == true || s == true || t == true)
+            if (dataGridView2.CurrentCell.ColumnIndex == 1)
             {
-                try
+                if (p == true)
                 {
-                    int id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
-                    string nombre = Convert.ToString(this.dataGridView2.CurrentRow.Cells[1].Value);
-                    string lugar = Convert.ToString(this.dataGridView2.CurrentRow.Cells[2].Value);
-                    string iat = Convert.ToString(this.dataGridView2.CurrentRow.Cells[3].Value);
-                    Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
-                    List<object> lista = ca.Cargar_Combo_Lugar();
-                    for (int i = 0; i < lista.Count; i += 2)
+
+                    try
                     {
-                        if (Convert.ToString(lista[i + 1]) == lugar)
+                        int id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
+                        string lugar = Convert.ToString(this.dataGridView2.CurrentRow.Cells[2].Value);
+                      //  MessageBox.Show(lugar);
+                        Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+                        List<object> lista = ca.Cargar_Combo_Lugar();
+                        for (int i = 0; i < lista.Count; i += 2)
                         {
-                            fk_lug = Convert.ToInt32(lista[i]);
-                            break;
+                            if (Convert.ToString(lista[i + 1]) == lugar)
+                            {
+                                fk_lug = Convert.ToInt32(lista[i]);
+                                // MessageBox.Show(lugar);
+                                break;
+                            }
                         }
+                        Modificar(id, Convert.ToString(this.dataGridView2.CurrentRow.Cells[1].Value), fk_lug, Convert.ToString(this.dataGridView2.CurrentRow.Cells[3].Value));
                     }
-                    Modificar(id, nombre, fk_lug, iat);
-                    p = false;
-                    s = false;
-                    t = false;
-                }
-                catch
-                {
+                    catch
+                    {
+
+                    }
+
                 }
             }
+
+            if (dataGridView2.CurrentCell.ColumnIndex == 3)
+            {
+                if (t == true)
+                {
+                    try
+                    {
+                        int id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
+                        string lugar = Convert.ToString(this.dataGridView2.CurrentRow.Cells[2].Value);
+                       // MessageBox.Show(lugar);
+                        Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+                        List<object> lista = ca.Cargar_Combo_Lugar();
+                        for (int i = 0; i < lista.Count; i += 2)
+                        {
+                            if (Convert.ToString(lista[i + 1]) == lugar)
+                            {
+                                fk_lug = Convert.ToInt32(lista[i]);
+                                // MessageBox.Show(lugar);
+                                break;
+                            }
+                        }
+                        Modificar(id, Convert.ToString(this.dataGridView2.CurrentRow.Cells[1].Value), fk_lug, Convert.ToString(this.dataGridView2.CurrentRow.Cells[3].Value));
+                        p = false;
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+               
+            }
+
+            /* if(String.IsNullOrEmpty(combo.Text))
+             {
+
+                 MessageBox.Show("dsdsd");
+                 int id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
+
+                 Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+                 List<object> lista = ca.Cargar_Combo_Lugar();
+                 for (int i = 0; i < lista.Count; i += 2)
+                 {
+                     if (Convert.ToString(lista[i + 1]) == combotext)
+                     {
+                         fk_lug = Convert.ToInt32(lista[i]);
+                         MessageBox.Show(combotext + "" + fk_lug);
+                         break;
+                     }
+                 }
+                 Modificar(id, Convert.ToString(this.dataGridView2.CurrentRow.Cells[1].Value), 1, Convert.ToString(this.dataGridView2.CurrentRow.Cells[3].Value));
+             }*/
+
+            
         }
 
         private void dataGridView2_MouseClick(object sender, MouseEventArgs e)
@@ -195,111 +312,171 @@ namespace CapaPresentacion
             dataGridView2.Columns[0].ReadOnly = true;
         }
 
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Combo_OnTextChange(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            dataGridView1.CurrentCell.Value = combo.Text.ToString();
+        }
+
+        private void Combo_CloseUp(object sender, EventArgs e)
+        {
+            combo.Visible = false;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+
+                string valor = Convert.ToString(this.dataGridView1.CurrentRow.Cells[0].Value);
+                if (valor != String.Empty)
+                {
+                }
+                else
+                {
+                    combo = new ComboBox();
+                    Cargar_combo(combo);
+                    dataGridView1.Controls.Add(combo);
+                    Rectangle oRectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    combo.Size = new Size(oRectangle.Width, oRectangle.Height);
+                    combo.Location = new Point(oRectangle.X, oRectangle.Y);
+                    combo.DropDownClosed += new EventHandler(Combo_CloseUp);
+                    combo.TextChanged += new EventHandler(Combo_OnTextChange);
+                }
+            }
+        }
+
+        public void Cargar_combo(ComboBox cb)
+        {
+            Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+            List<object> lista = ca.Cargar_Combo_Lugar();
+            for (int i = 0; i < lista.Count; i += 2)
+            {
+                cb.Items.Add(lista[i + 1]);
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell.ColumnIndex == 2)
+            {
+                try
+                {
+                    combotext = combo.SelectedItem.ToString();
+
+                    s = true;
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (dataGridView1.CurrentCell.ColumnIndex == 1)
             {
                 p = true;
             }
 
-            if (e.ColumnIndex == 2)
+            if (dataGridView1.CurrentCell.ColumnIndex == 3)
             {
-                s = true;
-            }
-
-            if (e.ColumnIndex == 3)
-            {
+                if (combotext != String.Empty)
+                {
+                    combotext = combo.SelectedItem.ToString();
+                }
                 t = true;
             }
         }
-        
-        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            valor = dataGridView4.CurrentRow.Index.ToString();
+            if (e.ColumnIndex == 2)
+            {
+           //     string v_viejo = Convert.ToString(this.dataGridView2.CurrentRow.Cells[2].Value);
+
+                //string valor = Convert.ToString(this.dataGridView2.CurrentRow.Cells[0].Value);
+                //   if (valor != String.Empty)
+                //  {
+                try
+                {
+                    combo = new ComboBox();
+                    Cargar_combo(combo);
+                    dataGridView2.Controls.Add(combo);
+                    Rectangle oRectangle = dataGridView2.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    combo.Size = new Size(oRectangle.Width, oRectangle.Height);
+                    combo.Location = new Point(oRectangle.X, oRectangle.Y);
+                    combo.DropDownClosed += new EventHandler(Combo_CloseUp);
+                    combo.TextChanged += new EventHandler(Combo_OnTextChange);
+                   // combotext = combo.SelectedItem.ToString();
+
+                 /*   if (v_viejo != combotext)
+                    {
+                        MessageBox.Show("cambio");
+                    }*/
+                }
+                catch
+                {
+
+                }
+
+             //   combotext = combo.SelectedItem.ToString();
+                //     }
+                //  else
+                //   {
+
+                // }
+            }
         }
 
-        private void dataGridView4_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (valor == "0")
-            {
-                if (dataGridView4.CurrentCell.ColumnIndex == 0)
-                {
-                    nombre_a = Convert.ToString(this.dataGridView4.CurrentRow.Cells[0].Value);
-                    p = true;
-                }
-                if (dataGridView4.CurrentCell.ColumnIndex == 1)
-                {
-                    lugar_a = Convert.ToString(this.dataGridView4.CurrentRow.Cells[1].Value);
-                    for (int i = 0; i < lista.Count; i += 2)
-                    {
-                        if (Convert.ToString(lista[i + 1]) == lugar_a)
-                        {
-                            fk_lug = Convert.ToInt32(lista[i]);
-                            break;
-                        }
-                    }
-                    s = true;
-                }
-                if (dataGridView4.CurrentCell.ColumnIndex == 2)
-                {
-                    iata_a = Convert.ToString(this.dataGridView4.CurrentRow.Cells[2].Value);
-                    t = true;
-                }
-                if (p == true & s == true & t == true)
-                {
-                    try
-                    {
-                        Agregar(nombre_a, fk_lug, iata_a);
-                        p = false;
-                        s = false;
-                        t = false;
-                        dataGridView4.DataSource = null;
-                        dataGridView4.Rows.Clear();
-                        dataGridView4.Refresh();
-                        Cargar_datagrid(dataGridView1);
-                    }
-                    catch
-                    {
-                    }
-                }
-            }
-            else
+            if (dataGridView2.CurrentCell.ColumnIndex == 2)
             {
                 try
                 {
-                    MessageBox.Show("Se debe agregar solo en la primer linea");
-                    dataGridView1.CurrentRow.Selected = false;
-                    dataGridView4.Rows.Clear();
-                    dataGridView4.Refresh();
-                    p = false;
-                    s = false;
-                    t = false;
+                   // combotext = combo.SelectedItem.ToString();
+
+                    s = true;
                 }
                 catch
-                {               
+                {
+
                 }
             }
+
+            if (dataGridView2.CurrentCell.ColumnIndex == 1)
+            {
+                p = true;
+            }
+
+            if (dataGridView2.CurrentCell.ColumnIndex == 3)
+            {
+              /*  if (combotext != String.Empty)
+                {
+                    combotext = combo.SelectedItem.ToString();
+                }*/
+                t = true;
+            }
+            /*int fk_l = 0;
+            if (dataGridView1.CurrentCell.ColumnIndex == 1)
+            {
+                int id = Convert.ToInt32(this.dataGridView2.CurrentRow.Cells[0].Value);
+               
+                Codigo_CRUD_Aeropuertos ca = new Codigo_CRUD_Aeropuertos();
+                List<object> lista = ca.Cargar_Combo_Lugar();
+                for (int i = 0; i < lista.Count; i += 2)
+                {
+                    if (Convert.ToString(lista[i + 1]) == Convert.ToString(this.dataGridView2.CurrentRow.Cells[2].Value))
+                    {
+                        fk_l = Convert.ToInt32(lista[i]);
+                        MessageBox.Show(combotext + "" + fk_l);
+                        break;
+                    }
+                }
+                Modificar(id, Convert.ToString(this.dataGridView2.CurrentRow.Cells[1].Value), fk_l, Convert.ToString(this.dataGridView2.CurrentRow.Cells[3].Value));
+            }*/
         }
 
-        private void dataGridView4_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (dataGridView4.CurrentCell.ColumnIndex == 0 || dataGridView4.CurrentCell.ColumnIndex == 2)
-            {
-                DataGridViewTextBoxEditingControl dText = (DataGridViewTextBoxEditingControl)e.Control;
-                dText.KeyPress -= new KeyPressEventHandler(dText_KeyPress);
-                dText.KeyPress += new KeyPressEventHandler(dText_KeyPress);
-            }
-        }
-
-        private void dataGridView2_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (dataGridView2.CurrentCell.ColumnIndex == 1 || dataGridView2.CurrentCell.ColumnIndex == 3)
-            {
-                DataGridViewTextBoxEditingControl dText = (DataGridViewTextBoxEditingControl)e.Control;
-                dText.KeyPress -= new KeyPressEventHandler(dText_KeyPress);
-                dText.KeyPress += new KeyPressEventHandler(dText_KeyPress);
-            }
-        }
+       
     }
 }
     

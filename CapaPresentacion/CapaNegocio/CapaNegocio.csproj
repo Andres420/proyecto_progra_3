@@ -50,6 +50,7 @@
     <Compile Include="Codigo_CRUD_Lugares.cs" />
     <Compile Include="Codigo_CRUD_Vehiculos.cs" />
     <Compile Include="Codigo_CRUD_Vuelos.cs" />
+    <Compile Include="Codigo_Interfaz_Vuelo.cs" />
     <Compile Include="Codigo_Login.cs" />
     <Compile Include="Codigo_CrearUsuario.cs" />
     <Compile Include="Codigo_CRUD_Aeropuertos.cs" />

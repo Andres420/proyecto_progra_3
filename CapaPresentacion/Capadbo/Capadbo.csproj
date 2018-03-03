@@ -62,6 +62,7 @@
     <Compile Include="DB_CRUD_Vehiculos.cs" />
     <Compile Include="DB_Login.cs" />
     <Compile Include="DB_Rutas.cs" />
+    <Compile Include="DB_Ineterfaz_Vuelo.cs" />
     <Compile Include="DB_Vuelos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

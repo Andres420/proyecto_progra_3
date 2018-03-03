@@ -49,7 +49,7 @@ namespace CapaPresentacion
                         
                         Interfaz_Admin ia = new Interfaz_Admin(usuario);
                         this.Dispose();
-                        ia.Show();
+                        ia.ShowDialog();
                         
 
                     }

@@ -29,6 +29,7 @@ namespace CapaPresentacion
                     if (guardado)
                     {
                         MessageBox.Show("Cuenta creada correctamente");
+                        this.Dispose();
                     }
                     else
                     {

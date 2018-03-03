@@ -26,14 +26,8 @@ namespace CapaPresentacion
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login lg = new Login();
-            lg.Show();
             this.Dispose();
-        }
-
-        private void btnPaises_Click(object sender, EventArgs e)
-        {
-            CRUD_Paises paises = new CRUD_Paises();
-            paises.ShowDialog();
+            lg.ShowDialog();
         }
 
         private void btnLugares_Click(object sender, EventArgs e)
@@ -76,6 +70,17 @@ namespace CapaPresentacion
         {
             CRUD_Vehiculos vehiculos = new CRUD_Vehiculos();
             vehiculos.ShowDialog();
+        }
+
+        private void btn_Paises_Click(object sender, EventArgs e)
+        {
+            CRUD_Paises paises = new CRUD_Paises();
+            paises.ShowDialog();
+        }
+
+        private void Interfaz_Admin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

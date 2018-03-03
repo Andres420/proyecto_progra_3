@@ -40,15 +40,18 @@ namespace CapaPresentacion
                 {
                     if (usuario.getTipo)
                     {
-                        Alojamiento alo = new Alojamiento(usuario);
-                        alo.Show();
+                        //Alojamiento alo = new Alojamiento(usuario);
+                      //  alo.Show();
                         this.Dispose();
                     }
                     else
                     {
+                        
                         Interfaz_Admin ia = new Interfaz_Admin(usuario);
-                        ia.Show();
                         this.Dispose();
+                        ia.Show();
+                        
+
                     }
                 }
                 else

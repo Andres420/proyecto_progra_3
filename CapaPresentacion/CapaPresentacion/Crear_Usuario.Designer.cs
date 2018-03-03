@@ -101,9 +101,9 @@
             // 
             // txtClave_Conf
             // 
-            this.txtClave_Conf.Location = new System.Drawing.Point(12, 142);
+            this.txtClave_Conf.Location = new System.Drawing.Point(15, 142);
             this.txtClave_Conf.Name = "txtClave_Conf";
-            this.txtClave_Conf.Size = new System.Drawing.Size(260, 20);
+            this.txtClave_Conf.Size = new System.Drawing.Size(257, 20);
             this.txtClave_Conf.TabIndex = 8;
             // 
             // label4
@@ -130,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCrear_Cuenta);
             this.Name = "Crear_Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear_Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();

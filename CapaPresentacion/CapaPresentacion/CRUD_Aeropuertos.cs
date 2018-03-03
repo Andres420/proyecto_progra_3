@@ -34,7 +34,7 @@ namespace CapaPresentacion
             lista = cargar.Cargar_Combo_Lugar();
             for (int i = 0; i < lista.Count; i += 2)
             {
-                LugarA.Items.Add(lista[i + 1]);
+               LugarA.Items.Add(lista[i + 1]);
             }
         }
 

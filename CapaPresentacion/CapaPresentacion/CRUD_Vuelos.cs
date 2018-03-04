@@ -54,19 +54,29 @@ namespace CapaPresentacion
 
         private void Btn_Reg_Click(object sender, EventArgs e)
         {
+            int ruta = Convert.ToInt32(CBox_Ruta.SelectedItem.ToString());
+            Codigo_CRUD_Vuelos ccrud_vuelos = new Codigo_CRUD_Vuelos();
+            bool rut = ccrud_vuelos.comparar(ruta);     
             if (!txt_Precio.Text.Equals(""))
             {
-                Codigo_CRUD_Vuelos ccrud_vuelos = new Codigo_CRUD_Vuelos();
-                bool agregado = ccrud_vuelos.Agregar_Vuelo( Convert.ToInt32(CBox_Ruta.SelectedItem.ToString()), Convert.ToInt32(txt_Precio.Text));
-                if (agregado)
+                if (rut == false)
                 {
-                    MessageBox.Show("Se ha agregado el precio a la ruta");
+                    
+                    bool agregado = ccrud_vuelos.Agregar_Vuelo(ruta, Convert.ToInt32(txt_Precio.Text));
+                    if (agregado)
+                    {
+                        MessageBox.Show("Se ha agregado el precio a la ruta");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo agregar el precio a la ruta");
+                    }
+                    Limpiar_Ventana();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo agregar el precio a la ruta");
+                    MessageBox.Show("Esa ruta ya contiene un precio");
                 }
-                Limpiar_Ventana();
             }
         }
 
@@ -115,6 +125,17 @@ namespace CapaPresentacion
             cod_tarifa_vuelo = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             CBox_Ruta.SelectedItem = this.dataGridView1.CurrentRow.Cells[1].Value;
             txt_Precio.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void txt_Precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+
+            }
         }
     }
 }

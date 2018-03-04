@@ -45,6 +45,7 @@ namespace CapaPresentacion
                 Codigo_CRUD_Aeropuertos cargar = new Codigo_CRUD_Aeropuertos();
                 BindingList<Aeropuertos> lista = cargar.Cargar_Grid();
                 dt.DataSource = lista;
+                dt.CurrentRow.Selected = false;
             }
             catch
             {

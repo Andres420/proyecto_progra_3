@@ -73,7 +73,7 @@ namespace Capadbo
                 MessageBox.Show("ERROR" + error.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            string query1 = "SELECT id_paises,nombre_pais from paises ORDER BY id_paises ASC";
+            string query1 = "SELECT id_paises,nombre_pais from paises ORDER BY nombre_pais ASC";
             NpgsqlDataAdapter add = new NpgsqlDataAdapter(query1, conexion);
             add.Fill(datos);
             dataGridView1.DataSource = datos.Tables[0];
@@ -95,7 +95,7 @@ namespace Capadbo
             Conexion();
             conexion.Open();
             List<object> lista = new List<object>();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT bandera from paises ORDER BY id_paises ASC", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT bandera from paises ORDER BY nombre_pais ASC", conexion);
             NpgsqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {

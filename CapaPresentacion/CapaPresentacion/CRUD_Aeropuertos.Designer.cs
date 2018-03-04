@@ -84,15 +84,16 @@
             // 
             // TP1
             // 
+            this.TP1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.TP1.Controls.Add(this.groupBox4);
             this.TP1.Controls.Add(this.groupBox1);
+            this.TP1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TP1.Location = new System.Drawing.Point(4, 22);
             this.TP1.Name = "TP1";
             this.TP1.Padding = new System.Windows.Forms.Padding(3);
             this.TP1.Size = new System.Drawing.Size(496, 543);
             this.TP1.TabIndex = 0;
             this.TP1.Text = "Insertar";
-            this.TP1.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -118,6 +119,7 @@
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreA,
@@ -172,6 +174,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -215,6 +218,7 @@
             // 
             // TP2
             // 
+            this.TP2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.TP2.Controls.Add(this.groupBox2);
             this.TP2.Location = new System.Drawing.Point(4, 22);
             this.TP2.Name = "TP2";
@@ -222,7 +226,6 @@
             this.TP2.Size = new System.Drawing.Size(496, 543);
             this.TP2.TabIndex = 1;
             this.TP2.Text = "Modificar";
-            this.TP2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -258,6 +261,7 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID2,
@@ -302,6 +306,7 @@
             // 
             // TP3
             // 
+            this.TP3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.TP3.Controls.Add(this.groupBox3);
             this.TP3.Location = new System.Drawing.Point(4, 22);
             this.TP3.Name = "TP3";
@@ -309,7 +314,6 @@
             this.TP3.Size = new System.Drawing.Size(496, 543);
             this.TP3.TabIndex = 2;
             this.TP3.Text = "Eliminar";
-            this.TP3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -334,8 +338,9 @@
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 60);
+            this.dataGridView3.Location = new System.Drawing.Point(17, 59);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -347,6 +352,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(527, 509);
             this.Controls.Add(this.tabControl1);
             this.Name = "CRUD_Aeropuertos";

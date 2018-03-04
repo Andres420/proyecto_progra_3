@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_Usuario));
             this.btnCrear_Cuenta = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -41,12 +42,13 @@
             // 
             // btnCrear_Cuenta
             // 
-            this.btnCrear_Cuenta.Location = new System.Drawing.Point(98, 226);
+            this.btnCrear_Cuenta.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCrear_Cuenta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCrear_Cuenta.BackgroundImage")));
+            this.btnCrear_Cuenta.Location = new System.Drawing.Point(15, 187);
             this.btnCrear_Cuenta.Name = "btnCrear_Cuenta";
-            this.btnCrear_Cuenta.Size = new System.Drawing.Size(75, 23);
+            this.btnCrear_Cuenta.Size = new System.Drawing.Size(75, 62);
             this.btnCrear_Cuenta.TabIndex = 0;
-            this.btnCrear_Cuenta.Text = "Crear Cuenta";
-            this.btnCrear_Cuenta.UseVisualStyleBackColor = true;
+            this.btnCrear_Cuenta.UseVisualStyleBackColor = false;
             this.btnCrear_Cuenta.Click += new System.EventHandler(this.btnCrear_Cuenta_Click);
             // 
             // label1
@@ -62,7 +64,7 @@
             // 
             this.txtCedula.Location = new System.Drawing.Point(15, 25);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(257, 20);
+            this.txtCedula.Size = new System.Drawing.Size(158, 20);
             this.txtCedula.TabIndex = 2;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
@@ -70,7 +72,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(15, 64);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(257, 20);
+            this.txtNombre.Size = new System.Drawing.Size(158, 20);
             this.txtNombre.TabIndex = 4;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
@@ -87,7 +89,7 @@
             // 
             this.txtClave.Location = new System.Drawing.Point(15, 103);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(257, 20);
+            this.txtClave.Size = new System.Drawing.Size(158, 20);
             this.txtClave.TabIndex = 6;
             // 
             // label3
@@ -103,7 +105,7 @@
             // 
             this.txtClave_Conf.Location = new System.Drawing.Point(15, 142);
             this.txtClave_Conf.Name = "txtClave_Conf";
-            this.txtClave_Conf.Size = new System.Drawing.Size(257, 20);
+            this.txtClave_Conf.Size = new System.Drawing.Size(158, 20);
             this.txtClave_Conf.TabIndex = 8;
             // 
             // label4
@@ -119,7 +121,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(216, 261);
             this.Controls.Add(this.txtClave_Conf);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtClave);

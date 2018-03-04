@@ -83,5 +83,16 @@ namespace CapaPresentacion
         {
             Application.Exit();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }

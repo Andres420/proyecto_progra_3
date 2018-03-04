@@ -28,7 +28,6 @@ namespace CapaPresentacion
             ccrud_hoteles.Cargar_Data_Grid(dataGridView1);
             Cargar_Foto();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //dataGridView1.CurrentRow.Selected = false;
         }
 
         public void Cargar_Foto()

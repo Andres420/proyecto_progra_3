@@ -101,5 +101,29 @@ namespace Capadbo
                 return false;
             }
         }
+        public bool Comparar_Rutas(int ruta)
+        {
+            bool Rut = false;
+            try
+            {
+                conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT id_tarifa_vuelo FROM tarifas_vuelos WHERE ruta_fk = " + ruta +" ;", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                //cmd.ExecuteNonQuery();
+                if (dr.HasRows)
+                {
+                    Rut = true;
+                }
+                conn.Close();
+                return Rut;  
+            }
+            catch
+            {
+                conn.Close();
+                return false;
+            }
+           
+        }
     }
 }

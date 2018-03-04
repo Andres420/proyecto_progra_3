@@ -74,14 +74,14 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(18, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(354, 248);
+            this.groupBox1.Size = new System.Drawing.Size(385, 248);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoteles";
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(114, 194);
+            this.txtCosto.Location = new System.Drawing.Point(89, 191);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 46;
@@ -92,13 +92,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 194);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 45;
-            this.label1.Text = "Costo de habitacion";
+            this.label1.Text = "Costo";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(229, 171);
+            this.button1.Location = new System.Drawing.Point(229, 194);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 21);
             this.button1.TabIndex = 44;
@@ -109,7 +109,7 @@
             // PBImagen
             // 
             this.PBImagen.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.PBImagen.Location = new System.Drawing.Point(206, 43);
+            this.PBImagen.Location = new System.Drawing.Point(229, 43);
             this.PBImagen.Name = "PBImagen";
             this.PBImagen.Size = new System.Drawing.Size(130, 122);
             this.PBImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -188,7 +188,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 16);
+            this.label3.Location = new System.Drawing.Point(226, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 33;
@@ -200,7 +200,7 @@
             this.groupBox2.Controls.Add(this.Btn_Eliminar);
             this.groupBox2.Controls.Add(this.Btn_mod);
             this.groupBox2.Controls.Add(this.Btn_Reg);
-            this.groupBox2.Location = new System.Drawing.Point(378, 18);
+            this.groupBox2.Location = new System.Drawing.Point(436, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(126, 247);
             this.groupBox2.TabIndex = 1;
@@ -250,9 +250,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(23, 282);
+            this.groupBox3.Location = new System.Drawing.Point(18, 282);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(539, 184);
+            this.groupBox3.Size = new System.Drawing.Size(621, 222);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Registro de  Hoteles";
@@ -261,12 +261,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 142);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 173);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -278,8 +279,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(584, 478);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(651, 516);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

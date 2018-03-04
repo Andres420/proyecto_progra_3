@@ -12,7 +12,7 @@ namespace CapaNegocio
 {
     public class Codigo_CRUD_Lugares
     {
-        string select = "SELECT id_lugar, nombre FROM lugares;";
+        string select = "SELECT id_lugar, nombre FROM lugares ORDER BY nombre ASC;";
         /// <summary>
         /// This method send the name of a place for other method
         /// </summary>
@@ -37,7 +37,7 @@ namespace CapaNegocio
                 dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Lugar";
                 dataGridView1.Columns[1].HeaderCell.Value = "Nombre Lugar";
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
+                //dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
                 conn.Close();
         }
 

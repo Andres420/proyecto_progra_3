@@ -24,7 +24,7 @@ namespace CapaNegocio
             dataGridView1.DataSource = dataSet.Tables[0];
             dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Tarifa Vuelo";
             dataGridView1.Columns[1].HeaderCell.Value = "Ruta del vuelo";
-            dataGridView1.Columns[2].HeaderCell.Value = "precio";
+            dataGridView1.Columns[2].HeaderCell.Value = "Precio";
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
            // dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
             conn.Close();
@@ -58,6 +58,12 @@ namespace CapaNegocio
         {
             DB_Vuelos db_vuelos = new DB_Vuelos();
             return db_vuelos.Modificar_Vuelo_Precio(cod_tarifa_vuelo, ruta, precio);
+        }
+
+        public bool comparar(int ruta)
+        {
+            DB_Vuelos db_vuelos = new DB_Vuelos();
+            return db_vuelos.Comparar_Rutas(ruta);
         }
     }
 }

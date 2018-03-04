@@ -133,6 +133,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(11, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(472, 147);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
@@ -199,6 +200,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Rutas);
             this.Name = "CRUD_Rutas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rutas";
             this.Rutas.ResumeLayout(false);
             this.Rutas.PerformLayout();

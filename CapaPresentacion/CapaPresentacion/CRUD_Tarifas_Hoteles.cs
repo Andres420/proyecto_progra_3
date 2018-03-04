@@ -87,10 +87,19 @@ namespace CapaPresentacion
         {
             Codigo_CRUD_Tarifas_Hoteles ch = new Codigo_CRUD_Tarifas_Hoteles();
             int id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
-            ch.EliminarDatos(id);
-            MessageBox.Show("Se ha eliminado el registro");
-            Cargar_Dta_Grid();
-            Limpiar();
+            bool inf = ch.EliminarDatos(id);
+            if (inf == true)
+            {
+                MessageBox.Show("Se ha eliminado el registro");
+                Cargar_Dta_Grid();
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Esa tarifa esta en uso");
+                Cargar_Dta_Grid();
+                Limpiar();
+            }
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

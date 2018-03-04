@@ -150,7 +150,7 @@ namespace CapaPresentacion
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
             Codigo_CRUD_Hoteles ccrud_hoteles = new Codigo_CRUD_Hoteles();
-            bool eliminado = ccrud_hoteles.Eliminar_Hotel(Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[1].Value));
+            bool eliminado = ccrud_hoteles.Eliminar_Hotel(Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value));
             if (eliminado)
             {
                 MessageBox.Show("El hotel fue eliminado");
@@ -174,7 +174,7 @@ namespace CapaPresentacion
             Btn_Limpiar.Enabled = true;
             Btn_Eliminar.Enabled = true;
             Codigo_CRUD_Hoteles ccrud_hotel = new Codigo_CRUD_Hoteles();
-            List<object> list = ccrud_hotel.Buscar_Info(this.dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            List<object> list = ccrud_hotel.Buscar_Info(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cod_hotel = (int) list[0];
             Txt_Nombre.Text = (string) list[1];
             imagen = (string) list[2];

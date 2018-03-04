@@ -103,7 +103,7 @@ namespace Capadbo
         {
             Conexion();
             conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE tarifas_hoteles SET precio = '" + precio + "'  WHERE id_tarifa = '" + id + "'", conexion);
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE tarifas_hoteles SET precio = '" + precio + "'  WHERE id_tarifa = " + id , conexion);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
@@ -112,13 +112,23 @@ namespace Capadbo
         /// This method delete all information of the hotel tariffs in a database
         /// </summary>
         /// <param name="id"></param>
-        public void EliminarDatos(int id)
+        public bool EliminarDatos(int id)
         {
-            Conexion();
-            conexion.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM tarifas_hoteles WHERE id_tarifa = '" + id + "'", conexion);
-            cmd.ExecuteNonQuery();
-            conexion.Close();
+            try
+            {
+                Conexion();
+                conexion.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM tarifas_hoteles WHERE id_tarifa = " + id, conexion);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("erge" + ex);
+                conexion.Close();
+                return false;
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CapaNegocio
             dataGridView1.Columns[1].HeaderCell.Value = "Ruta del vuelo";
             dataGridView1.Columns[2].HeaderCell.Value = "precio";
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
+           // dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
             conn.Close();
         }
 

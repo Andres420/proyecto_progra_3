@@ -62,10 +62,11 @@ namespace CapaNegocio
         /// This method delete the information of the hotel tariffs in a database
         /// </summary>
         /// <param name="id"></param>
-        public void EliminarDatos(int id)
+        public bool EliminarDatos(int id)
         {
             DB_CRUD_Tarifas_Hoteles a = new DB_CRUD_Tarifas_Hoteles();
-            a.EliminarDatos(id);
+            bool inf = a.EliminarDatos(id);
+            return inf;
         }
     }
 }

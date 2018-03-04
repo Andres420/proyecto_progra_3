@@ -22,6 +22,8 @@ namespace CapaPresentacion
         }
         private void Limpiar_Campos()
         {
+            cb_Destino.Items.Clear();
+            cb_Origen.Items.Clear();
             Btn_Eliminar.Enabled = false;
             Btn_mod.Enabled = false;
             Btn_Limpiar.Enabled = false;
@@ -31,6 +33,7 @@ namespace CapaPresentacion
             cod_ruta = 0;
             dataGridView1.Columns.Clear();
             Cargar_Data_Grid();
+
         }
         private void Cargar_Data_Grid()
         {
@@ -93,6 +96,7 @@ namespace CapaPresentacion
                 if (modificado)
                 {
                     MessageBox.Show("Ruta modificada");
+                    Limpiar_Campos();
                 }
                 else
                 {

@@ -67,8 +67,8 @@ namespace Capadbo
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO  rutas(pais_origenfk,pais_destinofk,duracion) VALUES((SELECT id_pais FROM paises WHERE nombre_pais = '" + origen + "'), " +
-                    "(SELECT id_pais FROM paises WHERE nombre_pais = '" + destino + "'),'" + duracion + "');", conn);
+                cmd = new NpgsqlCommand("INSERT INTO  rutas(pais_origenfk,pais_destinofk,duracion) VALUES((SELECT id_paises FROM paises WHERE nombre_pais = '" + origen + "'), " +
+                    "(SELECT id_paises FROM paises WHERE nombre_pais = '" + destino + "'),'" + duracion + "');", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
@@ -88,7 +88,7 @@ namespace Capadbo
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
                 cmd = new NpgsqlCommand("UPDATE rutas SET pais_origenfk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais_origen + "')," +
-                    " pais_destinofk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais_origen + "'),duracion = '" + duracion + "' WHERE id_rutas = " + cod_ruta + ";", conn);
+                    " pais_destinofk = (SELECT id_paises FROM paises WHERE nombre_pais = '" + pais_destino + "'),duracion = '" + duracion + "' WHERE id_rutas = " + cod_ruta + ";", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;

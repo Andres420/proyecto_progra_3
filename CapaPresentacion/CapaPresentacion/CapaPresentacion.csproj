@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Busqueda_Auto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Busqueda_Auto.Designer.cs">
-      <DependentUpon>Busqueda_Auto.cs</DependentUpon>
-    </Compile>
     <Compile Include="CRUD_Aeropuertos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,9 +128,6 @@
     <Compile Include="CRUD_Rutas.Designer.cs">
       <DependentUpon>CRUD_Rutas.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Busqueda_Auto.resx">
-      <DependentUpon>Busqueda_Auto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRUD_Aeropuertos.resx">
       <DependentUpon>CRUD_Aeropuertos.cs</DependentUpon>
     </EmbeddedResource>

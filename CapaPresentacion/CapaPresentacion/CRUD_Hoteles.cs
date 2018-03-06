@@ -50,13 +50,11 @@ namespace CapaPresentacion
         private void Cargar_Combos()
         {
             Codigo_CRUD_Hoteles ccrud_comb = new Codigo_CRUD_Hoteles();
-            ccrud_comb.Cargar_Combos(CBox_Pais,CBox_Lugar);
-            CBox_Pais.SelectedIndex = 0;
+            ccrud_comb.Cargar_Combos(CBox_Lugar);
             CBox_Lugar.SelectedIndex = 0;
         }
         private void Limpiar_Ventana()
         {
-            CBox_Pais.Items.Clear();
             CBox_Lugar.Items.Clear();
             Btn_Reg.Enabled = true;
             Btn_mod.Enabled = false;
@@ -96,7 +94,7 @@ namespace CapaPresentacion
             Codigo_CRUD_Hoteles ccrud_hotel = new Codigo_CRUD_Hoteles();
             if (!Txt_Nombre.Text.Equals("") && !Txt_Habitaciones.Text.Equals("") && !txtCosto.Text.Equals("") && !imagen.Equals(""))
             {
-                bool registrado = ccrud_hotel.Agregar_Hotel(Txt_Nombre.Text, imagen, CBox_Pais.SelectedItem.ToString(), CBox_Lugar.SelectedItem.ToString(), Txt_Habitaciones.Text, txtCosto.Text);
+                bool registrado = ccrud_hotel.Agregar_Hotel(Txt_Nombre.Text, imagen, CBox_Lugar.SelectedItem.ToString(), Txt_Habitaciones.Text, txtCosto.Text);
                 if (registrado)
                 {
                     MessageBox.Show("Se ha registrado un nuevo hotel");
@@ -128,7 +126,7 @@ namespace CapaPresentacion
             if (!Txt_Nombre.Text.Equals(String.Empty) && !Txt_Habitaciones.Text.Equals(String.Empty) && !txtCosto.Text.Equals(String.Empty))
             {
                 Codigo_CRUD_Hoteles ccrud_hoteles = new Codigo_CRUD_Hoteles();
-                bool modificado = ccrud_hoteles.Modificar_Hotel(cod_hotel, imagen, Txt_Nombre.Text, CBox_Pais.SelectedItem.ToString(), CBox_Lugar.SelectedItem.ToString(), Txt_Habitaciones.Text, txtCosto.Text);
+                bool modificado = ccrud_hoteles.Modificar_Hotel(cod_hotel, imagen, Txt_Nombre.Text, CBox_Lugar.SelectedItem.ToString(), Txt_Habitaciones.Text, txtCosto.Text);
                 if (modificado)
                 {
                     MessageBox.Show("El hotel ha sido modificado");
@@ -178,10 +176,9 @@ namespace CapaPresentacion
             Txt_Nombre.Text = (string) list[1];
             imagen = (string) list[2];
             PBImagen.Image = Image.FromFile(imagen);
-            CBox_Pais.SelectedItem = list[3];
-            CBox_Lugar.SelectedItem = list[4];
-            Txt_Habitaciones.Text = list[5].ToString();
-            txtCosto.Text = (string) list[6].ToString();
+            CBox_Lugar.SelectedItem = list[3];
+            Txt_Habitaciones.Text = list[4].ToString();
+            txtCosto.Text = (string) list[5].ToString();
         }
 
         private void CRUD_Hoteles_Load_1(object sender, EventArgs e)

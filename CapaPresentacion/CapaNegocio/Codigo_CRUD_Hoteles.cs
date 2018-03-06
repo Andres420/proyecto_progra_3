@@ -8,22 +8,16 @@ namespace CapaNegocio
 {
     public class Codigo_CRUD_Hoteles
     {
-        string select = "SELECT ho.id_hotel, ho.nombre_hotel, pa.nombre_pais, lu.nombre, ho.habitaciones, pre.precio FROM hoteles AS ho INNER JOIN lugares AS lu" +
-" ON lu.id_lugar = ho.lugar_fk INNER JOIN paises AS pa ON pa.id_paises = ho.pais_fk INNER JOIN tarifas_hoteles AS pre ON pre.id_tarifa "+
+        string select = "SELECT ho.id_hotel, ho.nombre_hotel, lu.nombre, ho.habitaciones, pre.precio FROM hoteles AS ho INNER JOIN lugares AS lu" +
+" ON lu.id_lugar = ho.lugar_fk INNER JOIN tarifas_hoteles AS pre ON pre.id_tarifa "+
 " = ho.preciohab_fk ORDER BY id_hotel ASC;";
         /// <summary>
         /// This method charge information of the combobox of countries and places
         /// </summary>
-        /// <param name="cBox_Pais"></param>
         /// <param name="cBox_Lugar"></param>
-        public void Cargar_Combos(ComboBox cBox_Pais, ComboBox cBox_Lugar)
+        public void Cargar_Combos(ComboBox cBox_Lugar)
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
-            List<string> lista_paises = db_hoteles.Info_Combo_Pais();
-            foreach (string nombre_pais in lista_paises)
-            {
-                cBox_Pais.Items.Add(nombre_pais);
-            }
             List<string> lista_lugar = db_hoteles.Info_Combo_Lugares();
             foreach (string nombre_lugar in lista_lugar)
             {
@@ -82,10 +76,9 @@ namespace CapaNegocio
             dataGridView1.DataSource = dataSet.Tables[0];
             dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Hotel";
             dataGridView1.Columns[1].HeaderCell.Value = "Nombre Hotel";
-            dataGridView1.Columns[2].HeaderCell.Value = "Pais";
-            dataGridView1.Columns[3].HeaderCell.Value = "Lugar";
-            dataGridView1.Columns[4].HeaderCell.Value = "Habitaciones";
-            dataGridView1.Columns[5].HeaderCell.Value = "Precio";
+            dataGridView1.Columns[2].HeaderCell.Value = "Lugar";
+            dataGridView1.Columns[3].HeaderCell.Value = "Habitaciones";
+            dataGridView1.Columns[4].HeaderCell.Value = "Precio";
             DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
             imgCol.HeaderText = "Foto Hotel";
             imgCol.Name = "Foto Hotel";
@@ -99,12 +92,11 @@ namespace CapaNegocio
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="imagen"></param>
-        /// <param name="pais"></param>
         /// <param name="lugar"></param>
         /// <param name="habitaciones"></param>
         /// <param name="costo"></param>
         /// <returns>And return a boolean</returns>
-        public bool Agregar_Hotel(string nombre, string imagen, string pais, string lugar, string habitaciones,  string costo)
+        public bool Agregar_Hotel(string nombre, string imagen, string lugar, string habitaciones,  string costo)
         {
             bool agregado;
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
@@ -112,19 +104,19 @@ namespace CapaNegocio
             if (cod_tarifa == 0)
             {
                 int tarifa = db_hoteles.Agregar_Tarifa(costo);
-                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, pais, lugar, habitaciones, tarifa);
+                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, lugar, habitaciones, tarifa);
             }
             else
             {
-                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, pais, lugar, habitaciones, cod_tarifa);
+                agregado = db_hoteles.Agregar_Hotel(nombre, imagen, lugar, habitaciones, cod_tarifa);
             }
             return agregado;
         }
 
-        public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel, string pais, string lugar, string habitaciones, string precio)
+        public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel, string lugar, string habitaciones, string precio)
         {
             DB_CRUD_Hoteles db_hotel = new DB_CRUD_Hoteles();
-            return db_hotel.Modificar_Hotel(cod_hotel, imagen,nombre_hotel,pais,lugar,habitaciones,precio);
+            return db_hotel.Modificar_Hotel(cod_hotel, imagen,nombre_hotel,lugar,habitaciones,precio);
         }
 
         public bool Eliminar_Hotel(int codigo_hotel)

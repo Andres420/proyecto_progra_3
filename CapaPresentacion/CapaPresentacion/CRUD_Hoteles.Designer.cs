@@ -34,11 +34,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.PBImagen = new System.Windows.Forms.PictureBox();
             this.CBox_Lugar = new System.Windows.Forms.ComboBox();
-            this.CBox_Pais = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Txt_Habitaciones = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,11 +62,9 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.PBImagen);
             this.groupBox1.Controls.Add(this.CBox_Lugar);
-            this.groupBox1.Controls.Add(this.CBox_Pais);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.Txt_Habitaciones);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Txt_Nombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -81,7 +77,7 @@
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(89, 191);
+            this.txtCosto.Location = new System.Drawing.Point(89, 141);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 46;
@@ -90,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 194);
+            this.label1.Location = new System.Drawing.Point(6, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 45;
@@ -120,24 +116,15 @@
             // 
             this.CBox_Lugar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBox_Lugar.FormattingEnabled = true;
-            this.CBox_Lugar.Location = new System.Drawing.Point(89, 111);
+            this.CBox_Lugar.Location = new System.Drawing.Point(89, 61);
             this.CBox_Lugar.Name = "CBox_Lugar";
             this.CBox_Lugar.Size = new System.Drawing.Size(100, 21);
             this.CBox_Lugar.TabIndex = 42;
             // 
-            // CBox_Pais
-            // 
-            this.CBox_Pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBox_Pais.FormattingEnabled = true;
-            this.CBox_Pais.Location = new System.Drawing.Point(89, 66);
-            this.CBox_Pais.Name = "CBox_Pais";
-            this.CBox_Pais.Size = new System.Drawing.Size(100, 21);
-            this.CBox_Pais.TabIndex = 41;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 119);
+            this.label6.Location = new System.Drawing.Point(6, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 40;
@@ -146,7 +133,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 157);
+            this.label5.Location = new System.Drawing.Point(6, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 39;
@@ -154,20 +141,11 @@
             // 
             // Txt_Habitaciones
             // 
-            this.Txt_Habitaciones.Location = new System.Drawing.Point(89, 154);
+            this.Txt_Habitaciones.Location = new System.Drawing.Point(89, 104);
             this.Txt_Habitaciones.Name = "Txt_Habitaciones";
             this.Txt_Habitaciones.Size = new System.Drawing.Size(100, 20);
             this.Txt_Habitaciones.TabIndex = 38;
             this.Txt_Habitaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Habitaciones_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Pais";
             // 
             // Txt_Nombre
             // 
@@ -308,7 +286,6 @@
         private System.Windows.Forms.Button Btn_mod;
         private System.Windows.Forms.Button Btn_Reg;
         private System.Windows.Forms.TextBox Txt_Habitaciones;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Txt_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -316,7 +293,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox PBImagen;
         private System.Windows.Forms.ComboBox CBox_Lugar;
-        private System.Windows.Forms.ComboBox CBox_Pais;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

@@ -54,6 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnComprar = new System.Windows.Forms.Button();
             this.btnReservar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
@@ -79,7 +80,7 @@
             this.dataAeropuertos.Location = new System.Drawing.Point(15, 194);
             this.dataAeropuertos.Name = "dataAeropuertos";
             this.dataAeropuertos.ReadOnly = true;
-            this.dataAeropuertos.Size = new System.Drawing.Size(472, 237);
+            this.dataAeropuertos.Size = new System.Drawing.Size(577, 237);
             this.dataAeropuertos.TabIndex = 2;
             // 
             // menuStrip1
@@ -134,7 +135,7 @@
             // chbHotel
             // 
             this.chbHotel.AutoSize = true;
-            this.chbHotel.Location = new System.Drawing.Point(523, 52);
+            this.chbHotel.Location = new System.Drawing.Point(598, 54);
             this.chbHotel.Name = "chbHotel";
             this.chbHotel.Size = new System.Drawing.Size(91, 17);
             this.chbHotel.TabIndex = 7;
@@ -144,7 +145,7 @@
             // chbVehiculo
             // 
             this.chbVehiculo.AutoSize = true;
-            this.chbVehiculo.Location = new System.Drawing.Point(620, 52);
+            this.chbVehiculo.Location = new System.Drawing.Point(695, 54);
             this.chbVehiculo.Name = "chbVehiculo";
             this.chbVehiculo.Size = new System.Drawing.Size(107, 17);
             this.chbVehiculo.TabIndex = 8;
@@ -156,14 +157,16 @@
             this.dataHoteles.AllowUserToAddRows = false;
             this.dataHoteles.AllowUserToDeleteRows = false;
             this.dataHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataHoteles.Location = new System.Drawing.Point(523, 77);
+            this.dataHoteles.Location = new System.Drawing.Point(598, 77);
             this.dataHoteles.Name = "dataHoteles";
             this.dataHoteles.ReadOnly = true;
-            this.dataHoteles.Size = new System.Drawing.Size(472, 206);
+            this.dataHoteles.Size = new System.Drawing.Size(397, 206);
             this.dataHoteles.TabIndex = 9;
             // 
             // txtOrigen
             // 
+            this.txtOrigen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtOrigen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtOrigen.Location = new System.Drawing.Point(126, 38);
             this.txtOrigen.Name = "txtOrigen";
             this.txtOrigen.Size = new System.Drawing.Size(119, 20);
@@ -171,6 +174,8 @@
             // 
             // txtDestino
             // 
+            this.txtDestino.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDestino.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDestino.Location = new System.Drawing.Point(368, 36);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(119, 20);
@@ -181,10 +186,10 @@
             this.dataVehiculo.AllowUserToAddRows = false;
             this.dataVehiculo.AllowUserToDeleteRows = false;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataVehiculo.Location = new System.Drawing.Point(523, 289);
+            this.dataVehiculo.Location = new System.Drawing.Point(598, 289);
             this.dataVehiculo.Name = "dataVehiculo";
             this.dataVehiculo.ReadOnly = true;
-            this.dataVehiculo.Size = new System.Drawing.Size(472, 142);
+            this.dataVehiculo.Size = new System.Drawing.Size(397, 142);
             this.dataVehiculo.TabIndex = 12;
             // 
             // label3
@@ -222,7 +227,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(385, 79);
+            this.label5.Location = new System.Drawing.Point(445, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 18;
@@ -230,7 +235,7 @@
             // 
             // spAdultos
             // 
-            this.spAdultos.Location = new System.Drawing.Point(433, 77);
+            this.spAdultos.Location = new System.Drawing.Point(493, 75);
             this.spAdultos.Name = "spAdultos";
             this.spAdultos.ReadOnly = true;
             this.spAdultos.Size = new System.Drawing.Size(54, 20);
@@ -240,7 +245,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(385, 103);
+            this.label6.Location = new System.Drawing.Point(445, 101);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 18;
@@ -248,7 +253,7 @@
             // 
             // spNinos
             // 
-            this.spNinos.Location = new System.Drawing.Point(433, 101);
+            this.spNinos.Location = new System.Drawing.Point(493, 99);
             this.spNinos.Name = "spNinos";
             this.spNinos.ReadOnly = true;
             this.spNinos.Size = new System.Drawing.Size(54, 20);
@@ -258,7 +263,7 @@
             // txtHabitaciones
             // 
             this.txtHabitaciones.Enabled = false;
-            this.txtHabitaciones.Location = new System.Drawing.Point(433, 127);
+            this.txtHabitaciones.Location = new System.Drawing.Point(493, 125);
             this.txtHabitaciones.Name = "txtHabitaciones";
             this.txtHabitaciones.Size = new System.Drawing.Size(54, 20);
             this.txtHabitaciones.TabIndex = 21;
@@ -267,7 +272,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(358, 130);
+            this.label7.Location = new System.Drawing.Point(418, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 20;
@@ -291,11 +296,22 @@
             this.btnReservar.Text = "Reservar";
             this.btnReservar.UseVisualStyleBackColor = true;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(493, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(99, 23);
+            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 583);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.txtHabitaciones);
@@ -321,6 +337,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfaz_Vuelos";
             this.Text = "Interfaz Vuelos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Interfaz_Vuelos_FormClosed);
+            this.Load += new System.EventHandler(this.Interfaz_Vuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -361,5 +379,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Button btnReservar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

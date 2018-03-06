@@ -40,9 +40,9 @@ namespace CapaPresentacion
                 {
                     if (usuario.getTipo)
                     {
-                        //Alojamiento alo = new Alojamiento(usuario);
-                      //  alo.Show();
+                        Interfaz_Vuelos iv = new Interfaz_Vuelos(usuario);
                         this.Dispose();
+                        iv.ShowDialog();
                     }
                     else
                     {

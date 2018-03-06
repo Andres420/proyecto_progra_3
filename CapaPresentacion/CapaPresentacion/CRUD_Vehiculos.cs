@@ -23,7 +23,7 @@ namespace CapaPresentacion
             Codigo_CRUD_Vehiculos cv = new Codigo_CRUD_Vehiculos();
             dataGridView1.Columns.Clear();
             cv.Cargar_Grid(dataGridView1);
-            dataGridView1.CurrentRow.Selected = false;
+            //dataGridView1.CurrentRow.Selected = false;
         }
 
         private void CRUD_Vehiculos_Load(object sender, EventArgs e)

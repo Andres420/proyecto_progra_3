@@ -20,7 +20,7 @@ namespace CapaPresentacion
             InitializeComponent();
             this.usuario = usuario;
         }
-
+        
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -55,6 +55,23 @@ namespace CapaPresentacion
             Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
             txtHabitaciones.Text = civ.Cantidad_Habitaciones(Decimal.ToInt32(spAdultos.Value), Decimal.ToInt32(spNinos.Value));
             //hacer el cambio en el vehiculo
+        }
+
+        private void Interfaz_Vuelos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Interfaz_Vuelos_Load(object sender, EventArgs e)
+        {
+            Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
+            civ.Cargar_AutoCompletar(txtOrigen, txtDestino);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
+            civ.Buscar_Vuelos(dataAeropuertos,txtOrigen.Text.ToString(),txtDestino.Text.ToString());
         }
     }
 }

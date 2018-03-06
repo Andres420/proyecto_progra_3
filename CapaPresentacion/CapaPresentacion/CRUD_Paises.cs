@@ -59,7 +59,7 @@ namespace CapaPresentacion
             dataGridView1.Columns.Clear();
             cp.Cargar_Grid(dataGridView1);
             Cargar_Bandera();
-            dataGridView1.CurrentRow.Selected = false;
+            //dataGridView1.CurrentRow.Selected = false;
         }
 
         public void Cargar_Bandera()

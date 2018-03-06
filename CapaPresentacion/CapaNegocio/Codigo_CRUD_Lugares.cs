@@ -12,16 +12,17 @@ namespace CapaNegocio
 {
     public class Codigo_CRUD_Lugares
     {
-        string select = "SELECT id_lugar, nombre FROM lugares ORDER BY nombre ASC;";
+        NpgsqlCommand cmd;
+        string select = "SELECT lu.id_lugar,lu.nombre, pa.nombre_pais FROM lugares AS lu INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk ORDER BY lu.id_lugar ASC;";
         /// <summary>
         /// This method send the name of a place for other method
         /// </summary>
         /// <param name="nombre_lugar"></param>
         /// <returns>And return a boolean</returns>
-        public bool Agregar_Lugar(string nombre_lugar)
+        public bool Agregar_Lugar(string nombre_lugar,string pais)
         {
             DB_CRUD_Lugares db_lugares = new DB_CRUD_Lugares();
-            bool agregado = db_lugares.Agregar_Lugar(nombre_lugar);
+            bool agregado = db_lugares.Agregar_Lugar(nombre_lugar,pais);
             return agregado;
         }
 
@@ -36,9 +37,37 @@ namespace CapaNegocio
                 dataGridView1.DataSource = dataSet.Tables[0];
                 dataGridView1.Columns[0].HeaderCell.Value = "Identificacion Lugar";
                 dataGridView1.Columns[1].HeaderCell.Value = "Nombre Lugar";
+                dataGridView1.Columns[2].HeaderCell.Value = "Pais";
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
                 conn.Close();
+        }
+
+        public void Cargar_Combobox(ComboBox cbPaises)
+        {
+            DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
+            NpgsqlConnection conn = db_hoteles.Conexion();
+            NpgsqlDataReader dr = null;
+            try
+            {
+                
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT nombre_pais FROM paises;", conn);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cbPaises.Items.Add(dr[0].ToString());
+                }
+                dr.Close();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dr.Close();
+                conn.Close();
+                Console.WriteLine("asa" + ex);
+            }
+            
         }
 
         /// <summary>
@@ -58,10 +87,10 @@ namespace CapaNegocio
         /// <param name="cod_lugar"></param>
         /// <param name="nombre_lugar"></param>
         /// <returns>And return a boolean</returns>
-        public bool Modifcar_Lugar(int cod_lugar, string nombre_lugar)
+        public bool Modifcar_Lugar(int cod_lugar, string nombre_lugar,string nombre_pais)
         {
             DB_CRUD_Lugares db_lugares = new DB_CRUD_Lugares();
-            bool modificado = db_lugares.Modificar_Lugar(cod_lugar , nombre_lugar);
+            bool modificado = db_lugares.Modificar_Lugar(cod_lugar , nombre_lugar, nombre_pais);
             return modificado;
         }
     }

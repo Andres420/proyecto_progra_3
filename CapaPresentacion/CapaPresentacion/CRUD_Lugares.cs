@@ -17,6 +17,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             Cargar_Data_Grid();
+            Cargar_Combo();
         }
         private void Cargar_Data_Grid()
         {
@@ -33,18 +34,28 @@ namespace CapaPresentacion
             Btn_mod.Enabled = false;
             Btn_Limpiar.Enabled = false;
             Btn_Reg.Enabled = true;
+            cbPaises.Items.Clear();
             Txt_Nombre.Clear();
             cod_lugar = 0;
+            Cargar_Combo();
             dataGridView1.Columns.Clear();
             Cargar_Data_Grid();
         }
+
+        private void Cargar_Combo()
+        {
+            Codigo_CRUD_Lugares ccl = new Codigo_CRUD_Lugares();
+            ccl.Cargar_Combobox(cbPaises);
+            cbPaises.SelectedIndex = 0;
+        }
+
         private void Btn_Reg_Click(object sender, EventArgs e)
         {
             string nombre_lugar = Txt_Nombre.Text;
             if (!nombre_lugar.Equals(""))
             {
                 Codigo_CRUD_Lugares ccrud_lugares = new Codigo_CRUD_Lugares();
-                bool agregado = ccrud_lugares.Agregar_Lugar(nombre_lugar);
+                bool agregado = ccrud_lugares.Agregar_Lugar(nombre_lugar,cbPaises.SelectedItem.ToString());
                 if (agregado)
                 {
                     MessageBox.Show("Lugar registrado");
@@ -70,6 +81,7 @@ namespace CapaPresentacion
             Btn_Reg.Enabled = false;
             cod_lugar = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             Txt_Nombre.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            cbPaises.SelectedItem = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void Btn_Eliminar_Click(object sender, EventArgs e)
@@ -92,7 +104,7 @@ namespace CapaPresentacion
             if (cod_lugar != 0 && !Txt_Nombre.Text.Equals(""))
             {
                 Codigo_CRUD_Lugares ccrud_lugares = new Codigo_CRUD_Lugares();
-                bool modificado = ccrud_lugares.Modifcar_Lugar(cod_lugar, Txt_Nombre.Text);
+                bool modificado = ccrud_lugares.Modifcar_Lugar(cod_lugar, Txt_Nombre.Text,cbPaises.SelectedItem.ToString());
                 Limpiar_Ventanas();
                 if (modificado)
                 {

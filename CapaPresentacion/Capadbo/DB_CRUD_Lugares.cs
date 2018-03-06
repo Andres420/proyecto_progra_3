@@ -16,14 +16,14 @@ namespace Capadbo
         /// </summary>
         /// <param name="nombre_lugar"></param>
         /// <returns>And return a boolean</returns>
-        public bool Agregar_Lugar(string nombre_lugar)
+        public bool Agregar_Lugar(string nombre_lugar,string pais)
         {
             bool agregado = false;
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO lugares (nombre) VALUES ('" + nombre_lugar + "');", conn);
+                cmd = new NpgsqlCommand("INSERT INTO lugares (nombre,id_paisfk) VALUES ('" + nombre_lugar + "',(SELECT id_pais FROM paises WHERE nombre_pais = '" + pais + "'));", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 agregado = true;
@@ -67,14 +67,14 @@ namespace Capadbo
         /// <param name="cod_lugar"></param>
         /// <param name="nombre_lugar"></param>
         /// <returns>And return a boolean</returns>
-        public bool Modificar_Lugar(int cod_lugar, string nombre_lugar)
+        public bool Modificar_Lugar(int cod_lugar, string nombre_lugar,string nombre_pais)
         {
             bool modificado = false;
             try
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '" + nombre_lugar + "' WHERE id_lugar = " + cod_lugar + ";", conn);
+                cmd = new NpgsqlCommand("UPDATE lugares SET nombre = '"+nombre_lugar+"',id_paisfk = (SELECT id_paises FROM paises WHERE nombre_pais = '"+nombre_pais+"') WHERE id_lugar = "+cod_lugar+";", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 modificado = true;

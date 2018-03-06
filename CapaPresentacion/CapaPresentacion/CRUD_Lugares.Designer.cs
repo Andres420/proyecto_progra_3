@@ -38,6 +38,8 @@
             this.Btn_Reg = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbPaises = new System.Windows.Forms.ComboBox();
             this.Lugares.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -46,6 +48,8 @@
             // 
             // Lugares
             // 
+            this.Lugares.Controls.Add(this.cbPaises);
+            this.Lugares.Controls.Add(this.label1);
             this.Lugares.Controls.Add(this.Txt_Nombre);
             this.Lugares.Controls.Add(this.label2);
             this.Lugares.Location = new System.Drawing.Point(12, 12);
@@ -148,6 +152,24 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Pais que pertence";
+            // 
+            // cbPaises
+            // 
+            this.cbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaises.FormattingEnabled = true;
+            this.cbPaises.Location = new System.Drawing.Point(112, 111);
+            this.cbPaises.Name = "cbPaises";
+            this.cbPaises.Size = new System.Drawing.Size(121, 21);
+            this.cbPaises.TabIndex = 24;
+            // 
             // CRUD_Lugares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,5 +203,7 @@
         private System.Windows.Forms.Button Btn_Reg;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbPaises;
+        private System.Windows.Forms.Label label1;
     }
 }

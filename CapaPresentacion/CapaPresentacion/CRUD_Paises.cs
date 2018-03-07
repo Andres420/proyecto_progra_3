@@ -17,6 +17,7 @@ namespace CapaPresentacion
         public CRUD_Paises()
         {
             InitializeComponent();
+          
         }
 
         private void Btn_Imagen_Click(object sender, EventArgs e)
@@ -59,7 +60,11 @@ namespace CapaPresentacion
             dataGridView1.Columns.Clear();
             cp.Cargar_Grid(dataGridView1);
             Cargar_Bandera();
-            //dataGridView1.CurrentRow.Selected = false;
+            foreach (DataGridViewColumn dgvc in dataGridView1.Columns)
+            {
+                dgvc.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
         }
 
         public void Cargar_Bandera()

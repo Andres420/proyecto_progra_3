@@ -19,6 +19,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             Limpiar_Ventana();
+            
         }
 
         public void Cargar_Data_Grid()
@@ -28,9 +29,13 @@ namespace CapaPresentacion
             ccrud_hoteles.Cargar_Data_Grid(dataGridView1);
             Cargar_Foto();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            foreach (DataGridViewColumn dgvc in dataGridView1.Columns)
+            {
+                dgvc.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
-        public void Cargar_Foto()
+    public void Cargar_Foto()
         {
             Codigo_CRUD_Hoteles ccrudhotel = new Codigo_CRUD_Hoteles();
             List<object> lista = new List<object>();

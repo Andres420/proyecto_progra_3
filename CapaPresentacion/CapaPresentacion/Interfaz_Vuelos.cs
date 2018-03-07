@@ -70,8 +70,16 @@ namespace CapaPresentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
-            civ.Buscar_Vuelos(dataAeropuertos,txtOrigen.Text.ToString(),txtDestino.Text.ToString());
+            if (!txtOrigen.Equals(String.Empty) && !txtDestino.Equals(String.Empty) && txtOrigen.Text != txtDestino.Text)
+            {
+                Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
+                civ.Buscar_Vuelos(dataAeropuertos, txtOrigen.Text.ToString(), txtDestino.Text.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Rellene los espacios");
+            }
+            
         }
     }
 }

@@ -55,6 +55,12 @@
             this.btnComprar = new System.Windows.Forms.Button();
             this.btnReservar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.Ruta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais_Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Escala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
@@ -77,10 +83,17 @@
             this.dataAeropuertos.AllowUserToAddRows = false;
             this.dataAeropuertos.AllowUserToDeleteRows = false;
             this.dataAeropuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataAeropuertos.Location = new System.Drawing.Point(15, 194);
+            this.dataAeropuertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ruta,
+            this.Pais_Origen,
+            this.Pais_Destino,
+            this.Escala,
+            this.Duracion,
+            this.Precio});
+            this.dataAeropuertos.Location = new System.Drawing.Point(12, 194);
             this.dataAeropuertos.Name = "dataAeropuertos";
             this.dataAeropuertos.ReadOnly = true;
-            this.dataAeropuertos.Size = new System.Drawing.Size(577, 237);
+            this.dataAeropuertos.Size = new System.Drawing.Size(588, 237);
             this.dataAeropuertos.TabIndex = 2;
             // 
             // menuStrip1
@@ -89,7 +102,7 @@
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1157, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,10 +170,10 @@
             this.dataHoteles.AllowUserToAddRows = false;
             this.dataHoteles.AllowUserToDeleteRows = false;
             this.dataHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataHoteles.Location = new System.Drawing.Point(598, 77);
+            this.dataHoteles.Location = new System.Drawing.Point(609, 77);
             this.dataHoteles.Name = "dataHoteles";
             this.dataHoteles.ReadOnly = true;
-            this.dataHoteles.Size = new System.Drawing.Size(397, 206);
+            this.dataHoteles.Size = new System.Drawing.Size(536, 206);
             this.dataHoteles.TabIndex = 9;
             // 
             // txtOrigen
@@ -186,10 +199,10 @@
             this.dataVehiculo.AllowUserToAddRows = false;
             this.dataVehiculo.AllowUserToDeleteRows = false;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataVehiculo.Location = new System.Drawing.Point(598, 289);
+            this.dataVehiculo.Location = new System.Drawing.Point(609, 289);
             this.dataVehiculo.Name = "dataVehiculo";
             this.dataVehiculo.ReadOnly = true;
-            this.dataVehiculo.Size = new System.Drawing.Size(397, 142);
+            this.dataVehiculo.Size = new System.Drawing.Size(536, 142);
             this.dataVehiculo.TabIndex = 12;
             // 
             // label3
@@ -306,11 +319,53 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // Ruta
+            // 
+            this.Ruta.DataPropertyName = "id_ruta";
+            this.Ruta.HeaderText = "Ruta";
+            this.Ruta.Name = "Ruta";
+            this.Ruta.ReadOnly = true;
+            // 
+            // Pais_Origen
+            // 
+            this.Pais_Origen.DataPropertyName = "pais_origen";
+            this.Pais_Origen.HeaderText = "Pais Origen";
+            this.Pais_Origen.Name = "Pais_Origen";
+            this.Pais_Origen.ReadOnly = true;
+            // 
+            // Pais_Destino
+            // 
+            this.Pais_Destino.DataPropertyName = "pais_destino";
+            this.Pais_Destino.HeaderText = "Pais Destino";
+            this.Pais_Destino.Name = "Pais_Destino";
+            this.Pais_Destino.ReadOnly = true;
+            // 
+            // Escala
+            // 
+            this.Escala.DataPropertyName = "escala";
+            this.Escala.HeaderText = "Escala";
+            this.Escala.Name = "Escala";
+            this.Escala.ReadOnly = true;
+            // 
+            // Duracion
+            // 
+            this.Duracion.DataPropertyName = "duracion";
+            this.Duracion.HeaderText = "Duracion";
+            this.Duracion.Name = "Duracion";
+            this.Duracion.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 583);
+            this.ClientSize = new System.Drawing.Size(1157, 583);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.btnComprar);
@@ -380,5 +435,11 @@
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Button btnReservar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ruta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pais_Origen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pais_Destino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Escala;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }

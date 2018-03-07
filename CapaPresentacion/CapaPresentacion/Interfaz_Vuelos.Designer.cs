@@ -148,7 +148,7 @@
             // chbHotel
             // 
             this.chbHotel.AutoSize = true;
-            this.chbHotel.Location = new System.Drawing.Point(598, 54);
+            this.chbHotel.Location = new System.Drawing.Point(609, 54);
             this.chbHotel.Name = "chbHotel";
             this.chbHotel.Size = new System.Drawing.Size(91, 17);
             this.chbHotel.TabIndex = 7;
@@ -158,7 +158,7 @@
             // chbVehiculo
             // 
             this.chbVehiculo.AutoSize = true;
-            this.chbVehiculo.Location = new System.Drawing.Point(695, 54);
+            this.chbVehiculo.Location = new System.Drawing.Point(706, 54);
             this.chbVehiculo.Name = "chbVehiculo";
             this.chbVehiculo.Size = new System.Drawing.Size(107, 17);
             this.chbVehiculo.TabIndex = 8;
@@ -293,7 +293,7 @@
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(284, 475);
+            this.btnComprar.Location = new System.Drawing.Point(409, 467);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(183, 69);
             this.btnComprar.TabIndex = 22;
@@ -302,7 +302,7 @@
             // 
             // btnReservar
             // 
-            this.btnReservar.Location = new System.Drawing.Point(473, 475);
+            this.btnReservar.Location = new System.Drawing.Point(598, 467);
             this.btnReservar.Name = "btnReservar";
             this.btnReservar.Size = new System.Drawing.Size(183, 69);
             this.btnReservar.TabIndex = 22;

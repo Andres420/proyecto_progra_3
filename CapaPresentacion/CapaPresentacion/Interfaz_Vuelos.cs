@@ -15,6 +15,7 @@ namespace CapaPresentacion
     public partial class Interfaz_Vuelos : Form
     {
         Usuario usuario;
+
         public Interfaz_Vuelos(Usuario usuario)
         {
             InitializeComponent();
@@ -36,11 +37,6 @@ namespace CapaPresentacion
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Hotel();
-        }
-
-        private void spAdultos_MouseClick(object sender, MouseEventArgs e)
-        {
-            
         }
 
         private void spAdultos_ValueChanged(object sender, EventArgs e)
@@ -81,6 +77,7 @@ namespace CapaPresentacion
             }
             
         }
+
         public void Hotel()
         {
             string[] lugar = txtDestino.Text.Split(',');
@@ -94,10 +91,12 @@ namespace CapaPresentacion
                 dataHoteles.Columns.Clear();
             }
         }
+
         private void chbHotel_CheckedChanged(object sender, EventArgs e)
         {
             Hotel();
         }
+
         public void Cambiar_Vehiculos()
         {
             if (chbVehiculo.Checked)
@@ -110,9 +109,11 @@ namespace CapaPresentacion
                 dataVehiculo.Columns.Clear();
             }
         }
+
         private void chbVehiculo_CheckedChanged(object sender, EventArgs e)
         {
             Cambiar_Vehiculos();
         }
+
     }
 }

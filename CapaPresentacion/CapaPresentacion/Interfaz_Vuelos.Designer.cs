@@ -30,6 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataAeropuertos = new System.Windows.Forms.DataGridView();
+            this.Ruta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais_Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Escala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,18 +61,27 @@
             this.btnComprar = new System.Windows.Forms.Button();
             this.btnReservar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.Ruta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pais_Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pais_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Escala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbHotel = new System.Windows.Forms.PictureBox();
+            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_ve = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataVehiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spAdultos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNinos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHotel)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +97,7 @@
             // 
             this.dataAeropuertos.AllowUserToAddRows = false;
             this.dataAeropuertos.AllowUserToDeleteRows = false;
+            this.dataAeropuertos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataAeropuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataAeropuertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ruta,
@@ -93,8 +109,50 @@
             this.dataAeropuertos.Location = new System.Drawing.Point(12, 194);
             this.dataAeropuertos.Name = "dataAeropuertos";
             this.dataAeropuertos.ReadOnly = true;
-            this.dataAeropuertos.Size = new System.Drawing.Size(588, 237);
+            this.dataAeropuertos.Size = new System.Drawing.Size(588, 365);
             this.dataAeropuertos.TabIndex = 2;
+            // 
+            // Ruta
+            // 
+            this.Ruta.DataPropertyName = "id_ruta";
+            this.Ruta.HeaderText = "Ruta";
+            this.Ruta.Name = "Ruta";
+            this.Ruta.ReadOnly = true;
+            // 
+            // Pais_Origen
+            // 
+            this.Pais_Origen.DataPropertyName = "pais_origen";
+            this.Pais_Origen.HeaderText = "Pais Origen";
+            this.Pais_Origen.Name = "Pais_Origen";
+            this.Pais_Origen.ReadOnly = true;
+            // 
+            // Pais_Destino
+            // 
+            this.Pais_Destino.DataPropertyName = "pais_destino";
+            this.Pais_Destino.HeaderText = "Pais Destino";
+            this.Pais_Destino.Name = "Pais_Destino";
+            this.Pais_Destino.ReadOnly = true;
+            // 
+            // Escala
+            // 
+            this.Escala.DataPropertyName = "escala";
+            this.Escala.HeaderText = "Escala";
+            this.Escala.Name = "Escala";
+            this.Escala.ReadOnly = true;
+            // 
+            // Duracion
+            // 
+            this.Duracion.DataPropertyName = "duracion";
+            this.Duracion.HeaderText = "Duracion";
+            this.Duracion.Name = "Duracion";
+            this.Duracion.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -102,7 +160,7 @@
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1157, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1197, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,20 +177,20 @@
             // verReservasToolStripMenuItem
             // 
             this.verReservasToolStripMenuItem.Name = "verReservasToolStripMenuItem";
-            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verReservasToolStripMenuItem.Text = "Ver Reservas";
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -154,6 +212,7 @@
             this.chbHotel.TabIndex = 7;
             this.chbHotel.Text = "Agregar Hotel";
             this.chbHotel.UseVisualStyleBackColor = true;
+            this.chbHotel.CheckedChanged += new System.EventHandler(this.chbHotel_CheckedChanged);
             // 
             // chbVehiculo
             // 
@@ -164,16 +223,26 @@
             this.chbVehiculo.TabIndex = 8;
             this.chbVehiculo.Text = "Agregar Vehiculo";
             this.chbVehiculo.UseVisualStyleBackColor = true;
+            this.chbVehiculo.CheckedChanged += new System.EventHandler(this.chbVehiculo_CheckedChanged);
             // 
             // dataHoteles
             // 
             this.dataHoteles.AllowUserToAddRows = false;
             this.dataHoteles.AllowUserToDeleteRows = false;
+            this.dataHoteles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataHoteles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nombre_pais,
+            this.lugar,
+            this.nombre_hotel,
+            this.habitaciones,
+            this.precio_h,
+            this.puntuacion});
             this.dataHoteles.Location = new System.Drawing.Point(609, 77);
             this.dataHoteles.Name = "dataHoteles";
             this.dataHoteles.ReadOnly = true;
-            this.dataHoteles.Size = new System.Drawing.Size(536, 206);
+            this.dataHoteles.Size = new System.Drawing.Size(576, 206);
             this.dataHoteles.TabIndex = 9;
             // 
             // txtOrigen
@@ -198,11 +267,19 @@
             // 
             this.dataVehiculo.AllowUserToAddRows = false;
             this.dataVehiculo.AllowUserToDeleteRows = false;
+            this.dataVehiculo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataVehiculo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_vehiculo,
+            this.marca,
+            this.modelo,
+            this.capacidad,
+            this.precio_ve,
+            this.cantidad});
             this.dataVehiculo.Location = new System.Drawing.Point(609, 289);
             this.dataVehiculo.Name = "dataVehiculo";
             this.dataVehiculo.ReadOnly = true;
-            this.dataVehiculo.Size = new System.Drawing.Size(536, 142);
+            this.dataVehiculo.Size = new System.Drawing.Size(382, 270);
             this.dataVehiculo.TabIndex = 12;
             // 
             // label3
@@ -249,10 +326,20 @@
             // spAdultos
             // 
             this.spAdultos.Location = new System.Drawing.Point(493, 75);
+            this.spAdultos.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spAdultos.Name = "spAdultos";
             this.spAdultos.ReadOnly = true;
             this.spAdultos.Size = new System.Drawing.Size(54, 20);
             this.spAdultos.TabIndex = 19;
+            this.spAdultos.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spAdultos.ValueChanged += new System.EventHandler(this.spAdultos_ValueChanged);
             // 
             // label6
@@ -280,6 +367,7 @@
             this.txtHabitaciones.Name = "txtHabitaciones";
             this.txtHabitaciones.Size = new System.Drawing.Size(54, 20);
             this.txtHabitaciones.TabIndex = 21;
+            this.txtHabitaciones.Text = "1";
             this.txtHabitaciones.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label7
@@ -293,18 +381,18 @@
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(409, 467);
+            this.btnComprar.Location = new System.Drawing.Point(1002, 524);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(183, 69);
+            this.btnComprar.Size = new System.Drawing.Size(183, 35);
             this.btnComprar.TabIndex = 22;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
             // 
             // btnReservar
             // 
-            this.btnReservar.Location = new System.Drawing.Point(598, 467);
+            this.btnReservar.Location = new System.Drawing.Point(1002, 483);
             this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(183, 69);
+            this.btnReservar.Size = new System.Drawing.Size(183, 35);
             this.btnReservar.TabIndex = 22;
             this.btnReservar.Text = "Reservar";
             this.btnReservar.UseVisualStyleBackColor = true;
@@ -319,53 +407,112 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // Ruta
+            // id
             // 
-            this.Ruta.DataPropertyName = "id_ruta";
-            this.Ruta.HeaderText = "Ruta";
-            this.Ruta.Name = "Ruta";
-            this.Ruta.ReadOnly = true;
+            this.id.DataPropertyName = "id_hotel";
+            this.id.HeaderText = "Id_hotel";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
-            // Pais_Origen
+            // nombre_pais
             // 
-            this.Pais_Origen.DataPropertyName = "pais_origen";
-            this.Pais_Origen.HeaderText = "Pais Origen";
-            this.Pais_Origen.Name = "Pais_Origen";
-            this.Pais_Origen.ReadOnly = true;
+            this.nombre_pais.DataPropertyName = "nombre_pais";
+            this.nombre_pais.HeaderText = "Pais";
+            this.nombre_pais.Name = "nombre_pais";
+            this.nombre_pais.ReadOnly = true;
             // 
-            // Pais_Destino
+            // lugar
             // 
-            this.Pais_Destino.DataPropertyName = "pais_destino";
-            this.Pais_Destino.HeaderText = "Pais Destino";
-            this.Pais_Destino.Name = "Pais_Destino";
-            this.Pais_Destino.ReadOnly = true;
+            this.lugar.DataPropertyName = "nombre_lugar";
+            this.lugar.HeaderText = "Lugar";
+            this.lugar.Name = "lugar";
+            this.lugar.ReadOnly = true;
             // 
-            // Escala
+            // nombre_hotel
             // 
-            this.Escala.DataPropertyName = "escala";
-            this.Escala.HeaderText = "Escala";
-            this.Escala.Name = "Escala";
-            this.Escala.ReadOnly = true;
+            this.nombre_hotel.DataPropertyName = "nombre_hotel";
+            this.nombre_hotel.HeaderText = "Hotel";
+            this.nombre_hotel.Name = "nombre_hotel";
+            this.nombre_hotel.ReadOnly = true;
             // 
-            // Duracion
+            // habitaciones
             // 
-            this.Duracion.DataPropertyName = "duracion";
-            this.Duracion.HeaderText = "Duracion";
-            this.Duracion.Name = "Duracion";
-            this.Duracion.ReadOnly = true;
+            this.habitaciones.DataPropertyName = "habitaciones";
+            this.habitaciones.HeaderText = "Habitaciones";
+            this.habitaciones.Name = "habitaciones";
+            this.habitaciones.ReadOnly = true;
             // 
-            // Precio
+            // precio_h
             // 
-            this.Precio.DataPropertyName = "precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
+            this.precio_h.DataPropertyName = "precio";
+            this.precio_h.HeaderText = "Precio";
+            this.precio_h.Name = "precio_h";
+            this.precio_h.ReadOnly = true;
+            // 
+            // puntuacion
+            // 
+            this.puntuacion.DataPropertyName = "puntuacion";
+            this.puntuacion.HeaderText = "Puntuacion";
+            this.puntuacion.Name = "puntuacion";
+            this.puntuacion.ReadOnly = true;
+            // 
+            // pbHotel
+            // 
+            this.pbHotel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbHotel.Location = new System.Drawing.Point(1002, 289);
+            this.pbHotel.Name = "pbHotel";
+            this.pbHotel.Size = new System.Drawing.Size(175, 133);
+            this.pbHotel.TabIndex = 24;
+            this.pbHotel.TabStop = false;
+            // 
+            // id_vehiculo
+            // 
+            this.id_vehiculo.DataPropertyName = "id_vehiculo";
+            this.id_vehiculo.HeaderText = "Placa";
+            this.id_vehiculo.Name = "id_vehiculo";
+            this.id_vehiculo.ReadOnly = true;
+            // 
+            // marca
+            // 
+            this.marca.DataPropertyName = "marca";
+            this.marca.HeaderText = "Marca";
+            this.marca.Name = "marca";
+            this.marca.ReadOnly = true;
+            // 
+            // modelo
+            // 
+            this.modelo.DataPropertyName = "modelo";
+            this.modelo.HeaderText = "Modelo";
+            this.modelo.Name = "modelo";
+            this.modelo.ReadOnly = true;
+            // 
+            // capacidad
+            // 
+            this.capacidad.DataPropertyName = "capacidad";
+            this.capacidad.HeaderText = "Capacidad";
+            this.capacidad.Name = "capacidad";
+            this.capacidad.ReadOnly = true;
+            // 
+            // precio_ve
+            // 
+            this.precio_ve.DataPropertyName = "precio";
+            this.precio_ve.HeaderText = "Precio";
+            this.precio_ve.Name = "precio_ve";
+            this.precio_ve.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.DataPropertyName = "cantidad";
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
             // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 583);
+            this.ClientSize = new System.Drawing.Size(1197, 583);
+            this.Controls.Add(this.pbHotel);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.btnComprar);
@@ -401,6 +548,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataVehiculo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spAdultos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNinos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHotel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,5 +589,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Escala;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_pais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_hotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn habitaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_h;
+        private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
+        private System.Windows.Forms.PictureBox pbHotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_vehiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn capacidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_ve;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
     }
 }

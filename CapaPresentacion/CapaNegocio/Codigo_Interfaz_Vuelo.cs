@@ -29,6 +29,7 @@ namespace CapaNegocio
             }
             return habitaciones.ToString();
         }
+
         public void Cargar_AutoCompletar(TextBox txtBuscador_Origen, TextBox txtBuscador_Destino)
         {
             DB_Interfaz_Vuelo db_vuelo = new DB_Interfaz_Vuelo();
@@ -42,6 +43,36 @@ namespace CapaNegocio
             String[] destino_db = destino.Split(',');
             List<Vuelo> list =db_vuelo.Cargar_Vuelos(origen_db[0].ToString(),destino_db[0].ToString());
             dataAeropuertos.DataSource = list;
+            if (list.Count() > 0)
+            {
+                dataAeropuertos.CurrentRow.Selected = false;
+            }
+        }
+
+        public void Cargar_AutoCompletar_Hoteles(DataGridView dataHoteles, string lugar, int habitaciones)
+        {
+            if (!lugar.Equals(String.Empty))
+            {
+                DB_Interfaz_Vuelo db_vuelo = new DB_Interfaz_Vuelo();
+                List<Hotel> hoteles = db_vuelo.Cargar_Hoteles(lugar,habitaciones);
+                dataHoteles.DataSource = hoteles;
+                if (hoteles.Count() > 0)
+                {
+                    dataHoteles.CurrentRow.Selected = false;
+                }
+            }
+            
+        }
+
+        public void Buscar_Vehiculos(DataGridView dataVehiculo, int personas)
+        {
+            DB_Interfaz_Vuelo db_vuelo = new DB_Interfaz_Vuelo();
+            List<Vehiculos> vehiculos = db_vuelo.Cargar_Vehiculos(personas);
+            dataVehiculo.DataSource = vehiculos;
+            if (vehiculos.Count() > 0)
+            {
+                dataVehiculo.CurrentRow.Selected = false;
+            }
         }
     }
 }

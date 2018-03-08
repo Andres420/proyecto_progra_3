@@ -43,7 +43,7 @@ namespace Capadbo
             catch (Exception ex)
             {
                 Console.WriteLine("asd" + ex);
-                //dr.Close();
+                dr.Close();
                 conn.Close();
             }
         }
@@ -120,18 +120,19 @@ namespace Capadbo
             List<Vuelo> lista_vuelos = new List<Vuelo>();
             foreach (Vuelo vuelo_directo in lista)
             {
-                if (vuelo_directo.pais_origen.Equals(pais_or) && vuelo_directo.pais_destino.Equals(pais_des))
+                if (vuelo_directo.pais_origen.Equals(pais_or) && vuelo_directo.pais_destino.Equals(pais_des) || vuelo_directo.pais_origen.Equals(pais_des) && vuelo_directo.pais_destino.Equals(pais_or))
                 {
                     lista_vuelos.Add(vuelo_directo);
                 }
             }
             foreach (Vuelo vuelo_escal in lista)
             {
-                if (vuelo_escal.pais_origen.Equals(pais_or))
+                if (vuelo_escal.pais_origen.Equals(pais_or) || vuelo_escal.pais_origen.Equals(pais_des))
                 {
                     foreach (Vuelo vuelo_escala in lista)
                     {
-                        if (vuelo_escal.pais_origen.Equals(pais_or) && vuelo_escal.pais_destino.Equals(vuelo_escala.pais_origen) && vuelo_escala.pais_destino.Equals(pais_des))
+                        if (vuelo_escal.pais_origen.Equals(pais_or) && vuelo_escal.pais_destino.Equals(vuelo_escala.pais_origen) && vuelo_escala.pais_destino.Equals(pais_des) ||
+                            vuelo_escal.pais_origen.Equals(pais_des) && vuelo_escal.pais_destino.Equals(vuelo_escala.pais_origen) && vuelo_escala.pais_destino.Equals(pais_or))
                         {
                             string[] horas_es1 = vuelo_escal.duracion.Split(':');
                             string[] horas_es2 = vuelo_escala.duracion.Split(':');
@@ -149,6 +150,99 @@ namespace Capadbo
                 }
             }
             return lista_vuelos;
+        }
+
+        public List<Vehiculos> Cargar_Vehiculos(int personas)
+        {
+            List<Vehiculos> lista_vehiculos = new List<Vehiculos>();
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT id_vehiculos,marca_veh,modelo_veh, capacidad_veh, precio_veh, cantidad_veh FROM vehiculos WHERE capacidad_veh >= " + personas + ";", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Vehiculos vehiculo = new Vehiculos(dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetInt32(3),
+                            dr.GetInt32(4),
+                            dr.GetInt32(5));
+                        lista_vehiculos.Add(vehiculo);
+                    }
+
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("fre" + ex);
+                dr.Close();
+                conn.Close();
+            }
+            return lista_vehiculos;
+        }
+
+        public List<Hotel> Cargar_Hoteles(string lugar,int habitaciones)
+        {
+            int pais = 0;
+            List<Hotel> lista_hoteles = new List<Hotel>();
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT pa.id_paises FROM paises AS pa INNER JOIN lugares AS lu ON lu.id_paisfk = pa.id_paises WHERE lu.nombre = '" + lugar+"'; ", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    pais = (int)dr[0];
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("fre" + ex);
+                dr.Close();
+                conn.Close();
+            }
+
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel, ho.habitaciones, th.precio, (SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel) " +
+                    "FROM hoteles AS ho INNER JOIN tarifas_hoteles AS th ON ho.preciohab_fk = th.id_tarifa " +
+                    "INNER JOIN lugares AS lu ON ho.lugar_fk = lu.id_lugar " +
+                    "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE pa.id_paises = " + pais + " AND ho.habitaciones >= " + habitaciones + ";", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Hotel hotel = new Hotel(dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            dr.GetInt32(4),
+                            dr.GetInt32(5),
+                            dr.GetInt32(6));
+                        lista_hoteles.Add(hotel);
+                    }
+                    
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("fre" + ex);
+                dr.Close();
+                conn.Close();
+            }
+            return lista_hoteles;
         }
     }
 }

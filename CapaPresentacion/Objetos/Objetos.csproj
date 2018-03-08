@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aeropuertos.cs" />
+    <Compile Include="Hotel.cs" />
+    <Compile Include="Vehiculos.cs" />
     <Compile Include="Vuelo.cs" />
     <Compile Include="Paises.cs" />
     <Compile Include="Usuario.cs" />

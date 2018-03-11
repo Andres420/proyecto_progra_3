@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Objetos;
 
 namespace CapaPresentacion
 {
     public partial class Puntuacion_Hotel : Form
     {
-        public Puntuacion_Hotel()
+        Compra_Reserva cr;
+        public Puntuacion_Hotel(Compra_Reserva cr)
         {
             InitializeComponent();
+            this.cr = cr;
+
         }
 
         private void btn_Votar_Click(object sender, EventArgs e)
@@ -23,28 +27,33 @@ namespace CapaPresentacion
             if (r1.Checked == true)
             {
                 numero = 1;
+                cr.puntuacion = 1;
             }
             if (r2.Checked == true)
             {
-                numero = 2;
+                numero = 1;
+                cr.puntuacion = 2;
             }
             if (r3.Checked == true)
             {
-                numero = 3;
+                numero = 1;
+                cr.puntuacion = 3;
             }
             if (r4.Checked == true)
             {
-                numero = 4;
+                numero = 1;
+                cr.puntuacion = 4;
             }
             if (r5.Checked == true)
             {
-                numero = 5;
+                numero = 1;
+                cr.puntuacion = 5;
             }
             if (numero == 0)
             {
                 MessageBox.Show("No ha seleccionado ninguna opcion");
             }
-            MessageBox.Show("" + numero);
+            this.Dispose();
         }
     }
 }

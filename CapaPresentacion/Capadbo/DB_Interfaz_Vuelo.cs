@@ -154,7 +154,251 @@ namespace Capadbo
 
         public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
         {
-            throw new NotImplementedException();
+            bool compra_reserv = false;
+            try
+            {
+                if (compra_reserva.hotel_cod == "null")
+                {
+                    if (compra_reserva.reserva_compra)
+                    {
+                        InsertCompraSinHotel(compra_reserva);
+                    }
+                    else
+                    {
+                        InsertReservaSinHotel(compra_reserva);
+                    }
+                }
+                else
+                {
+                    if (compra_reserva.reserva_compra)
+                    {
+                        InsertCompraHotel(compra_reserva);
+                    }
+                    else
+                    {
+                        InsertReservaHotel(compra_reserva);
+                    }
+                }
+                compra_reserv = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                compra_reserv = false;
+            }
+            
+            return compra_reserv;
+        }
+
+        private void InsertCompraHotel(Compra_Reserva compra_reserva)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                    "" + compra_reserva.pais_origen_cod + "," +
+                    "" + compra_reserva.pais_destino_cod + "," +
+                    "" + compra_reserva.pais_escala + "," +
+                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.precio_vuelo + "," +
+                    "'" + compra_reserva.fecha_inicio + "'," +
+                    "'" + compra_reserva.fecha_final + "'," +
+                    "" + compra_reserva.adultos + "," +
+                    "" + compra_reserva.ninos + "," +
+                    "" + compra_reserva.habitaciones + "," +
+                    "" + compra_reserva.hotel_cod + "," +
+                    "" + compra_reserva.vehiculo_cod + "," +
+                    "true," +
+                    "" + compra_reserva.precio_vehiculo + "," +
+                    "" + compra_reserva.precio_hotel + ");", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("INSERT INTO puntuacion(cedulafk, id_hotelfk, puntuacion) VALUES(" + compra_reserva.id_usuario + "," + compra_reserva.hotel_cod + ", " + compra_reserva.puntuacion + ");", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void InsertReservaHotel(Compra_Reserva compra_reserva)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                    "" + compra_reserva.pais_origen_cod + "," +
+                    "" + compra_reserva.pais_destino_cod + "," +
+                    "" + compra_reserva.pais_escala + "," +
+                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.precio_vuelo + "," +
+                    "'" + compra_reserva.fecha_inicio + "'," +
+                    "'" + compra_reserva.fecha_final + "'," +
+                    "" + compra_reserva.adultos + "," +
+                    "" + compra_reserva.ninos + "," +
+                    "" + compra_reserva.habitaciones + "," +
+                    "" + compra_reserva.hotel_cod + "," +
+                    "" + compra_reserva.vehiculo_cod + "," +
+                    "false," +
+                    "" + compra_reserva.precio_vehiculo + "," +
+                    "" + compra_reserva.precio_hotel + ");", conn);
+                cmd.ExecuteNonQuery();
+                Bajar_Cantidades(compra_reserva);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private bool InsertCompraSinHotel(Compra_Reserva compra_reserva)
+        {
+            bool compra = false;
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                    "" + compra_reserva.pais_origen_cod + "," +
+                    "" + compra_reserva.pais_destino_cod + "," +
+                    "" + compra_reserva.pais_escala + "," +
+                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.precio_vuelo + "," +
+                    "'" + compra_reserva.fecha_inicio + "'," +
+                    "'" + compra_reserva.fecha_final + "'," +
+                    "" + compra_reserva.adultos + "," +
+                    "" + compra_reserva.ninos + "," +
+                    "" + compra_reserva.habitaciones + "," +
+                    "" + compra_reserva.hotel_cod + "," +
+                    "" + compra_reserva.vehiculo_cod + "," +
+                    "true," +
+                    "" + compra_reserva.precio_vehiculo + "," +
+                    "" + compra_reserva.precio_hotel + ");", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                compra = true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                compra = false;
+            }
+            return compra;
+        }
+
+        private void InsertReservaSinHotel(Compra_Reserva compra_reserva)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                    "" + compra_reserva.pais_origen_cod + "," +
+                    "" + compra_reserva.pais_destino_cod + "," +
+                    "" + compra_reserva.pais_escala + "," +
+                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.precio_vuelo + "," +
+                    "'" + compra_reserva.fecha_inicio + "'," +
+                    "'" + compra_reserva.fecha_final + "'," +
+                    "" + compra_reserva.adultos + "," +
+                    "" + compra_reserva.ninos + "," +
+                    "" + compra_reserva.habitaciones + "," +
+                    "" + compra_reserva.hotel_cod + "," +
+                    "" + compra_reserva.vehiculo_cod + "," +
+                    "false," +
+                    "" + compra_reserva.precio_vehiculo + "," +
+                    "" + compra_reserva.precio_hotel + ");", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Bajar_Cantidades(compra_reserva);
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void Bajar_Cantidades(Compra_Reserva compra_reserva)
+        {
+            if (!compra_reserva.hotel_cod.Equals("null"))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd = new NpgsqlCommand("UPDATE hoteles SET habitaciones = (habitaciones - " + compra_reserva.habitaciones + ") WHERE id_hotel = " + compra_reserva.hotel_cod + "; ", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    conn.Close();
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            if (!compra_reserva.vehiculo_cod.Equals("null"))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd = new NpgsqlCommand("UPDATE vehiculos SET cantidad_veh = (cantidad_veh - 1) WHERE id_vehiculos = " + compra_reserva.vehiculo_cod + "; ", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    conn.Close();
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+        }
+
+        private void Subir_Cantidades(Compra_Reserva compra_reserva)
+        {
+            if (!compra_reserva.hotel_cod.Equals("null"))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd = new NpgsqlCommand("UPDATE hoteles SET habitaciones = (habitaciones + " + compra_reserva.habitaciones + ") WHERE id_hotel = " + compra_reserva.hotel_cod + "; ", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    conn.Close();
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            if (!compra_reserva.vehiculo_cod.Equals("null"))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd = new NpgsqlCommand("UPDATE vehiculos SET cantidad_veh = (cantidad_veh + 1) WHERE id_vehiculos = " + compra_reserva.vehiculo_cod + "; ", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    conn.Close();
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
         }
 
         public List<Vehiculos> Cargar_Vehiculos(int personas)

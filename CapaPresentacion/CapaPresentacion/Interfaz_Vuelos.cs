@@ -15,9 +15,9 @@ namespace CapaPresentacion
     public partial class Interfaz_Vuelos : Form
     {
         Usuario usuario;
-        Hotel hotel;
-        Vehiculos vehiculo;
-        Vuelo aeropuerto;
+        Hotel hotel = new Hotel(0,"","","","",1,0,1);
+        Vehiculos vehiculo = new Vehiculos(0,"","",0,0,0);
+        Vuelo aeropuerto = new Vuelo(0,"","","","",0);
         public Interfaz_Vuelos(Usuario usuario)
         {
             InitializeComponent();
@@ -129,13 +129,16 @@ namespace CapaPresentacion
         private bool Comprar_Reservar(bool compra_reserva)
         {
             bool comprado_reservado = false;
+            string datestart = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            DateTime fecha_ini = DateTime.Parse(datestart);
+            string datefinal = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+            DateTime fecha_fin = DateTime.Parse(datefinal);
             if (dataAeropuertos.SelectedRows.Count > 0 && chVuelo.Checked)
             {
                 if (dataHoteles.SelectedRows.Count > 0 && chbHotel.Checked)
                 {
                     if (dataVehiculo.SelectedRows.Count > 0 && chbVehiculo.Checked)
                     {
-                        //
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
@@ -146,8 +149,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -160,12 +163,16 @@ namespace CapaPresentacion
                             true,
                             compra_reserva
                             );
+                        if (compra_reserva_.reserva_compra)
+                        {
+                            Puntuacion_Hotel ph = new Puntuacion_Hotel(compra_reserva_);
+                            ph.ShowDialog();
+                        }
                         Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
                         comprado_reservado = civ.Agregar_Compra_Reserva(compra_reserva_);
                     }
                     else
                     {
-                        //
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
                         Compra_Reserva compra_reserva_ = new Compra_Reserva(
@@ -175,8 +182,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -189,6 +196,11 @@ namespace CapaPresentacion
                             false,
                             compra_reserva
                             );
+                        if (compra_reserva_.reserva_compra)
+                        {
+                            Puntuacion_Hotel ph = new Puntuacion_Hotel(compra_reserva_);
+                            ph.ShowDialog();
+                        }
                         Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
                         comprado_reservado = civ.Agregar_Compra_Reserva(compra_reserva_);
                     }
@@ -206,8 +218,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -233,8 +245,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -258,7 +270,6 @@ namespace CapaPresentacion
                 {
                     if (dataVehiculo.SelectedRows.Count > 0 && chbVehiculo.Checked)
                     {
-                        //
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
                         Compra_Reserva compra_reserva_ = new Compra_Reserva(
@@ -268,8 +279,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -282,6 +293,11 @@ namespace CapaPresentacion
                             true,
                             compra_reserva
                             );
+                        if (compra_reserva_.reserva_compra)
+                        {
+                            Puntuacion_Hotel ph = new Puntuacion_Hotel(compra_reserva_);
+                            ph.ShowDialog();
+                        }
                         Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
                         comprado_reservado = civ.Agregar_Compra_Reserva(compra_reserva_);
                     }
@@ -298,8 +314,8 @@ namespace CapaPresentacion
                             aeropuerto.escala,
                             aeropuerto.duracion,
                             aeropuerto.precio,
-                            dateTimePicker1.Value,
-                            dateTimePicker2.Value,
+                            fecha_ini,
+                            fecha_fin,
                             (int)spAdultos.Value,
                             (int)spNinos.Value,
                             int.Parse(txtHabitaciones.Text),
@@ -331,7 +347,7 @@ namespace CapaPresentacion
             {
                 DateTime fecha_ini = dateTimePicker1.Value;
                 DateTime fecha_fin = dateTimePicker2.Value;
-                if (fecha_ini.CompareTo(fecha_fin) == 1 || fecha_ini.CompareTo(fecha_fin) == 0)
+                if (fecha_ini.CompareTo(fecha_fin) == -1 || fecha_ini.CompareTo(fecha_fin) == 0)
                 {
                     bool comprado = Comprar_Reservar(true);
                     if (comprado)
@@ -357,7 +373,7 @@ namespace CapaPresentacion
             {
                 DateTime fecha_ini = dateTimePicker1.Value;
                 DateTime fecha_fin = dateTimePicker2.Value;
-                if (fecha_ini.CompareTo(fecha_fin) == 1 || fecha_ini.CompareTo(fecha_fin) == 0)
+                if (fecha_ini.CompareTo(fecha_fin) == -1 || fecha_ini.CompareTo(fecha_fin) == 0)
                 {
                     bool comprado = Comprar_Reservar(false);
                     if (comprado)

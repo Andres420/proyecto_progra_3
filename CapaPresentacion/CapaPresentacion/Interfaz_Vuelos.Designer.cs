@@ -45,9 +45,23 @@
             this.chbHotel = new System.Windows.Forms.CheckBox();
             this.chbVehiculo = new System.Windows.Forms.CheckBox();
             this.dataHoteles = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foto_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
+            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_ve = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -61,20 +75,8 @@
             this.btnComprar = new System.Windows.Forms.Button();
             this.btnReservar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbHotel = new System.Windows.Forms.PictureBox();
-            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_ve = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chVuelo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
@@ -107,8 +109,10 @@
             this.Duracion,
             this.Precio});
             this.dataAeropuertos.Location = new System.Drawing.Point(12, 194);
+            this.dataAeropuertos.MultiSelect = false;
             this.dataAeropuertos.Name = "dataAeropuertos";
             this.dataAeropuertos.ReadOnly = true;
+            this.dataAeropuertos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataAeropuertos.Size = new System.Drawing.Size(588, 365);
             this.dataAeropuertos.TabIndex = 2;
             // 
@@ -177,20 +181,20 @@
             // verReservasToolStripMenuItem
             // 
             this.verReservasToolStripMenuItem.Name = "verReservasToolStripMenuItem";
-            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.verReservasToolStripMenuItem.Text = "Ver Reservas";
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -236,14 +240,75 @@
             this.nombre_pais,
             this.lugar,
             this.nombre_hotel,
+            this.foto_hotel,
             this.habitaciones,
             this.precio_h,
             this.puntuacion});
             this.dataHoteles.Location = new System.Drawing.Point(609, 77);
+            this.dataHoteles.MultiSelect = false;
             this.dataHoteles.Name = "dataHoteles";
             this.dataHoteles.ReadOnly = true;
+            this.dataHoteles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataHoteles.Size = new System.Drawing.Size(576, 206);
             this.dataHoteles.TabIndex = 9;
+            this.dataHoteles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataHoteles_MouseClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_hotel";
+            this.id.HeaderText = "Id_hotel";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // nombre_pais
+            // 
+            this.nombre_pais.DataPropertyName = "nombre_pais";
+            this.nombre_pais.HeaderText = "Pais";
+            this.nombre_pais.Name = "nombre_pais";
+            this.nombre_pais.ReadOnly = true;
+            // 
+            // lugar
+            // 
+            this.lugar.DataPropertyName = "nombre_lugar";
+            this.lugar.HeaderText = "Lugar";
+            this.lugar.Name = "lugar";
+            this.lugar.ReadOnly = true;
+            // 
+            // nombre_hotel
+            // 
+            this.nombre_hotel.DataPropertyName = "nombre_hotel";
+            this.nombre_hotel.HeaderText = "Hotel";
+            this.nombre_hotel.Name = "nombre_hotel";
+            this.nombre_hotel.ReadOnly = true;
+            // 
+            // foto_hotel
+            // 
+            this.foto_hotel.DataPropertyName = "foto_hotel";
+            this.foto_hotel.HeaderText = "Foto Hotel";
+            this.foto_hotel.Name = "foto_hotel";
+            this.foto_hotel.ReadOnly = true;
+            this.foto_hotel.Visible = false;
+            // 
+            // habitaciones
+            // 
+            this.habitaciones.DataPropertyName = "habitaciones";
+            this.habitaciones.HeaderText = "Habitaciones";
+            this.habitaciones.Name = "habitaciones";
+            this.habitaciones.ReadOnly = true;
+            // 
+            // precio_h
+            // 
+            this.precio_h.DataPropertyName = "precio";
+            this.precio_h.HeaderText = "Precio";
+            this.precio_h.Name = "precio_h";
+            this.precio_h.ReadOnly = true;
+            // 
+            // puntuacion
+            // 
+            this.puntuacion.DataPropertyName = "puntuacion";
+            this.puntuacion.HeaderText = "Puntuacion";
+            this.puntuacion.Name = "puntuacion";
+            this.puntuacion.ReadOnly = true;
             // 
             // txtOrigen
             // 
@@ -277,10 +342,54 @@
             this.precio_ve,
             this.cantidad});
             this.dataVehiculo.Location = new System.Drawing.Point(609, 289);
+            this.dataVehiculo.MultiSelect = false;
             this.dataVehiculo.Name = "dataVehiculo";
             this.dataVehiculo.ReadOnly = true;
+            this.dataVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataVehiculo.Size = new System.Drawing.Size(382, 270);
             this.dataVehiculo.TabIndex = 12;
+            // 
+            // id_vehiculo
+            // 
+            this.id_vehiculo.DataPropertyName = "id_vehiculo";
+            this.id_vehiculo.HeaderText = "Placa";
+            this.id_vehiculo.Name = "id_vehiculo";
+            this.id_vehiculo.ReadOnly = true;
+            // 
+            // marca
+            // 
+            this.marca.DataPropertyName = "marca";
+            this.marca.HeaderText = "Marca";
+            this.marca.Name = "marca";
+            this.marca.ReadOnly = true;
+            // 
+            // modelo
+            // 
+            this.modelo.DataPropertyName = "modelo";
+            this.modelo.HeaderText = "Modelo";
+            this.modelo.Name = "modelo";
+            this.modelo.ReadOnly = true;
+            // 
+            // capacidad
+            // 
+            this.capacidad.DataPropertyName = "capacidad";
+            this.capacidad.HeaderText = "Capacidad";
+            this.capacidad.Name = "capacidad";
+            this.capacidad.ReadOnly = true;
+            // 
+            // precio_ve
+            // 
+            this.precio_ve.DataPropertyName = "precio";
+            this.precio_ve.HeaderText = "Precio";
+            this.precio_ve.Name = "precio_ve";
+            this.precio_ve.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.DataPropertyName = "cantidad";
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
             // 
             // label3
             // 
@@ -387,6 +496,7 @@
             this.btnComprar.TabIndex = 22;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
             // btnReservar
             // 
@@ -396,6 +506,7 @@
             this.btnReservar.TabIndex = 22;
             this.btnReservar.Text = "Reservar";
             this.btnReservar.UseVisualStyleBackColor = true;
+            this.btnReservar.Click += new System.EventHandler(this.btnReservar_Click);
             // 
             // btnBuscar
             // 
@@ -407,111 +518,32 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id_hotel";
-            this.id.HeaderText = "Id_hotel";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // nombre_pais
-            // 
-            this.nombre_pais.DataPropertyName = "nombre_pais";
-            this.nombre_pais.HeaderText = "Pais";
-            this.nombre_pais.Name = "nombre_pais";
-            this.nombre_pais.ReadOnly = true;
-            // 
-            // lugar
-            // 
-            this.lugar.DataPropertyName = "nombre_lugar";
-            this.lugar.HeaderText = "Lugar";
-            this.lugar.Name = "lugar";
-            this.lugar.ReadOnly = true;
-            // 
-            // nombre_hotel
-            // 
-            this.nombre_hotel.DataPropertyName = "nombre_hotel";
-            this.nombre_hotel.HeaderText = "Hotel";
-            this.nombre_hotel.Name = "nombre_hotel";
-            this.nombre_hotel.ReadOnly = true;
-            // 
-            // habitaciones
-            // 
-            this.habitaciones.DataPropertyName = "habitaciones";
-            this.habitaciones.HeaderText = "Habitaciones";
-            this.habitaciones.Name = "habitaciones";
-            this.habitaciones.ReadOnly = true;
-            // 
-            // precio_h
-            // 
-            this.precio_h.DataPropertyName = "precio";
-            this.precio_h.HeaderText = "Precio";
-            this.precio_h.Name = "precio_h";
-            this.precio_h.ReadOnly = true;
-            // 
-            // puntuacion
-            // 
-            this.puntuacion.DataPropertyName = "puntuacion";
-            this.puntuacion.HeaderText = "Puntuacion";
-            this.puntuacion.Name = "puntuacion";
-            this.puntuacion.ReadOnly = true;
-            // 
             // pbHotel
             // 
             this.pbHotel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pbHotel.Location = new System.Drawing.Point(1002, 289);
             this.pbHotel.Name = "pbHotel";
             this.pbHotel.Size = new System.Drawing.Size(175, 133);
+            this.pbHotel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHotel.TabIndex = 24;
             this.pbHotel.TabStop = false;
             // 
-            // id_vehiculo
+            // chVuelo
             // 
-            this.id_vehiculo.DataPropertyName = "id_vehiculo";
-            this.id_vehiculo.HeaderText = "Placa";
-            this.id_vehiculo.Name = "id_vehiculo";
-            this.id_vehiculo.ReadOnly = true;
-            // 
-            // marca
-            // 
-            this.marca.DataPropertyName = "marca";
-            this.marca.HeaderText = "Marca";
-            this.marca.Name = "marca";
-            this.marca.ReadOnly = true;
-            // 
-            // modelo
-            // 
-            this.modelo.DataPropertyName = "modelo";
-            this.modelo.HeaderText = "Modelo";
-            this.modelo.Name = "modelo";
-            this.modelo.ReadOnly = true;
-            // 
-            // capacidad
-            // 
-            this.capacidad.DataPropertyName = "capacidad";
-            this.capacidad.HeaderText = "Capacidad";
-            this.capacidad.Name = "capacidad";
-            this.capacidad.ReadOnly = true;
-            // 
-            // precio_ve
-            // 
-            this.precio_ve.DataPropertyName = "precio";
-            this.precio_ve.HeaderText = "Precio";
-            this.precio_ve.Name = "precio_ve";
-            this.precio_ve.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.DataPropertyName = "cantidad";
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
+            this.chVuelo.AutoSize = true;
+            this.chVuelo.Location = new System.Drawing.Point(13, 171);
+            this.chVuelo.Name = "chVuelo";
+            this.chVuelo.Size = new System.Drawing.Size(93, 17);
+            this.chVuelo.TabIndex = 25;
+            this.chVuelo.Text = "Agregar Vuelo";
+            this.chVuelo.UseVisualStyleBackColor = true;
             // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 583);
+            this.Controls.Add(this.chVuelo);
             this.Controls.Add(this.pbHotel);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnReservar);
@@ -589,13 +621,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Escala;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_pais;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lugar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_hotel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn habitaciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_h;
-        private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
         private System.Windows.Forms.PictureBox pbHotel;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_vehiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
@@ -603,5 +628,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn capacidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_ve;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_pais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_hotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn foto_hotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn habitaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_h;
+        private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
+        private System.Windows.Forms.CheckBox chVuelo;
     }
 }

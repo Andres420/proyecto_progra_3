@@ -152,6 +152,11 @@ namespace Capadbo
             return lista_vuelos;
         }
 
+        public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Vehiculos> Cargar_Vehiculos(int personas)
         {
             List<Vehiculos> lista_vehiculos = new List<Vehiculos>();
@@ -213,7 +218,7 @@ namespace Capadbo
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel, ho.habitaciones, th.precio, (SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel) " +
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel,ho.foto_hotel, ho.habitaciones, th.precio, (SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel) " +
                     "FROM hoteles AS ho INNER JOIN tarifas_hoteles AS th ON ho.preciohab_fk = th.id_tarifa " +
                     "INNER JOIN lugares AS lu ON ho.lugar_fk = lu.id_lugar " +
                     "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE pa.id_paises = " + pais + " AND ho.habitaciones >= " + habitaciones + ";", conn);
@@ -226,9 +231,10 @@ namespace Capadbo
                             dr.GetString(1),
                             dr.GetString(2),
                             dr.GetString(3),
-                            dr.GetInt32(4),
+                            dr.GetString(4),
                             dr.GetInt32(5),
-                            dr.GetInt32(6));
+                            dr.GetInt32(6),
+                            dr.GetInt32(7));
                         lista_hoteles.Add(hotel);
                     }
                     

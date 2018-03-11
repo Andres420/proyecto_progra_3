@@ -74,5 +74,11 @@ namespace CapaNegocio
                 dataVehiculo.CurrentRow.Selected = false;
             }
         }
+
+        public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
+        {
+            DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
+            return dB_Interfaz_Vuelo.Agregar_Compra_Reserva(compra_reserva);
+        }
     }
 }

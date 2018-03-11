@@ -28,7 +28,8 @@ namespace CapaPresentacion
             Btn_mod.Enabled = false;
             Btn_Limpiar.Enabled = false;
             Btn_Reg.Enabled = true;
-            Txt_Duracion.Clear();
+            Txt_Duracion_Horas.Clear();
+            Txt_Duracion_Minutos.Clear();
             Cargar_Combos();
             cod_ruta = 0;
             dataGridView1.Columns.Clear();
@@ -55,10 +56,11 @@ namespace CapaPresentacion
 
         private void Btn_Reg_Click(object sender, EventArgs e)
         {
-            if (!Txt_Duracion.Text.Equals(""))
+            if (!Txt_Duracion_Horas.Text.Equals("") & !Txt_Duracion_Minutos.Text.Equals(""))
             {
+                string duracion = Txt_Duracion_Horas.Text + ":" + Txt_Duracion_Minutos.Text;
                 Codigo_Rutas cr = new Codigo_Rutas();
-                bool agregado = cr.Agregar_Ruta(cb_Origen.SelectedItem.ToString(), cb_Destino.SelectedItem.ToString(), Txt_Duracion.Text);
+                bool agregado = cr.Agregar_Ruta(cb_Origen.SelectedItem.ToString(), cb_Destino.SelectedItem.ToString(),duracion );
                 if (agregado)
                 {
                     MessageBox.Show("Ruta agregada");
@@ -89,10 +91,11 @@ namespace CapaPresentacion
 
         private void Btn_mod_Click(object sender, EventArgs e)
         {
-            if (cod_ruta != 0 && !Txt_Duracion.Text.Equals(""))
+            if (cod_ruta != 0 && !Txt_Duracion_Horas.Text.Equals("") && !Txt_Duracion_Minutos.Text.Equals(""))
             {
+                string duracion = Txt_Duracion_Horas.Text + ":" + Txt_Duracion_Minutos.Text;
                 Codigo_Rutas cr = new Codigo_Rutas();
-                bool modificado = cr.ModificarRutas(cod_ruta,cb_Origen.SelectedItem.ToString(),cb_Destino.SelectedItem.ToString(),Txt_Duracion.Text);
+                bool modificado = cr.ModificarRutas(cod_ruta,cb_Origen.SelectedItem.ToString(),cb_Destino.SelectedItem.ToString(),duracion);
                 if (modificado)
                 {
                     MessageBox.Show("Ruta modificada");
@@ -114,7 +117,28 @@ namespace CapaPresentacion
             cod_ruta = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
             cb_Origen.SelectedItem = this.dataGridView1.CurrentRow.Cells[1].Value;
             cb_Destino.SelectedItem = this.dataGridView1.CurrentRow.Cells[2].Value;
-            Txt_Duracion.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            string dur = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            string[] tiempo = dur.Split(':');
+            Txt_Duracion_Horas.Text = tiempo[0];
+            Txt_Duracion_Minutos.Text = tiempo[1];
+        }
+
+        private void Txt_Duracion_Horas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void Txt_Duracion_Minutos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

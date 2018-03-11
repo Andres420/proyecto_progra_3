@@ -31,9 +31,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Rutas = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Txt_Duracion_Minutos = new System.Windows.Forms.TextBox();
             this.cb_Destino = new System.Windows.Forms.ComboBox();
             this.cb_Origen = new System.Windows.Forms.ComboBox();
-            this.Txt_Duracion = new System.Windows.Forms.TextBox();
+            this.Txt_Duracion_Horas = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -42,6 +45,7 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_mod = new System.Windows.Forms.Button();
             this.Btn_Reg = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.Rutas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,9 +72,13 @@
             // 
             // Rutas
             // 
+            this.Rutas.Controls.Add(this.label6);
+            this.Rutas.Controls.Add(this.label5);
+            this.Rutas.Controls.Add(this.label1);
+            this.Rutas.Controls.Add(this.Txt_Duracion_Minutos);
             this.Rutas.Controls.Add(this.cb_Destino);
             this.Rutas.Controls.Add(this.cb_Origen);
-            this.Rutas.Controls.Add(this.Txt_Duracion);
+            this.Rutas.Controls.Add(this.Txt_Duracion_Horas);
             this.Rutas.Controls.Add(this.label4);
             this.Rutas.Controls.Add(this.label2);
             this.Rutas.Controls.Add(this.label3);
@@ -80,6 +88,32 @@
             this.Rutas.TabIndex = 28;
             this.Rutas.TabStop = false;
             this.Rutas.Text = "Rutas";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(99, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Horas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(132, 140);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = ":";
+            // 
+            // Txt_Duracion_Minutos
+            // 
+            this.Txt_Duracion_Minutos.Location = new System.Drawing.Point(148, 137);
+            this.Txt_Duracion_Minutos.Name = "Txt_Duracion_Minutos";
+            this.Txt_Duracion_Minutos.Size = new System.Drawing.Size(24, 20);
+            this.Txt_Duracion_Minutos.TabIndex = 33;
+            this.Txt_Duracion_Minutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Duracion_Minutos_KeyPress);
             // 
             // cb_Destino
             // 
@@ -99,17 +133,18 @@
             this.cb_Origen.Size = new System.Drawing.Size(121, 21);
             this.cb_Origen.TabIndex = 31;
             // 
-            // Txt_Duracion
+            // Txt_Duracion_Horas
             // 
-            this.Txt_Duracion.Location = new System.Drawing.Point(102, 126);
-            this.Txt_Duracion.Name = "Txt_Duracion";
-            this.Txt_Duracion.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Duracion.TabIndex = 30;
+            this.Txt_Duracion_Horas.Location = new System.Drawing.Point(102, 137);
+            this.Txt_Duracion_Horas.Name = "Txt_Duracion_Horas";
+            this.Txt_Duracion_Horas.Size = new System.Drawing.Size(24, 20);
+            this.Txt_Duracion_Horas.TabIndex = 30;
+            this.Txt_Duracion_Horas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Duracion_Horas_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 129);
+            this.label4.Location = new System.Drawing.Point(6, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 29;
@@ -192,6 +227,15 @@
             this.Btn_Reg.UseVisualStyleBackColor = true;
             this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(145, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Minutos";
+            // 
             // CRUD_Rutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,7 +261,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox Rutas;
-        private System.Windows.Forms.TextBox Txt_Duracion;
+        private System.Windows.Forms.TextBox Txt_Duracion_Horas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -228,5 +272,9 @@
         private System.Windows.Forms.Button Btn_Reg;
         private System.Windows.Forms.ComboBox cb_Destino;
         private System.Windows.Forms.ComboBox cb_Origen;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Txt_Duracion_Minutos;
+        private System.Windows.Forms.Label label6;
     }
 }

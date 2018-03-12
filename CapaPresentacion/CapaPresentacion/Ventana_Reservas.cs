@@ -34,6 +34,20 @@ namespace CapaPresentacion
             bool comprado = false;
             if(dataGridView1.SelectedRows.Count > 0)
             {
+                int total = 0;
+                if(!dataGridView1.CurrentRow.Cells[6].Value.ToString().Equals(String.Empty))
+                {
+                    try { total = total + (int)dataGridView1.CurrentRow.Cells[6].Value; } catch (Exception ex) { }
+                }
+                if(!dataGridView1.CurrentRow.Cells[14].Value.ToString().Equals(String.Empty))
+                {
+                    try { total = total + (int)dataGridView1.CurrentRow.Cells[14].Value; } catch (Exception ex) { }
+                }
+                if(!dataGridView1.CurrentRow.Cells[15].Value.ToString().Equals(String.Empty))
+                {
+                    try { total = total + (int)dataGridView1.CurrentRow.Cells[15].Value; } catch (Exception ex) { }
+                }
+                MessageBox.Show("El total es de: " + total);
                 Codigo_Ventana_Reservas cvr = new Codigo_Ventana_Reservas();
                 comprado = cvr.CambiarEstado(dataGridView1.CurrentRow.Cells[0].Value.ToString());
                 if (!dataGridView1.CurrentRow.Cells[12].Value.ToString().Equals(String.Empty))

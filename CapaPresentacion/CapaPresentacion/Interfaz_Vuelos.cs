@@ -23,6 +23,7 @@ namespace CapaPresentacion
             InitializeComponent();
             this.usuario = usuario;
             this.CenterToScreen();
+            cbTipo.SelectedIndex = 0;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -396,6 +397,32 @@ namespace CapaPresentacion
         {
             Ventana_Reservas vr = new Ventana_Reservas(usuario);
             vr.ShowDialog();
+        }
+
+        private void btnBuscarHotel_Click(object sender, EventArgs e)
+        {
+            if (chbHotel.Checked)
+            {
+                if (cbTipo.SelectedItem.Equals("Ciudad"))
+                {
+                    Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
+                    civ.Cargar_Buscar_HotelesCiudad(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
+                    this.dataHoteles.Columns["foto_hotel"].Visible = false;
+                    pbHotel.Image = null;
+                }
+                else
+                {
+                    Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
+                    civ.Cargar_Buscar_Hotel(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
+                    this.dataHoteles.Columns["foto_hotel"].Visible = false;
+                    pbHotel.Image = null;
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Coloque el check de agregar hotel");
+            }
         }
     }
 }

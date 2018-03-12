@@ -78,7 +78,53 @@ namespace CapaNegocio
         public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
         {
             DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
+            int total = 0;
+            try {
+                int vuelo = int.Parse(compra_reserva.precio_vuelo);
+                total = total + vuelo;
+            } catch (Exception ex)
+            {
+            }
+            try
+            {
+                int hotel = int.Parse(compra_reserva.precio_hotel);
+                total = total + hotel;
+            }
+            catch (Exception ex)
+            {
+            }
+            try
+            {
+                int vehiculo = int.Parse(compra_reserva.precio_vehiculo);
+                total = total + vehiculo;
+            }
+            catch (Exception ex)
+            {
+            }
+            MessageBox.Show("El total es de: " + total);
             return dB_Interfaz_Vuelo.Agregar_Compra_Reserva(compra_reserva);
+        }
+
+        public void Cargar_Buscar_Hotel(DataGridView dataHoteles, string hotel, int habitaciones)
+        {
+            DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
+            List<Hotel> hoteles = dB_Interfaz_Vuelo.Cargar_Buscar_Hoteles(hotel, habitaciones);
+            dataHoteles.DataSource = hoteles;
+            if (hoteles.Count() > 0)
+            {
+                dataHoteles.CurrentRow.Selected = false;
+            }
+        }
+
+        public void Cargar_Buscar_HotelesCiudad(DataGridView dataHoteles, string ciudad, int habitaciones)
+        {
+            DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
+            List<Hotel> hoteles = dB_Interfaz_Vuelo.Cargar_Buscar_HotelesCiudad(ciudad,habitaciones);
+            dataHoteles.DataSource = hoteles;
+            if (hoteles.Count() > 0)
+            {
+                dataHoteles.CurrentRow.Selected = false;
+            }
         }
     }
 }

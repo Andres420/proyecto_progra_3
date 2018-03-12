@@ -77,6 +77,10 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pbHotel = new System.Windows.Forms.PictureBox();
             this.chVuelo = new System.Windows.Forms.CheckBox();
+            this.btnBuscarHotel = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
@@ -181,21 +185,21 @@
             // verReservasToolStripMenuItem
             // 
             this.verReservasToolStripMenuItem.Name = "verReservasToolStripMenuItem";
-            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verReservasToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.verReservasToolStripMenuItem.Text = "Ver Reservas";
             this.verReservasToolStripMenuItem.Click += new System.EventHandler(this.verReservasToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -539,11 +543,53 @@
             this.chVuelo.Text = "Agregar Vuelo";
             this.chVuelo.UseVisualStyleBackColor = true;
             // 
+            // btnBuscarHotel
+            // 
+            this.btnBuscarHotel.Location = new System.Drawing.Point(1110, 50);
+            this.btnBuscarHotel.Name = "btnBuscarHotel";
+            this.btnBuscarHotel.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarHotel.TabIndex = 26;
+            this.btnBuscarHotel.Text = "Buscar";
+            this.btnBuscarHotel.UseVisualStyleBackColor = true;
+            this.btnBuscarHotel.Click += new System.EventHandler(this.btnBuscarHotel_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(819, 55);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(865, 52);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 20);
+            this.txtBuscar.TabIndex = 28;
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Ciudad",
+            "Hotel"});
+            this.cbTipo.Location = new System.Drawing.Point(983, 52);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbTipo.TabIndex = 29;
+            // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 583);
+            this.Controls.Add(this.cbTipo);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnBuscarHotel);
             this.Controls.Add(this.chVuelo);
             this.Controls.Add(this.pbHotel);
             this.Controls.Add(this.btnBuscar);
@@ -571,7 +617,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfaz_Vuelos";
-            this.Text = "Interfaz Vuelos";
+            this.Text = "cal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Interfaz_Vuelos_FormClosed);
             this.Load += new System.EventHandler(this.Interfaz_Vuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).EndInit();
@@ -638,5 +684,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_h;
         private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
         private System.Windows.Forms.CheckBox chVuelo;
+        private System.Windows.Forms.Button btnBuscarHotel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cbTipo;
     }
 }

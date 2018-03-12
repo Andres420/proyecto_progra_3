@@ -20,7 +20,8 @@ namespace Objetos
                 this.pais_destino_cod = Buscar_cod(pais_destino_nom).ToString();
                 this.pais_escala = Buscar_cod(pais_escala_nom).ToString();
                 this.duracion = "'"+duracion+"'";
-                this.precio_vuelo = ((precio_vuelo * adultos) + (precio_vuelo * ninos)).ToString();
+                int precio = (((precio_vuelo * adultos) + (precio_vuelo * ninos))*13)/100;
+                this.precio_vuelo = (((precio_vuelo * adultos) + (precio_vuelo * ninos))+precio).ToString();
                 this.puntuacion = 1;
             }
             else
@@ -37,8 +38,10 @@ namespace Objetos
             if (hotel)
             {
                 this.hotel_cod = hotel_cod.ToString();
-                int dias = (((fecha_final - fecha_inicio).Days) * hotel_precio);
-                this.precio_hotel = dias.ToString();
+                int costo_en_dias = (((fecha_final - fecha_inicio).Days) * hotel_precio);
+                int costo_dias_habi = costo_en_dias * habitaciones;
+                int precio_conpo = (costo_dias_habi * 13) / 100;
+                this.precio_hotel = (costo_dias_habi + precio_conpo).ToString();
                 this.habitaciones = habitaciones.ToString();
                 
             }
@@ -50,8 +53,8 @@ namespace Objetos
             }
             if (vehiculo)
             {
-                int dias = (fecha_final - fecha_inicio).Days * vehiculo_precio;
-                this.precio_vehiculo = (dias).ToString();
+                int dias = (((fecha_final - fecha_inicio).Days * vehiculo_precio)* 13) / 100;
+                this.precio_vehiculo = (((fecha_final - fecha_inicio).Days * vehiculo_precio) + dias).ToString();
                 this.vehiculo_cod = vehiculo_cod.ToString();
 
             }

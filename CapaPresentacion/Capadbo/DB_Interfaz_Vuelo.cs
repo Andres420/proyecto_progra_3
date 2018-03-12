@@ -152,6 +152,84 @@ namespace Capadbo
             return lista_vuelos;
         }
 
+        public List<Hotel> Cargar_Buscar_HotelesCiudad(string ciudad, int habitaciones)
+        {
+            List<Hotel> lista_hoteles = new List<Hotel>();
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel,ho.foto_hotel, ho.habitaciones, th.precio, COALESCE((SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel),0) AS puntuacion " +
+                    "FROM hoteles AS ho INNER JOIN tarifas_hoteles AS th ON ho.preciohab_fk = th.id_tarifa " +
+                    "INNER JOIN lugares AS lu ON ho.lugar_fk = lu.id_lugar " +
+                    "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE lu.nombre LIKE '%" + ciudad + "%' AND ho.habitaciones >= " + habitaciones + " ORDER BY puntuacion;", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Hotel hotel_ = new Hotel(dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            dr.GetString(4),
+                            dr.GetInt32(5),
+                            dr.GetInt32(6),
+                            dr.GetInt32(7));
+                        lista_hoteles.Add(hotel_);
+                    }
+
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("fre" + ex);
+                dr.Close();
+                conn.Close();
+            }
+            return lista_hoteles;
+        }
+
+        public List<Hotel> Cargar_Buscar_Hoteles(string hotel, int habitaciones)
+        {
+            List<Hotel> lista_hoteles = new List<Hotel>();
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel,ho.foto_hotel, ho.habitaciones, th.precio, COALESCE((SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel),0) AS puntuacion " +
+                    "FROM hoteles AS ho INNER JOIN tarifas_hoteles AS th ON ho.preciohab_fk = th.id_tarifa " +
+                    "INNER JOIN lugares AS lu ON ho.lugar_fk = lu.id_lugar " +
+                    "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE ho.nombre_hotel LIKE '%" + hotel + "%' AND ho.habitaciones >= " + habitaciones + " ORDER BY puntuacion;", conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Hotel hotel_ = new Hotel(dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            dr.GetString(4),
+                            dr.GetInt32(5),
+                            dr.GetInt32(6),
+                            dr.GetInt32(7));
+                        lista_hoteles.Add(hotel_);
+                    }
+
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("fre" + ex);
+                dr.Close();
+                conn.Close();
+            }
+            return lista_hoteles;
+        }
+
         public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
         {
             bool compra_reserv = false;

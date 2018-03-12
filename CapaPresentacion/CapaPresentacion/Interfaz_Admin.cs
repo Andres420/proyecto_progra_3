@@ -169,5 +169,11 @@ namespace CapaPresentacion
             lblFecha.Text = DateTime.Now.ToLongDateString();
             lblHora.Text = DateTime.Now.ToLongTimeString();
         }
+
+        private void reporte1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes rep = new Reportes();
+            rep.ShowDialog();
+        }
     }
 }

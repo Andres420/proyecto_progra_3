@@ -431,10 +431,10 @@ namespace Capadbo
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel,ho.foto_hotel, ho.habitaciones, th.precio, (SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel) " +
+                cmd = new NpgsqlCommand("SELECT ho.id_hotel, pa.nombre_pais, lu.nombre, ho.nombre_hotel,ho.foto_hotel, ho.habitaciones, th.precio, COALESCE((SELECT AVG(pu.puntuacion) FROM puntuacion AS pu WHERE pu.id_hotelfk = ho.id_hotel),0) AS puntuacion " +
                     "FROM hoteles AS ho INNER JOIN tarifas_hoteles AS th ON ho.preciohab_fk = th.id_tarifa " +
                     "INNER JOIN lugares AS lu ON ho.lugar_fk = lu.id_lugar " +
-                    "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE pa.id_paises = " + pais + " AND ho.habitaciones >= " + habitaciones + ";", conn);
+                    "INNER JOIN paises AS pa ON pa.id_paises = lu.id_paisfk WHERE pa.id_paises = " + pais + " AND ho.habitaciones >= " + habitaciones + " ORDER BY puntuacion;", conn);
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {

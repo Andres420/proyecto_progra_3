@@ -97,6 +97,7 @@ namespace CapaPresentacion
 
         private void btnrep_Click(object sender, EventArgs e)
         {
+
             if (r4 == true & r5 == false)
             {
                 if (Dtp2.Value.Date < Dtp1.Value.Date)
@@ -105,18 +106,27 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    panel1.Visible = true;
-                    Codigo_Reportes rep = new Codigo_Reportes();
-                    ArrayList rep4 = rep.reporte4(Convert.ToString(Dtp1.Value.Date), Convert.ToString(Dtp2.Value.Date));
-                    this.chart1.Series.Clear();
-                    this.chart1.Titles.Clear();
-                    this.chart1.Titles.Add("Reporte 4  \n Visitas Adultos por fecha");
-                    Series Grafico = this.chart1.Series.Add("Reporte 4  \n Visitas Adultos por fecha");
-                    Grafico.ChartType = SeriesChartType.Pie;
-                    Grafico.Points.AddXY("Adultos que han viajado en el rango de fecha", rep4[0]);
-                    Grafico.Points.AddXY("Total de adultos que han viajado", rep4[1]);
-                    chart1.Series["Reporte 4  \n Visitas Adultos por fecha"].IsValueShownAsLabel = true;
-                    r4 = false;
+                    try
+                    {
+
+                        panel1.Visible = true;
+                        Codigo_Reportes rep = new Codigo_Reportes();
+                        ArrayList rep4 = rep.reporte4(Convert.ToString(Dtp1.Value.Date), Convert.ToString(Dtp2.Value.Date));
+                        this.chart1.Series.Clear();
+                        this.chart1.Titles.Clear();
+                        this.chart1.Titles.Add("Reporte 4  \n Visitas Adultos por fecha");
+                        Series Grafico = this.chart1.Series.Add("Reporte 4  \n Visitas Adultos por fecha");
+                        Grafico.ChartType = SeriesChartType.Pie;
+                        Grafico.Points.AddXY("Adultos que han viajado en el rango de fecha", rep4[0]);
+                        Grafico.Points.AddXY("Total de adultos que han viajado", rep4[1]);
+                        chart1.Series["Reporte 4  \n Visitas Adultos por fecha"].IsValueShownAsLabel = true;
+                        r4 = false;
+                        fechas();
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
             if (r4 == false & r5 == true)
@@ -127,18 +137,26 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    panel1.Visible = true;
-                    Codigo_Reportes rep = new Codigo_Reportes();
-                    ArrayList rep5 = rep.reporte5(Convert.ToString(Dtp1.Value.Date), Convert.ToString(Dtp2.Value.Date));
-                    this.chart1.Series.Clear();
-                    this.chart1.Titles.Clear();
-                    this.chart1.Titles.Add("Reporte 5  \n Visitas Niños por fecha");
-                    Series Grafico = this.chart1.Series.Add("Reporte 5  \n Visitas Niños por fecha");
-                    Grafico.ChartType = SeriesChartType.Pie;
-                    Grafico.Points.AddXY("Niños que han viajado en el rango de fecha", rep5[0]);
-                    Grafico.Points.AddXY("Total de Niños que han viajado", rep5[1]);
-                    chart1.Series["Reporte 5  \n Visitas Niños por fecha"].IsValueShownAsLabel = true;
-                    r5 = false;
+                    try
+                    {
+                        panel1.Visible = true;
+                        Codigo_Reportes rep = new Codigo_Reportes();
+                        ArrayList rep5 = rep.reporte5(Convert.ToString(Dtp1.Value.Date), Convert.ToString(Dtp2.Value.Date));
+                        this.chart1.Series.Clear();
+                        this.chart1.Titles.Clear();
+                        this.chart1.Titles.Add("Reporte 5  \n Visitas Niños por fecha");
+                        Series Grafico = this.chart1.Series.Add("Reporte 5  \n Visitas Niños por fecha");
+                        Grafico.ChartType = SeriesChartType.Pie;
+                        Grafico.Points.AddXY("Niños que han viajado en el rango de fecha", rep5[0]);
+                        Grafico.Points.AddXY("Total de Niños que han viajado", rep5[1]);
+                        chart1.Series["Reporte 5  \n Visitas Niños por fecha"].IsValueShownAsLabel = true;
+                        r5 = false;
+                        fechas();
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
         }

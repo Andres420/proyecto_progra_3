@@ -34,8 +34,8 @@ namespace CapaPresentacion
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login lg = new Login();
-            lg.Show();
             this.Dispose();
+            lg.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

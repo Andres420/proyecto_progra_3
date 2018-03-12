@@ -9,15 +9,17 @@ namespace Objetos
 {
     public class Compra_Reserva
     {
-        public Compra_Reserva(int id_usuario, string pais_origen_nom, string pais_destino_nom, string pais_escala_nom, string duracion, int precio_vuelo, DateTime fecha_inicio, DateTime fecha_final, int adultos, int ninos, int habitaciones, int hotel_cod, int hotel_precio, int vehiculo_cod, int vehiculo_precio,bool vuelos,bool hotel,bool vehiculo, bool reserva_compra)
+        public Compra_Reserva(int id_reser,int id_usuario, string pais_origen_nom, string pais_destino_nom, string pais_escala_nom, string duracion, int precio_vuelo, DateTime fecha_inicio, DateTime fecha_final, 
+            int adultos, int ninos, int habitaciones, int hotel_cod, int hotel_precio, int vehiculo_cod, int vehiculo_precio,bool vuelos,bool hotel,bool vehiculo, bool reserva_compra)
         {
+            this.id_reser = id_reser;
             this.id_usuario = id_usuario;
             if (vuelos)
             {
                 this.pais_origen_cod = Buscar_cod(pais_origen_nom).ToString();
                 this.pais_destino_cod = Buscar_cod(pais_destino_nom).ToString();
                 this.pais_escala = Buscar_cod(pais_escala_nom).ToString();
-                this.duracion = duracion;
+                this.duracion = "'"+duracion+"'";
                 this.precio_vuelo = ((precio_vuelo * adultos) + (precio_vuelo * ninos)).ToString();
                 this.puntuacion = 1;
             }
@@ -26,7 +28,7 @@ namespace Objetos
                 this.pais_origen_cod = "null";
                 this.pais_destino_cod = "null";
                 this.pais_escala = "null";
-                this.duracion = "";
+                this.duracion = "null";
                 this.precio_vuelo = "null";
             }
 
@@ -35,8 +37,8 @@ namespace Objetos
             if (hotel)
             {
                 this.hotel_cod = hotel_cod.ToString();
-                int dias = (fecha_final - fecha_inicio).Days * hotel_precio;
-                this.precio_hotel = (dias).ToString();
+                int dias = (((fecha_final - fecha_inicio).Days) * hotel_precio);
+                this.precio_hotel = dias.ToString();
                 this.habitaciones = habitaciones.ToString();
                 
             }
@@ -63,6 +65,7 @@ namespace Objetos
             this.reserva_compra = reserva_compra;
         }
 
+        public int id_reser { get; set; }
         public int id_usuario { get; set; }
         public string pais_origen_cod { get; set; }
         public string pais_destino_cod { get; set; }

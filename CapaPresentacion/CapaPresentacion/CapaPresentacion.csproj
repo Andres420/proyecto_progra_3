@@ -128,6 +128,12 @@
     <Compile Include="CRUD_Rutas.Designer.cs">
       <DependentUpon>CRUD_Rutas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Puntuacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puntuacion.Designer.cs">
+      <DependentUpon>Puntuacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Puntuacion_Hotel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventana_Reservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventana_Reservas.Designer.cs">
+      <DependentUpon>Ventana_Reservas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CRUD_Aeropuertos.resx">
       <DependentUpon>CRUD_Aeropuertos.cs</DependentUpon>
@@ -188,11 +200,17 @@
     <EmbeddedResource Include="CRUD_Rutas.resx">
       <DependentUpon>CRUD_Rutas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Puntuacion.resx">
+      <DependentUpon>Puntuacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Puntuacion_Hotel.resx">
       <DependentUpon>Puntuacion_Hotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventana_Reservas.resx">
+      <DependentUpon>Ventana_Reservas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

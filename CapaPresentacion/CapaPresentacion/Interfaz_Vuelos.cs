@@ -142,7 +142,7 @@ namespace CapaPresentacion
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -175,7 +175,7 @@ namespace CapaPresentacion
                     {
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -211,7 +211,7 @@ namespace CapaPresentacion
                     {
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -238,7 +238,7 @@ namespace CapaPresentacion
                     else
                     {
                         aeropuerto = (Vuelo)dataAeropuertos.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -272,7 +272,7 @@ namespace CapaPresentacion
                     {
                         hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -307,7 +307,7 @@ namespace CapaPresentacion
                     if (dataVehiculo.SelectedRows.Count > 0 && chbVehiculo.Checked)
                     {
                         vehiculo = (Vehiculos)dataVehiculo.CurrentRow.DataBoundItem;
-                        Compra_Reserva compra_reserva_ = new Compra_Reserva(
+                        Compra_Reserva compra_reserva_ = new Compra_Reserva(0,
                             usuario.getCedula,
                             aeropuerto.pais_origen,
                             aeropuerto.pais_destino,
@@ -361,7 +361,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("La segunda fecha es mayor");
+                    MessageBox.Show("La segunda fecha es menor");
                 }
             }
         }
@@ -387,9 +387,15 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("La segunda fecha es mayor");
+                    MessageBox.Show("La segunda fecha es menor");
                 }
             }
+        }
+
+        private void verReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ventana_Reservas vr = new Ventana_Reservas(usuario);
+            vr.ShowDialog();
         }
     }
 }

@@ -195,11 +195,13 @@ namespace Capadbo
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras(cedulafk, pais_origenfk, pais_destinofk, idpais_escalafk, duracion, precio_vuelo," +
+                    " fecha_inicio, fecha_final, adultos, ninos, habitaciones, id_hotelfk, id_vehiculofk, reser_comp, precio_vehiculo, precio_hotel)" +
+                    " VALUES (" + compra_reserva.id_usuario + "," +
                     "" + compra_reserva.pais_origen_cod + "," +
                     "" + compra_reserva.pais_destino_cod + "," +
                     "" + compra_reserva.pais_escala + "," +
-                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.duracion + "," +
                     "" + compra_reserva.precio_vuelo + "," +
                     "'" + compra_reserva.fecha_inicio + "'," +
                     "'" + compra_reserva.fecha_final + "'," +
@@ -238,11 +240,13 @@ namespace Capadbo
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras(cedulafk, pais_origenfk, pais_destinofk, idpais_escalafk, duracion, precio_vuelo," +
+                    " fecha_inicio, fecha_final, adultos, ninos, habitaciones, id_hotelfk, id_vehiculofk, reser_comp, precio_vehiculo, precio_hotel)" +
+                    " VALUES (" + compra_reserva.id_usuario + "," +
                     "" + compra_reserva.pais_origen_cod + "," +
                     "" + compra_reserva.pais_destino_cod + "," +
                     "" + compra_reserva.pais_escala + "," +
-                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.duracion + "," +
                     "" + compra_reserva.precio_vuelo + "," +
                     "'" + compra_reserva.fecha_inicio + "'," +
                     "'" + compra_reserva.fecha_final + "'," +
@@ -255,8 +259,8 @@ namespace Capadbo
                     "" + compra_reserva.precio_vehiculo + "," +
                     "" + compra_reserva.precio_hotel + ");", conn);
                 cmd.ExecuteNonQuery();
-                Bajar_Cantidades(compra_reserva);
                 conn.Close();
+                Bajar_Cantidades(compra_reserva);
             }
             catch (Exception ex)
             {
@@ -265,17 +269,18 @@ namespace Capadbo
             }
         }
 
-        private bool InsertCompraSinHotel(Compra_Reserva compra_reserva)
+        private void InsertCompraSinHotel(Compra_Reserva compra_reserva)
         {
-            bool compra = false;
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras(cedulafk, pais_origenfk, pais_destinofk, idpais_escalafk, duracion, precio_vuelo," +
+                    " fecha_inicio, fecha_final, adultos, ninos, habitaciones, id_hotelfk, id_vehiculofk, reser_comp, precio_vehiculo, precio_hotel)" +
+                    " VALUES (" + compra_reserva.id_usuario + "," +
                     "" + compra_reserva.pais_origen_cod + "," +
                     "" + compra_reserva.pais_destino_cod + "," +
                     "" + compra_reserva.pais_escala + "," +
-                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.duracion + "," +
                     "" + compra_reserva.precio_vuelo + "," +
                     "'" + compra_reserva.fecha_inicio + "'," +
                     "'" + compra_reserva.fecha_final + "'," +
@@ -289,14 +294,11 @@ namespace Capadbo
                     "" + compra_reserva.precio_hotel + ");", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                compra = true;
             }
             catch (Exception ex)
             {
                 conn.Close();
-                compra = false;
             }
-            return compra;
         }
 
         private void InsertReservaSinHotel(Compra_Reserva compra_reserva)
@@ -304,11 +306,13 @@ namespace Capadbo
             try
             {
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO reservas_compras VALUES (" + compra_reserva.id_usuario + "," +
+                cmd = new NpgsqlCommand("INSERT INTO reservas_compras(cedulafk, pais_origenfk, pais_destinofk, idpais_escalafk, duracion, precio_vuelo," +
+                    " fecha_inicio, fecha_final, adultos, ninos, habitaciones, id_hotelfk, id_vehiculofk, reser_comp, precio_vehiculo, precio_hotel)" +
+                    " VALUES (" + compra_reserva.id_usuario + "," +
                     "" + compra_reserva.pais_origen_cod + "," +
                     "" + compra_reserva.pais_destino_cod + "," +
                     "" + compra_reserva.pais_escala + "," +
-                    "'" + compra_reserva.duracion + "'," +
+                    "" + compra_reserva.duracion + "," +
                     "" + compra_reserva.precio_vuelo + "," +
                     "'" + compra_reserva.fecha_inicio + "'," +
                     "'" + compra_reserva.fecha_final + "'," +
@@ -354,41 +358,6 @@ namespace Capadbo
                 {
                     conn.Open();
                     cmd = new NpgsqlCommand("UPDATE vehiculos SET cantidad_veh = (cantidad_veh - 1) WHERE id_vehiculos = " + compra_reserva.vehiculo_cod + "; ", conn);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    conn.Close();
-                    Console.WriteLine(ex.Message);
-                }
-            }
-
-        }
-
-        private void Subir_Cantidades(Compra_Reserva compra_reserva)
-        {
-            if (!compra_reserva.hotel_cod.Equals("null"))
-            {
-                try
-                {
-                    conn.Open();
-                    cmd = new NpgsqlCommand("UPDATE hoteles SET habitaciones = (habitaciones + " + compra_reserva.habitaciones + ") WHERE id_hotel = " + compra_reserva.hotel_cod + "; ", conn);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    conn.Close();
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            if (!compra_reserva.vehiculo_cod.Equals("null"))
-            {
-                try
-                {
-                    conn.Open();
-                    cmd = new NpgsqlCommand("UPDATE vehiculos SET cantidad_veh = (cantidad_veh + 1) WHERE id_vehiculos = " + compra_reserva.vehiculo_cod + "; ", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }

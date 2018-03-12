@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,19 +51,21 @@ namespace CapaNegocio
             }
         }
 
-        public void Cargar_AutoCompletar_Hoteles(DataGridView dataHoteles, string lugar, int habitaciones)
+        public List<Hotel> Cargar_AutoCompletar_Hoteles(DataGridView dataHoteles, string lugar, int habitaciones)
         {
+            List<Hotel> hoteles = new List<Hotel>();
             if (!lugar.Equals(String.Empty))
             {
                 DB_Interfaz_Vuelo db_vuelo = new DB_Interfaz_Vuelo();
-                List<Hotel> hoteles = db_vuelo.Cargar_Hoteles(lugar,habitaciones);
+                hoteles = db_vuelo.Cargar_Hoteles(lugar,habitaciones);
                 dataHoteles.DataSource = hoteles;
+                dataHoteles.Columns[dataHoteles.Columns.Count - 1].SortMode = DataGridViewColumnSortMode.Automatic;
                 if (hoteles.Count() > 0)
                 {
                     dataHoteles.CurrentRow.Selected = false;
                 }
             }
-            
+            return hoteles;
         }
 
         public void Buscar_Vehiculos(DataGridView dataVehiculo, int personas)
@@ -105,26 +109,30 @@ namespace CapaNegocio
             return dB_Interfaz_Vuelo.Agregar_Compra_Reserva(compra_reserva);
         }
 
-        public void Cargar_Buscar_Hotel(DataGridView dataHoteles, string hotel, int habitaciones)
+        public List<Hotel> Cargar_Buscar_Hotel(DataGridView dataHoteles, string hotel, int habitaciones)
         {
             DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
             List<Hotel> hoteles = dB_Interfaz_Vuelo.Cargar_Buscar_Hoteles(hotel, habitaciones);
             dataHoteles.DataSource = hoteles;
+            dataHoteles.Columns[dataHoteles.Columns.Count - 1].SortMode = DataGridViewColumnSortMode.Automatic;
             if (hoteles.Count() > 0)
             {
                 dataHoteles.CurrentRow.Selected = false;
             }
+            return hoteles;
         }
 
-        public void Cargar_Buscar_HotelesCiudad(DataGridView dataHoteles, string ciudad, int habitaciones)
+        public List<Hotel> Cargar_Buscar_HotelesCiudad(DataGridView dataHoteles, string ciudad, int habitaciones)
         {
             DB_Interfaz_Vuelo dB_Interfaz_Vuelo = new DB_Interfaz_Vuelo();
             List<Hotel> hoteles = dB_Interfaz_Vuelo.Cargar_Buscar_HotelesCiudad(ciudad,habitaciones);
             dataHoteles.DataSource = hoteles;
+            dataHoteles.Columns[dataHoteles.Columns.Count - 1].SortMode = DataGridViewColumnSortMode.Automatic;
             if (hoteles.Count() > 0)
             {
                 dataHoteles.CurrentRow.Selected = false;
             }
+            return hoteles;
         }
     }
 }

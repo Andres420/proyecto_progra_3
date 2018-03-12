@@ -14,10 +14,11 @@ namespace CapaPresentacion
 {
     public partial class Interfaz_Vuelos : Form
     {
+        List<Hotel> hoteles = new List<Hotel>();
         Usuario usuario;
-        Hotel hotel = new Hotel(0,"","","","",1,0,1);
-        Vehiculos vehiculo = new Vehiculos(0,"","",0,0,0);
-        Vuelo aeropuerto = new Vuelo(0,"","","","",0);
+        Hotel hotel = new Hotel(0, "", "", "", "", 1, 0, 1);
+        Vehiculos vehiculo = new Vehiculos(0, "", "", 0, 0, 0);
+        Vuelo aeropuerto = new Vuelo(0, "", "", "", "", 0);
         public Interfaz_Vuelos(Usuario usuario)
         {
             InitializeComponent();
@@ -88,12 +89,8 @@ namespace CapaPresentacion
             if (chbHotel.Checked && !lugar[0].Equals(String.Empty) && !txtHabitaciones.Text.Equals(String.Empty))
             {
                 Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
-                civ.Cargar_AutoCompletar_Hoteles(dataHoteles, lugar[0], int.Parse(txtHabitaciones.Text));
-                this.dataHoteles.Columns["foto_hotel"].Visible = false;
-            }
-            else
-            {
-                dataHoteles.Columns.Clear();
+                hoteles = civ.Cargar_AutoCompletar_Hoteles(dataHoteles, lugar[0], int.Parse(txtHabitaciones.Text));
+
             }
             pbHotel.Image = null;
         }
@@ -119,12 +116,6 @@ namespace CapaPresentacion
         private void chbVehiculo_CheckedChanged(object sender, EventArgs e)
         {
             Cambiar_Vehiculos();
-        }
-
-        private void dataHoteles_MouseClick(object sender, MouseEventArgs e)
-        {
-            hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
-            pbHotel.Image = Image.FromFile(hotel.foto_hotel);
         }
 
         private bool Comprar_Reservar(bool compra_reserva)
@@ -406,23 +397,96 @@ namespace CapaPresentacion
                 if (cbTipo.SelectedItem.Equals("Ciudad"))
                 {
                     Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
-                    civ.Cargar_Buscar_HotelesCiudad(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
+                    hoteles = civ.Cargar_Buscar_HotelesCiudad(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
                     this.dataHoteles.Columns["foto_hotel"].Visible = false;
                     pbHotel.Image = null;
                 }
                 else
                 {
                     Codigo_Interfaz_Vuelo civ = new Codigo_Interfaz_Vuelo();
-                    civ.Cargar_Buscar_Hotel(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
+                    hoteles = civ.Cargar_Buscar_Hotel(dataHoteles, txtBuscar.Text, int.Parse(txtHabitaciones.Text));
                     this.dataHoteles.Columns["foto_hotel"].Visible = false;
                     pbHotel.Image = null;
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Coloque el check de agregar hotel");
             }
+        }
+
+        private void dataHoteles_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            if (grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection == SortOrder.None ||
+                grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+            Sort(grid.Columns[e.ColumnIndex].Name, so);
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void Sort(string column, SortOrder sortOrder)
+        {
+            switch (column)
+            {
+                case "precio_h":
+                    {
+                        if (sortOrder == SortOrder.Ascending)
+                        {
+                            dataHoteles.DataSource = hoteles.OrderBy(x => x.precio).ToList();
+                        }
+                        else
+                        {
+                            dataHoteles.DataSource = hoteles.OrderByDescending(x => x.precio).ToList();
+                        }
+                        CambiarImagen();
+                        break;
+                    }
+                case "lugar":
+                    {
+                        if (sortOrder == SortOrder.Ascending)
+                        {
+                            dataHoteles.DataSource = hoteles.OrderBy(x => x.nombre_lugar).ToList();
+                        }
+                        else
+                        {
+                            dataHoteles.DataSource = hoteles.OrderByDescending(x => x.nombre_lugar).ToList();
+                        }
+                        CambiarImagen();
+                        break;
+                    }
+                case "puntuacion":
+                    {
+                        if (sortOrder == SortOrder.Ascending)
+                        {
+                            dataHoteles.DataSource = hoteles.OrderBy(x => x.puntuacion).ToList();
+                        }
+                        else
+                        {
+                            dataHoteles.DataSource = hoteles.OrderByDescending(x => x.puntuacion).ToList();
+                        }
+                        CambiarImagen();
+                        break;
+                    }
+            }
+
+        }
+        public void CambiarImagen()
+        {
+            hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
+            pbHotel.Image = Image.FromFile(hotel.foto_hotel);
+        }
+        private void dataHoteles_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            CambiarImagen();
         }
     }
 }

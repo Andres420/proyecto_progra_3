@@ -36,12 +36,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLugares = new System.Windows.Forms.Button();
             this.btnAeropuertos = new System.Windows.Forms.Button();
             this.btnRutas = new System.Windows.Forms.Button();
@@ -84,7 +78,7 @@
             // 
             this.cerrarSesionToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
@@ -92,7 +86,7 @@
             // 
             this.salirToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -100,13 +94,7 @@
             // 
             this.reportesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporte1ToolStripMenuItem,
-            this.reporte2ToolStripMenuItem,
-            this.reporte3ToolStripMenuItem,
-            this.reporte4ToolStripMenuItem,
-            this.reporte5ToolStripMenuItem,
-            this.reporte6ToolStripMenuItem,
-            this.reporte7ToolStripMenuItem});
+            this.reporte1ToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -115,50 +103,9 @@
             // 
             this.reporte1ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
             this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
-            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte1ToolStripMenuItem.Text = "Reporte 1";
-            // 
-            // reporte2ToolStripMenuItem
-            // 
-            this.reporte2ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
-            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte2ToolStripMenuItem.Text = "Reporte 2";
-            // 
-            // reporte3ToolStripMenuItem
-            // 
-            this.reporte3ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
-            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte3ToolStripMenuItem.Text = "Reporte 3";
-            // 
-            // reporte4ToolStripMenuItem
-            // 
-            this.reporte4ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
-            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte4ToolStripMenuItem.Text = "Reporte 4";
-            // 
-            // reporte5ToolStripMenuItem
-            // 
-            this.reporte5ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte5ToolStripMenuItem.Name = "reporte5ToolStripMenuItem";
-            this.reporte5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte5ToolStripMenuItem.Text = "Reporte 5";
-            // 
-            // reporte6ToolStripMenuItem
-            // 
-            this.reporte6ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte6ToolStripMenuItem.Name = "reporte6ToolStripMenuItem";
-            this.reporte6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte6ToolStripMenuItem.Text = "Reporte 6";
-            // 
-            // reporte7ToolStripMenuItem
-            // 
-            this.reporte7ToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.reporte7ToolStripMenuItem.Name = "reporte7ToolStripMenuItem";
-            this.reporte7ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reporte7ToolStripMenuItem.Text = "Reporte 7";
+            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporte1ToolStripMenuItem.Text = "Ir a Reportes";
+            this.reporte1ToolStripMenuItem.Click += new System.EventHandler(this.reporte1ToolStripMenuItem_Click);
             // 
             // btnLugares
             // 
@@ -351,12 +298,6 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporte1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte5ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte6ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte7ToolStripMenuItem;
         private System.Windows.Forms.Button btnLugares;
         private System.Windows.Forms.Button btnAeropuertos;
         private System.Windows.Forms.Button btnRutas;

@@ -121,5 +121,14 @@ namespace CapaPresentacion
         {
             Limpiar_Ventanas();
         }
+
+        private void Txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

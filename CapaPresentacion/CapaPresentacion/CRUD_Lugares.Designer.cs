@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.Lugares = new System.Windows.Forms.GroupBox();
+            this.cbPaises = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,8 +40,6 @@
             this.Btn_Reg = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbPaises = new System.Windows.Forms.ComboBox();
             this.Lugares.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,12 +59,31 @@
             this.Lugares.TabStop = false;
             this.Lugares.Text = "Lugares";
             // 
+            // cbPaises
+            // 
+            this.cbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaises.FormattingEnabled = true;
+            this.cbPaises.Location = new System.Drawing.Point(112, 111);
+            this.cbPaises.Name = "cbPaises";
+            this.cbPaises.Size = new System.Drawing.Size(121, 21);
+            this.cbPaises.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Pais que pertence";
+            // 
             // Txt_Nombre
             // 
             this.Txt_Nombre.Location = new System.Drawing.Point(63, 85);
             this.Txt_Nombre.Name = "Txt_Nombre";
             this.Txt_Nombre.Size = new System.Drawing.Size(100, 20);
             this.Txt_Nombre.TabIndex = 22;
+            this.Txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_Nombre_KeyPress);
             // 
             // label2
             // 
@@ -151,24 +170,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(472, 160);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Pais que pertence";
-            // 
-            // cbPaises
-            // 
-            this.cbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPaises.FormattingEnabled = true;
-            this.cbPaises.Location = new System.Drawing.Point(112, 111);
-            this.cbPaises.Name = "cbPaises";
-            this.cbPaises.Size = new System.Drawing.Size(121, 21);
-            this.cbPaises.TabIndex = 24;
             // 
             // CRUD_Lugares
             // 

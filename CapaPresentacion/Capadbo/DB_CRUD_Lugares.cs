@@ -23,7 +23,7 @@ namespace Capadbo
             {
                 conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
                 conn.Open();
-                cmd = new NpgsqlCommand("INSERT INTO lugares (nombre,id_paisfk) VALUES ('" + nombre_lugar + "',(SELECT id_pais FROM paises WHERE nombre_pais = '" + pais + "'));", conn);
+                cmd = new NpgsqlCommand("INSERT INTO lugares (nombre,id_paisfk) VALUES ('" + nombre_lugar + "',(SELECT id_paises FROM paises WHERE nombre_pais = '" + pais + "'));", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 agregado = true;

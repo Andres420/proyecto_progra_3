@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Puntuacion_Hotel
+    partial class Puntuacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Puntuacion_Hotel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Puntuacion));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.r5 = new System.Windows.Forms.RadioButton();
             this.r4 = new System.Windows.Forms.RadioButton();
@@ -48,10 +48,10 @@
             this.groupBox1.Controls.Add(this.r3);
             this.groupBox1.Controls.Add(this.r2);
             this.groupBox1.Controls.Add(this.r1);
-            this.groupBox1.Location = new System.Drawing.Point(222, 58);
+            this.groupBox1.Location = new System.Drawing.Point(225, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(90, 243);
-            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
@@ -62,6 +62,7 @@
             this.r5.Name = "r5";
             this.r5.Size = new System.Drawing.Size(72, 17);
             this.r5.TabIndex = 12;
+            this.r5.TabStop = true;
             this.r5.Text = "Excelente";
             this.r5.UseVisualStyleBackColor = true;
             // 
@@ -72,6 +73,7 @@
             this.r4.Name = "r4";
             this.r4.Size = new System.Drawing.Size(78, 17);
             this.r4.TabIndex = 11;
+            this.r4.TabStop = true;
             this.r4.Text = "Muy bueno";
             this.r4.UseVisualStyleBackColor = true;
             // 
@@ -82,6 +84,7 @@
             this.r3.Name = "r3";
             this.r3.Size = new System.Drawing.Size(56, 17);
             this.r3.TabIndex = 10;
+            this.r3.TabStop = true;
             this.r3.Text = "Bueno";
             this.r3.UseVisualStyleBackColor = true;
             // 
@@ -92,6 +95,7 @@
             this.r2.Name = "r2";
             this.r2.Size = new System.Drawing.Size(62, 17);
             this.r2.TabIndex = 9;
+            this.r2.TabStop = true;
             this.r2.Text = "Regular";
             this.r2.UseVisualStyleBackColor = true;
             // 
@@ -109,10 +113,10 @@
             // 
             // btn_Votar
             // 
-            this.btn_Votar.Location = new System.Drawing.Point(12, 309);
+            this.btn_Votar.Location = new System.Drawing.Point(15, 301);
             this.btn_Votar.Name = "btn_Votar";
             this.btn_Votar.Size = new System.Drawing.Size(101, 36);
-            this.btn_Votar.TabIndex = 16;
+            this.btn_Votar.TabIndex = 20;
             this.btn_Votar.Text = "Votar";
             this.btn_Votar.UseVisualStyleBackColor = true;
             this.btn_Votar.Click += new System.EventHandler(this.btn_Votar_Click);
@@ -121,31 +125,31 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 17);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 16);
-            this.label1.TabIndex = 15;
+            this.label1.TabIndex = 19;
             this.label1.Text = "Danos tu opinion sobre el servicio en el hotel";
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(12, 58);
+            this.panel1.Location = new System.Drawing.Point(15, 50);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(205, 243);
-            this.panel1.TabIndex = 14;
+            this.panel1.TabIndex = 18;
             // 
-            // Puntuacion_Hotel
+            // Puntuacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 355);
+            this.ClientSize = new System.Drawing.Size(327, 345);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Votar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "Puntuacion_Hotel";
-            this.Text = "Puntuacion_Hotel";
+            this.Name = "Puntuacion";
+            this.Text = "Puntuacion";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

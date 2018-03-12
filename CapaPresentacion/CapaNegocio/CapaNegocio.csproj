@@ -59,6 +59,7 @@
     <Compile Include="Codigo_Pre_Compra_Vuelo.cs" />
     <Compile Include="Codigo_Reportes.cs" />
     <Compile Include="Codigo_Rutas.cs" />
+    <Compile Include="Codigo_Ventana_Reservas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

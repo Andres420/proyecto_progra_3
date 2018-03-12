@@ -64,6 +64,7 @@
     <Compile Include="DB_Reportes.cs" />
     <Compile Include="DB_Rutas.cs" />
     <Compile Include="DB_Interfaz_Vuelo.cs" />
+    <Compile Include="DB_Ventana_Reservas.cs" />
     <Compile Include="DB_Vuelos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

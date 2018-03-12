@@ -8,50 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Objetos;
-
 namespace CapaPresentacion
 {
-    public partial class Puntuacion_Hotel : Form
+    public partial class Puntuacion : Form
     {
-        Compra_Reserva cr;
-        public Puntuacion_Hotel(Compra_Reserva cr)
+        Puntuacion_obj puntuacion;
+        public Puntuacion(Puntuacion_obj puntuacion)
         {
             InitializeComponent();
-            this.cr = cr;
-
+            this.puntuacion = puntuacion;
         }
 
         private void btn_Votar_Click(object sender, EventArgs e)
         {
-            int numero = 0;
+            
             if (r1.Checked == true)
             {
-                numero = 1;
-                cr.puntuacion = 1;
+                puntuacion.puntuacion = 1;
             }
             if (r2.Checked == true)
             {
-                numero = 1;
-                cr.puntuacion = 2;
+                puntuacion.puntuacion = 2;
             }
             if (r3.Checked == true)
             {
-                numero = 1;
-                cr.puntuacion = 3;
+                puntuacion.puntuacion = 3;
             }
             if (r4.Checked == true)
             {
-                numero = 1;
-                cr.puntuacion = 4;
+                puntuacion.puntuacion = 4;
             }
             if (r5.Checked == true)
             {
-                numero = 1;
-                cr.puntuacion = 5;
-            }
-            if (numero == 0)
-            {
-                MessageBox.Show("No ha seleccionado ninguna opcion");
+                puntuacion.puntuacion = 5;
             }
             this.Dispose();
         }

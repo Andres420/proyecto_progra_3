@@ -82,5 +82,29 @@ namespace CapaPresentacion
             }
             
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                bool eliminado = false;
+                Codigo_Ventana_Reservas cvr = new Codigo_Ventana_Reservas();
+                eliminado = cvr.Eliminar_Reserva(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                if (eliminado)
+                {
+                    MessageBox.Show("Reserva eliminada");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la reserva");
+                }
+                cvr.Cargar_Data(dataGridView1, usuario.getCedula);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione alguna reserva");
+            }
+        }
     }
 }

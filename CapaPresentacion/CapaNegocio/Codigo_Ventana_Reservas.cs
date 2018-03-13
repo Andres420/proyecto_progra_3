@@ -52,5 +52,15 @@ namespace CapaNegocio
             DB_Ventana_Reservas dB_ventana_reservas = new DB_Ventana_Reservas();
             dB_ventana_reservas.Subir_Cantidades_Vehiculo(id_vehiculo);
         }
+        /// <summary>
+        /// This method delete a reservation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>And return a boolean if it's eliminated</returns>
+        public bool Eliminar_Reserva(string cod_reserva)
+        {
+            DB_Ventana_Reservas dB_ventana_reservas = new DB_Ventana_Reservas();
+            return dB_ventana_reservas.Eliminar_Reserva(cod_reserva);
+        }
     }
 }

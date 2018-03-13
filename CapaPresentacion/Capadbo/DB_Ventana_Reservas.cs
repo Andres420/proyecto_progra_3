@@ -62,6 +62,28 @@ namespace Capadbo
             }
         }
         /// <summary>
+        /// This method delete a reservation in the database
+        /// </summary>
+        /// <param name="cod_reserva"></param>
+        /// <returns>And return a boolean if it's eliminated</returns>
+        public bool Eliminar_Reserva(string cod_reserva)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand("DELETE FROM reservas_compras WHERE id_rc = "+cod_reserva+";", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return false;
+            }
+        }
+
+        /// <summary>
         /// This method save the connection to the database
         /// </summary>
         public DB_Ventana_Reservas()

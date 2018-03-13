@@ -145,6 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Puntuacion_Hotel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puntuacion_Hotel";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

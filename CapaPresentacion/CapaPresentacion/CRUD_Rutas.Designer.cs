@@ -31,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Rutas = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Duracion_Minutos = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_mod = new System.Windows.Forms.Button();
             this.Btn_Reg = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.Rutas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +88,15 @@
             this.Rutas.TabIndex = 28;
             this.Rutas.TabStop = false;
             this.Rutas.Text = "Rutas";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(145, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Minutos";
             // 
             // label5
             // 
@@ -226,15 +235,6 @@
             this.Btn_Reg.Text = "Registrar";
             this.Btn_Reg.UseVisualStyleBackColor = true;
             this.Btn_Reg.Click += new System.EventHandler(this.Btn_Reg_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(145, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Minutos";
             // 
             // CRUD_Rutas
             // 

@@ -13,6 +13,10 @@ namespace CapaNegocio
     public class Codigo_CRUD_Vuelos
     {
         string select = "SELECT id_tarifa_vuelo, ruta_fk, precio FROM tarifas_vuelos;";
+        /// <summary>
+        /// This method charge with flights the datagridview
+        /// </summary>
+        /// <param name="dataGridView1"></param>
         public void Cargar_Data_Grid(DataGridView dataGridView1)
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
@@ -29,7 +33,10 @@ namespace CapaNegocio
            // dataGridView1.Rows.RemoveAt((dataGridView1.RowCount - 1));
             conn.Close();
         }
-
+        /// <summary>
+        /// This method charge with places the combobox
+        /// </summary>
+        /// <param name="cbRuta"></param>
         public void Cargar_Combos(ComboBox cbRuta)
         {
             cbRuta.Items.Clear();
@@ -41,19 +48,34 @@ namespace CapaNegocio
             }
             cbRuta.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// This method add a new flight in the database
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return if it's save</returns>
         public bool Agregar_Vuelo(int ruta, int precio)
         {
             DB_Vuelos db_vuelos = new DB_Vuelos();
             return db_vuelos.Agregar_Vuelo(ruta, precio);
         }
-
+        /// <summary>
+        /// This method delete a fly
+        /// </summary>
+        /// <param name="cod_tarifa_vuelo"></param>
+        /// <returns>And return a boolean if it's delete</returns>
         public bool Eliminar_Vuelo_Precio(int cod_tarifa_vuelo)
         {
             DB_Vuelos db_vuelos = new DB_Vuelos();
             return db_vuelos.Eliminar_Vuelo_Precio(cod_tarifa_vuelo);
         }
-
+        /// <summary>
+        /// This method update a fly
+        /// </summary>
+        /// <param name="cod_tarifa_vuelo"></param>
+        /// <param name="ruta"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return a boolean if it's update</returns>
         public bool Modificar_Vuelo_Precio(int cod_tarifa_vuelo, string ruta, string precio)
         {
             DB_Vuelos db_vuelos = new DB_Vuelos();

@@ -21,20 +21,26 @@ namespace CapaPresentacion
             cod_tarifa_vuelo = 0;
             Cargar_Data_Grid();
         }
-
+        /// <summary>
+        /// This method charge with flights the datagridview
+        /// </summary>
         private void Cargar_Data_Grid()
         {
             dataGridView1.Columns.Clear();
             Codigo_CRUD_Vuelos ccrud_vuelos = new Codigo_CRUD_Vuelos();
             ccrud_vuelos.Cargar_Data_Grid(dataGridView1);
         }
-
+        /// <summary>
+        /// This method charge with places the combobox
+        /// </summary>
         private void Cargar_Combo()
         {
             Codigo_CRUD_Vuelos ccrud_vuelos = new Codigo_CRUD_Vuelos();
             ccrud_vuelos.Cargar_Combos(CBox_Ruta);
         }
-
+        /// <summary>
+        /// This method clean the textboxs and datagridview
+        /// </summary>
         private void Limpiar_Ventana()
         {
             Cargar_Combo();

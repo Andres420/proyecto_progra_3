@@ -12,7 +12,10 @@ namespace Capadbo
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
         NpgsqlDataReader dr;
-
+        /// <summary>
+        /// This method search the routes in the database
+        /// </summary>
+        /// <returns>And return them</returns>
         public List<int> Id_Rutas()
         {
             List<int> list = new List<int>();
@@ -44,7 +47,12 @@ namespace Capadbo
                 return null;
             }
         }
-
+        /// <summary>
+        /// This method add a new route in the database
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return a boolean if it's save</returns>
         public bool Agregar_Vuelo(int ruta, int precio)
         {
             try
@@ -63,7 +71,11 @@ namespace Capadbo
                 return false;
             }
         }
-
+        /// <summary>
+        /// This method delete a route in the database
+        /// </summary>
+        /// <param name="cod_tarifa_vuelo"></param>
+        /// <returns>And return a boolean if it's delete</returns>
         public bool Eliminar_Vuelo_Precio(int cod_tarifa_vuelo)
         {
             try
@@ -82,7 +94,13 @@ namespace Capadbo
                 return false;
             }
         }
-
+        /// <summary>
+        /// This method update a route in the database
+        /// </summary>
+        /// <param name="cod_tarifa_vuelo"></param>
+        /// <param name="ruta"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return a boolean if it's update</returns>
         public bool Modificar_Vuelo_Precio(int cod_tarifa_vuelo, string ruta, string precio)
         {
             try
@@ -101,6 +119,11 @@ namespace Capadbo
                 return false;
             }
         }
+        /// <summary>
+        /// This method compare the flights
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <returns>And return a boolean if it's equal</returns>
         public bool Comparar_Rutas(int ruta)
         {
             bool Rut = false;
@@ -110,7 +133,6 @@ namespace Capadbo
                 conn.Open();
                 cmd = new NpgsqlCommand("SELECT id_tarifa_vuelo FROM tarifas_vuelos WHERE ruta_fk = " + ruta +" ;", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
-                //cmd.ExecuteNonQuery();
                 if (dr.HasRows)
                 {
                     Rut = true;

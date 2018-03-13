@@ -13,7 +13,10 @@ namespace Capadbo
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
         NpgsqlDataReader dr;
-
+        /// <summary>
+        /// This method search countries in the database
+        /// </summary>
+        /// <returns>And return a list with them</returns>
         public List<string> Cargar_Combos_Paises()
         {
             List<string> list = new List<string>();
@@ -40,7 +43,11 @@ namespace Capadbo
                 return null;
             }
         }
-
+        /// <summary>
+        /// This method delete a route in the database
+        /// </summary>
+        /// <param name="cod_ruta"></param>
+        /// <returns>And return a boolean if it's delete</returns>
         public bool Eliminar_Ruta(int cod_ruta)
         {
             try
@@ -60,7 +67,13 @@ namespace Capadbo
             }
             
         }
-
+        /// <summary>
+        /// This method add a route in the database
+        /// </summary>
+        /// <param name="origen"></param>
+        /// <param name="destino"></param>
+        /// <param name="duracion"></param>
+        /// <returns>And return a boolean if it's save</returns>
         public bool Agregar_Rutas(string origen, string destino, string duracion)
         {
             try
@@ -80,7 +93,14 @@ namespace Capadbo
                 return false;
             }
         }
-
+        /// <summary>
+        /// This method update a route in the database
+        /// </summary>
+        /// <param name="cod_ruta"></param>
+        /// <param name="pais_origen"></param>
+        /// <param name="pais_destino"></param>
+        /// <param name="duracion"></param>
+        /// <returns>And return a boolean if it's update</returns>
         public bool Modificar_Ruta(int cod_ruta, string pais_origen, string pais_destino, string duracion)
         {
             try

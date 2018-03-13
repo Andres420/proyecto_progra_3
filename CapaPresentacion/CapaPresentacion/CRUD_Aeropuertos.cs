@@ -13,7 +13,6 @@ namespace CapaPresentacion
     {
         List<object> lista;
         string valor;
-
         string lugar_a = "";
         int fk_lug;
         string nombre_a = "";
@@ -37,7 +36,10 @@ namespace CapaPresentacion
                LugarA.Items.Add(lista[i + 1]);
             }
         }
-
+        /// <summary>
+        /// This method charge with airports the datagridview
+        /// </summary>
+        /// <param name="dt"></param>
         public void Cargar_datagrid(DataGridView dt)
         {
             try

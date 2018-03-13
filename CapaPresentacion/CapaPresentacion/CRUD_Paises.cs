@@ -53,7 +53,9 @@ namespace CapaPresentacion
                 Limpiar();
             }
         }
-
+        /// <summary>
+        /// This method charge information of countries in the datagridview
+        /// </summary>
         public void Cargar_Dta_Grid()
         {
             Codigo_Paises cp = new Codigo_Paises();
@@ -66,7 +68,9 @@ namespace CapaPresentacion
             }
 
         }
-
+        /// <summary>
+        /// This method charge the flag in the datagridview
+        /// </summary>
         public void Cargar_Bandera()
         {
             Codigo_Paises cp = new Codigo_Paises();
@@ -83,7 +87,7 @@ namespace CapaPresentacion
 
         }
 
-            private void CRUD_Paises_Load(object sender, EventArgs e)
+        private void CRUD_Paises_Load(object sender, EventArgs e)
         {
             Cargar_Dta_Grid();
         }
@@ -120,7 +124,9 @@ namespace CapaPresentacion
             Limpiar();
 
         }
-
+        /// <summary>
+        /// This method clean the textbox, picturebox and change the status of buttons
+        /// </summary>
         public void Limpiar()
         {
             Txt_Nombre1.Clear();

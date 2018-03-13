@@ -22,7 +22,9 @@ namespace CapaPresentacion
             this.usuario = usuario;
             CargarDataGrid();
         }
-
+        /// <summary>
+        /// This method charge the datagrid with reservations
+        /// </summary>
         private void CargarDataGrid()
         {
             Codigo_Ventana_Reservas cvr = new Codigo_Ventana_Reservas();

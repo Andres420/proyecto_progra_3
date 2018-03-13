@@ -12,7 +12,7 @@ namespace Capadbo
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
         /// <summary>
-        /// Save the information in database
+        /// Save the user information in database
         /// </summary>
         /// <param name="cedula"></param>
         /// <param name="nombre"></param>

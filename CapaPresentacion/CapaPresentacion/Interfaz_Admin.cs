@@ -107,6 +107,7 @@ namespace CapaPresentacion
         {
             this.btnTarifa_Vuelos.BackColor = Color.Blue;
         }
+
         private void btnLugares_MouseHover(object sender, EventArgs e)
         {
             this.btnLugares.BackColor = Color.Blue;
@@ -126,6 +127,7 @@ namespace CapaPresentacion
         {
             this.btnAeropuertos.BackColor = Color.DodgerBlue;
         }
+
         private void btnHoteles_MouseHover(object sender, EventArgs e)
         {
             this.btnHoteles.BackColor = Color.Blue;
@@ -135,6 +137,7 @@ namespace CapaPresentacion
         {
             this.btnHoteles.BackColor = Color.DodgerBlue;
         }
+
         private void btnTarifa_Hoteles_MouseHover(object sender, EventArgs e)
         {
             this.btnTarifa_Hoteles.BackColor = Color.Blue;
@@ -144,6 +147,7 @@ namespace CapaPresentacion
         {
             this.btnTarifa_Hoteles.BackColor = Color.DodgerBlue;
         }
+
         private void btnVehiculos_MouseHover(object sender, EventArgs e)
         {
             this.btnVehiculos.BackColor = Color.Blue;

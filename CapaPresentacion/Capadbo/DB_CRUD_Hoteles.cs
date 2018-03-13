@@ -122,7 +122,16 @@ namespace Capadbo
                 return cod;
             }
         }
-
+        /// <summary>
+        /// This method update a hotel in the database
+        /// </summary>
+        /// <param name="cod_hotel"></param>
+        /// <param name="imagen"></param>
+        /// <param name="nombre_hotel"></param>
+        /// <param name="lugar"></param>
+        /// <param name="habitaciones"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return a boolean if it's update</returns>
         public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel , string lugar, string habitaciones, string precio)
         {
             try
@@ -143,7 +152,11 @@ namespace Capadbo
                 return false;
             }
         }
-
+        /// <summary>
+        /// This method search a hotel
+        /// </summary>
+        /// <param name="codigo_hotel"></param>
+        /// <returns>And return a list with it</returns>
         public List<object> Buscar_Hotel(string codigo_hotel)
         {
             List<object> list = new List<object>();
@@ -181,7 +194,11 @@ namespace Capadbo
                 return null;
             }
         }
-
+        /// <summary>
+        /// This method delete a hotel in the database
+        /// </summary>
+        /// <param name="codigo_hotel"></param>
+        /// <returns>And return a boolean if it's delete</returns>
         public bool Eliminar_Hotel(int codigo_hotel)
         {
             try
@@ -201,7 +218,6 @@ namespace Capadbo
             }
             
         }
-
         /// <summary>
         /// This method check the room price code
         /// </summary>

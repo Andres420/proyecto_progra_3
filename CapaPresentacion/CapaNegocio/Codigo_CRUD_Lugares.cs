@@ -25,7 +25,10 @@ namespace CapaNegocio
             bool agregado = db_lugares.Agregar_Lugar(nombre_lugar,pais);
             return agregado;
         }
-
+        /// <summary>
+        /// This method charge the datagridview with places
+        /// </summary>
+        /// <param name="dataGridView1"></param>
         public void Cargar_Data_Grid(DataGridView dataGridView1)
         {
                 DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
@@ -41,7 +44,10 @@ namespace CapaNegocio
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 conn.Close();
         }
-
+        /// <summary>
+        /// This method charge with countries the combobox
+        /// </summary>
+        /// <param name="cbPaises"></param>
         public void Cargar_Combobox(ComboBox cbPaises)
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
@@ -69,7 +75,6 @@ namespace CapaNegocio
             }
             
         }
-
         /// <summary>
         /// This method send information of a place for other method
         /// </summary>

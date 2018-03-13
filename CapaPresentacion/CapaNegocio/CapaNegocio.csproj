@@ -56,7 +56,6 @@
     <Compile Include="Codigo_CRUD_Aeropuertos.cs" />
     <Compile Include="Codigo_Paises.cs" />
     <Compile Include="Codigo_CRUD_Tarifas_Hoteles.cs" />
-    <Compile Include="Codigo_Pre_Compra_Vuelo.cs" />
     <Compile Include="Codigo_Reportes.cs" />
     <Compile Include="Codigo_Rutas.cs" />
     <Compile Include="Codigo_Ventana_Reservas.cs" />

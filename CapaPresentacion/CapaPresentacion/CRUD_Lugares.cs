@@ -19,6 +19,9 @@ namespace CapaPresentacion
             Cargar_Data_Grid();
             Cargar_Combo();
         }
+        /// <summary>
+        /// This method charge with places the datagridview
+        /// </summary>
         private void Cargar_Data_Grid()
         {
             dataGridView1.Columns.Clear();
@@ -41,7 +44,9 @@ namespace CapaPresentacion
             dataGridView1.Columns.Clear();
             Cargar_Data_Grid();
         }
-
+        /// <summary>
+        /// This method charge with countries the combobox
+        /// </summary>
         private void Cargar_Combo()
         {
             Codigo_CRUD_Lugares ccl = new Codigo_CRUD_Lugares();

@@ -16,12 +16,18 @@ namespace Capadbo
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
         NpgsqlDataReader dr;
-
+        /// <summary>
+        /// Save the connection with the database
+        /// </summary>
         public DB_Interfaz_Vuelo()
         {
             conn = new NpgsqlConnection("Server=localhost;Port=5432; User Id=postgres;Password=Admin;Database=programacion");
         }
-
+        /// <summary>
+        /// This method charge in the textbox the places and airports
+        /// </summary>
+        /// <param name="txtBuscador_Origen"></param>
+        /// <param name="txtBuscador_Destino"></param>
         public void Cargar_TextBox(TextBox txtBuscador_Origen,TextBox txtBuscador_Destino)
         {
             try
@@ -48,7 +54,12 @@ namespace Capadbo
                 conn.Close();
             }
         }
-
+        /// <summary>
+        /// Search the fligths in the database
+        /// </summary>
+        /// <param name="origen"></param>
+        /// <param name="destino"></param>
+        /// <returns>And return them</returns>
         public List<Vuelo> Cargar_Vuelos(string origen, string destino)
         {
             List<Vuelo> lista = new List<Vuelo>();
@@ -152,7 +163,12 @@ namespace Capadbo
             }
             return lista_vuelos;
         }
-
+        /// <summary>
+        /// Search the hotels in the database
+        /// </summary>
+        /// <param name="ciudad"></param>
+        /// <param name="habitaciones"></param>
+        /// <returns>And return them</returns>
         public List<Hotel> Cargar_Buscar_HotelesCiudad(string ciudad, int habitaciones)
         {
             List<Hotel> lista_hoteles = new List<Hotel>();
@@ -191,7 +207,12 @@ namespace Capadbo
             }
             return lista_hoteles;
         }
-
+        /// <summary>
+        /// Search the hotels in the database
+        /// </summary>
+        /// <param name="hotel"></param>
+        /// <param name="habitaciones"></param>
+        /// <returns>And return them</returns>
         public List<Hotel> Cargar_Buscar_Hoteles(string hotel, int habitaciones)
         {
             List<Hotel> lista_hoteles = new List<Hotel>();
@@ -230,7 +251,11 @@ namespace Capadbo
             }
             return lista_hoteles;
         }
-
+        /// <summary>
+        /// Save a travel reservation with a hotel
+        /// </summary>
+        /// <param name="compra_reserva"></param>
+        /// <returns></returns>
         public bool Agregar_Compra_Reserva(Compra_Reserva compra_reserva)
         {
             bool compra_reserv = false;
@@ -268,7 +293,10 @@ namespace Capadbo
             
             return compra_reserv;
         }
-
+        /// <summary>
+        /// Save a purchase with a hotel
+        /// </summary>
+        /// <param name="compra_reserva"></param>
         private void InsertCompraHotel(Compra_Reserva compra_reserva)
         {
             try
@@ -313,7 +341,10 @@ namespace Capadbo
                 Console.WriteLine(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Save a travel reservation without a hotel
+        /// </summary>
+        /// <param name="compra_reserva"></param>
         private void InsertReservaHotel(Compra_Reserva compra_reserva)
         {
             try
@@ -347,7 +378,10 @@ namespace Capadbo
                 Console.WriteLine(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Save a purchase without a hotel
+        /// </summary>
+        /// <param name="compra_reserva"></param>
         private void InsertCompraSinHotel(Compra_Reserva compra_reserva)
         {
             try
@@ -379,7 +413,10 @@ namespace Capadbo
                 conn.Close();
             }
         }
-
+        /// <summary>
+        /// Save a travel reservation without a hotel
+        /// </summary>
+        /// <param name="compra_reserva"></param>
         private void InsertReservaSinHotel(Compra_Reserva compra_reserva)
         {
             try
@@ -413,7 +450,10 @@ namespace Capadbo
                 Console.WriteLine(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Reduces the number of rooms and cars in the database
+        /// </summary>
+        /// <param name="compra_reserva"></param>
         private void Bajar_Cantidades(Compra_Reserva compra_reserva)
         {
             if (!compra_reserva.hotel_cod.Equals("null"))
@@ -448,7 +488,11 @@ namespace Capadbo
             }
 
         }
-
+        /// <summary>
+        /// Search the cars in the database
+        /// </summary>
+        /// <param name="personas"></param>
+        /// <returns>And return the cars</returns>
         public List<Vehiculos> Cargar_Vehiculos(int personas)
         {
             List<Vehiculos> lista_vehiculos = new List<Vehiculos>();
@@ -482,7 +526,12 @@ namespace Capadbo
             }
             return lista_vehiculos;
         }
-
+        /// <summary>
+        /// Search the hotels in the database
+        /// </summary>
+        /// <param name="lugar"></param>
+        /// <param name="habitaciones"></param>
+        /// <returns>And return the hotels</returns>
         public List<Hotel> Cargar_Hoteles(string lugar,int habitaciones)
         {
             int pais = 0;

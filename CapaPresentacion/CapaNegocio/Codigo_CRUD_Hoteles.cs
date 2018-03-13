@@ -24,7 +24,10 @@ namespace CapaNegocio
                 cBox_Lugar.Items.Add(nombre_lugar);
             }
         }
-
+        /// <summary>
+        /// This method search the flags of the countries
+        /// </summary>
+        /// <returns>And return them</returns>
         public List<object> Cargar_Bandera()
         {
             List<object> list = new List<object>();
@@ -60,7 +63,6 @@ namespace CapaNegocio
                 conn.Close();
             }
         }
-
         /// <summary>
         /// This method charge all information of database in datagridview
         /// </summary>
@@ -112,20 +114,37 @@ namespace CapaNegocio
             }
             return agregado;
         }
-
+        /// <summary>
+        /// This method update a hotel
+        /// </summary>
+        /// <param name="cod_hotel"></param>
+        /// <param name="imagen"></param>
+        /// <param name="nombre_hotel"></param>
+        /// <param name="lugar"></param>
+        /// <param name="habitaciones"></param>
+        /// <param name="precio"></param>
+        /// <returns>And return a boolean if it's update</returns>
         public bool Modificar_Hotel(int cod_hotel, string imagen, string nombre_hotel, string lugar, string habitaciones, string precio)
         {
             DB_CRUD_Hoteles db_hotel = new DB_CRUD_Hoteles();
             return db_hotel.Modificar_Hotel(cod_hotel, imagen,nombre_hotel,lugar,habitaciones,precio);
         }
-
+        /// <summary>
+        /// This method delete a hotel
+        /// </summary>
+        /// <param name="codigo_hotel"></param>
+        /// <returns>And return a boolean if it's elimated</returns>
         public bool Eliminar_Hotel(int codigo_hotel)
         {
             DB_CRUD_Hoteles db_hoteles = new DB_CRUD_Hoteles();
             bool eliminado = db_hoteles.Eliminar_Hotel(codigo_hotel);
             return eliminado;
         }
-
+        /// <summary>
+        /// This method search hotels in the database
+        /// </summary>
+        /// <param name="codigo_hotel"></param>
+        /// <returns>And return a list with them</returns>
         public List<object> Buscar_Info(string codigo_hotel)
         {
             DB_CRUD_Hoteles db_hotel = new DB_CRUD_Hoteles();

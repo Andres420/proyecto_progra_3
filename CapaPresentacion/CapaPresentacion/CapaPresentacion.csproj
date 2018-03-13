@@ -103,12 +103,6 @@
     <Compile Include="Interfaz_Admin.Designer.cs">
       <DependentUpon>Interfaz_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz_Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz_Usuario.Designer.cs">
-      <DependentUpon>Interfaz_Usuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaz_Vuelos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,9 +173,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz_Admin.resx">
       <DependentUpon>Interfaz_Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz_Usuario.resx">
-      <DependentUpon>Interfaz_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz_Vuelos.resx">
       <DependentUpon>Interfaz_Vuelos.cs</DependentUpon>

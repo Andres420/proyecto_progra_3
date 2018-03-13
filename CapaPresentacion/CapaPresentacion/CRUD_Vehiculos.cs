@@ -17,7 +17,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// This method charge the datagrid with cars
+        /// </summary>
         public void Cargar_Dta_Grid()
         {
             Codigo_CRUD_Vehiculos cv = new Codigo_CRUD_Vehiculos();
@@ -46,7 +48,9 @@ namespace CapaPresentacion
                 Limpiar();
             }
         }
-
+        /// <summary>
+        /// This method clean the textboxs and other things
+        /// </summary>
         public void Limpiar()
         {
             Txt_Cantidad.Clear();

@@ -82,7 +82,9 @@ namespace CapaPresentacion
             }
 
         }
-
+        /// <summary>
+        /// This method looks for hotels
+        /// </summary>
         public void Hotel()
         {
             string[] lugar = txtDestino.Text.Split(',');
@@ -99,7 +101,9 @@ namespace CapaPresentacion
         {
             Hotel();
         }
-
+        /// <summary>
+        /// This method looks for cars
+        /// </summary>
         public void Cambiar_Vehiculos()
         {
             if (chbVehiculo.Checked)
@@ -117,7 +121,11 @@ namespace CapaPresentacion
         {
             Cambiar_Vehiculos();
         }
-
+        /// <summary>
+        /// Check if is a purchase or reservation and send to the database
+        /// </summary>
+        /// <param name="compra_reserva"></param>
+        /// <returns>A boolean for know if it is a purchase or reservation</returns>
         private bool Comprar_Reservar(bool compra_reserva)
         {
             bool comprado_reservado = false;
@@ -432,7 +440,11 @@ namespace CapaPresentacion
             Sort(grid.Columns[e.ColumnIndex].Name, so);
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
-
+        /// <summary>
+        /// This method sort the coulmns price and place of datahoteles
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="sortOrder"></param>
         private void Sort(string column, SortOrder sortOrder)
         {
             switch (column)
@@ -479,11 +491,15 @@ namespace CapaPresentacion
             }
 
         }
+        /// <summary>
+        /// This method change the image of the picturebox
+        /// </summary>
         public void CambiarImagen()
         {
             hotel = (Hotel)dataHoteles.CurrentRow.DataBoundItem;
             pbHotel.Image = Image.FromFile(hotel.foto_hotel);
         }
+
         private void dataHoteles_MouseClick_1(object sender, MouseEventArgs e)
         {
             CambiarImagen();

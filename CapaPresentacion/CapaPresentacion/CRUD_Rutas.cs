@@ -20,6 +20,9 @@ namespace CapaPresentacion
             Cargar_Combos();
             Cargar_Data_Grid();
         }
+        /// <summary>
+        /// This method clean the comboboxs,datagridview and textboxs
+        /// </summary>
         private void Limpiar_Campos()
         {
             cb_Destino.Items.Clear();
@@ -36,13 +39,18 @@ namespace CapaPresentacion
             Cargar_Data_Grid();
 
         }
+        /// <summary>
+        /// This method charge with routes the datagridview
+        /// </summary>
         private void Cargar_Data_Grid()
         {
             dataGridView1.Columns.Clear();
             Codigo_Rutas cr = new Codigo_Rutas();
             cr.Cargar_Data_Grid(dataGridView1);
         }
-
+        /// <summary>
+        /// This method charge with countries the comboboxs
+        /// </summary>
         private void Cargar_Combos()
         {
             Codigo_Rutas cr = new Codigo_Rutas();

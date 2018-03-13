@@ -11,7 +11,12 @@ namespace Capadbo
     {
         NpgsqlConnection conn;
         NpgsqlCommand cmd;
-
+        /// <summary>
+        /// This method search the user in the database
+        /// </summary>
+        /// <param name="cuenta"></param>
+        /// <param name="clave"></param>
+        /// <returns>And return the user</returns>
         public object[] Buscar_Usuario_db(string cuenta, string clave)
         {
             object[] arreglo = null;

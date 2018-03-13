@@ -11,6 +11,12 @@ namespace CapaNegocio
 {
     public class Codigo_Login
     {
+        /// <summary>
+        /// This method search the user in the database
+        /// </summary>
+        /// <param name="cuenta"></param>
+        /// <param name="clave"></param>
+        /// <returns>And return the user</returns>
         public Usuario Buscar_Usuario(string cuenta, string clave)
         {
             Usuario usuario = null;

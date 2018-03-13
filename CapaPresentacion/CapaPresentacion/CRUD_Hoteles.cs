@@ -21,7 +21,9 @@ namespace CapaPresentacion
             Limpiar_Ventana();
             
         }
-
+        /// <summary>
+        /// This method charge the datagridview with hotels
+        /// </summary>
         public void Cargar_Data_Grid()
         {
             dataGridView1.Columns.Clear();
@@ -34,8 +36,10 @@ namespace CapaPresentacion
                 dgvc.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
-
-    public void Cargar_Foto()
+        /// <summary>
+        /// This method charge the datagridview with the photo of the hotels
+        /// </summary>
+        public void Cargar_Foto()
         {
             Codigo_CRUD_Hoteles ccrudhotel = new Codigo_CRUD_Hoteles();
             List<object> lista = new List<object>();
@@ -58,6 +62,9 @@ namespace CapaPresentacion
             ccrud_comb.Cargar_Combos(CBox_Lugar);
             CBox_Lugar.SelectedIndex = 0;
         }
+        /// <summary>
+        /// This method clean the combobox,picturebox,textboxs and change the status of the buttons
+        /// </summary>
         private void Limpiar_Ventana()
         {
             CBox_Lugar.Items.Clear();
@@ -74,6 +81,7 @@ namespace CapaPresentacion
             Cargar_Data_Grid();
             cod_hotel = 0;
         }
+
         private void Txt_Habitaciones_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);

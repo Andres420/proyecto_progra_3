@@ -17,6 +17,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// This method clean a textbox and change the status of buttons
+        /// </summary>
         public void Limpiar()
         {
             Txt_Precio.Clear();
@@ -26,7 +29,9 @@ namespace CapaPresentacion
             Btn_Reg.Enabled = true;
             dataGridView1.CurrentRow.Selected = false;
         }
-
+        /// <summary>
+        /// This method charge the datagrid with costs of hotel
+        /// </summary>
         public void Cargar_Dta_Grid()
         {
             Codigo_CRUD_Tarifas_Hoteles ch = new Codigo_CRUD_Tarifas_Hoteles();

@@ -23,7 +23,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.usuario = usuario;
-            this.CenterToScreen();
             cbTipo.SelectedIndex = 0;
         }
 

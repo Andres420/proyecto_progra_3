@@ -45,6 +45,14 @@
             this.chbHotel = new System.Windows.Forms.CheckBox();
             this.chbVehiculo = new System.Windows.Forms.CheckBox();
             this.dataHoteles = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foto_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
@@ -73,14 +81,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cbTipo = new System.Windows.Forms.ComboBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foto_hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoteles)).BeginInit();
@@ -258,6 +258,64 @@
             this.dataHoteles.TabIndex = 9;
             this.dataHoteles.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataHoteles_ColumnHeaderMouseClick);
             this.dataHoteles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataHoteles_MouseClick_1);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_hotel";
+            this.id.HeaderText = "Id_hotel";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombre_pais
+            // 
+            this.nombre_pais.DataPropertyName = "nombre_pais";
+            this.nombre_pais.HeaderText = "Pais";
+            this.nombre_pais.Name = "nombre_pais";
+            this.nombre_pais.ReadOnly = true;
+            // 
+            // lugar
+            // 
+            this.lugar.DataPropertyName = "nombre_lugar";
+            this.lugar.HeaderText = "Lugar";
+            this.lugar.Name = "lugar";
+            this.lugar.ReadOnly = true;
+            // 
+            // nombre_hotel
+            // 
+            this.nombre_hotel.DataPropertyName = "nombre_hotel";
+            this.nombre_hotel.HeaderText = "Hotel";
+            this.nombre_hotel.Name = "nombre_hotel";
+            this.nombre_hotel.ReadOnly = true;
+            // 
+            // foto_hotel
+            // 
+            this.foto_hotel.DataPropertyName = "foto_hotel";
+            this.foto_hotel.HeaderText = "Foto Hotel";
+            this.foto_hotel.Name = "foto_hotel";
+            this.foto_hotel.ReadOnly = true;
+            this.foto_hotel.Visible = false;
+            // 
+            // habitaciones
+            // 
+            this.habitaciones.DataPropertyName = "habitaciones";
+            this.habitaciones.HeaderText = "Habitaciones";
+            this.habitaciones.Name = "habitaciones";
+            this.habitaciones.ReadOnly = true;
+            // 
+            // precio_h
+            // 
+            this.precio_h.DataPropertyName = "precio";
+            this.precio_h.HeaderText = "Precio";
+            this.precio_h.Name = "precio_h";
+            this.precio_h.ReadOnly = true;
+            // 
+            // puntuacion
+            // 
+            this.puntuacion.DataPropertyName = "puntuacion";
+            this.puntuacion.HeaderText = "Puntuacion";
+            this.puntuacion.Name = "puntuacion";
+            this.puntuacion.ReadOnly = true;
             // 
             // txtOrigen
             // 
@@ -525,68 +583,11 @@
             this.cbTipo.Size = new System.Drawing.Size(121, 21);
             this.cbTipo.TabIndex = 29;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id_hotel";
-            this.id.HeaderText = "Id_hotel";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nombre_pais
-            // 
-            this.nombre_pais.DataPropertyName = "nombre_pais";
-            this.nombre_pais.HeaderText = "Pais";
-            this.nombre_pais.Name = "nombre_pais";
-            this.nombre_pais.ReadOnly = true;
-            // 
-            // lugar
-            // 
-            this.lugar.DataPropertyName = "nombre_lugar";
-            this.lugar.HeaderText = "Lugar";
-            this.lugar.Name = "lugar";
-            this.lugar.ReadOnly = true;
-            // 
-            // nombre_hotel
-            // 
-            this.nombre_hotel.DataPropertyName = "nombre_hotel";
-            this.nombre_hotel.HeaderText = "Hotel";
-            this.nombre_hotel.Name = "nombre_hotel";
-            this.nombre_hotel.ReadOnly = true;
-            // 
-            // foto_hotel
-            // 
-            this.foto_hotel.DataPropertyName = "foto_hotel";
-            this.foto_hotel.HeaderText = "Foto Hotel";
-            this.foto_hotel.Name = "foto_hotel";
-            this.foto_hotel.ReadOnly = true;
-            this.foto_hotel.Visible = false;
-            // 
-            // habitaciones
-            // 
-            this.habitaciones.DataPropertyName = "habitaciones";
-            this.habitaciones.HeaderText = "Habitaciones";
-            this.habitaciones.Name = "habitaciones";
-            this.habitaciones.ReadOnly = true;
-            // 
-            // precio_h
-            // 
-            this.precio_h.DataPropertyName = "precio";
-            this.precio_h.HeaderText = "Precio";
-            this.precio_h.Name = "precio_h";
-            this.precio_h.ReadOnly = true;
-            // 
-            // puntuacion
-            // 
-            this.puntuacion.DataPropertyName = "puntuacion";
-            this.puntuacion.HeaderText = "Puntuacion";
-            this.puntuacion.Name = "puntuacion";
-            this.puntuacion.ReadOnly = true;
-            // 
             // Interfaz_Vuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1197, 583);
             this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.txtBuscar);
@@ -619,7 +620,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfaz_Vuelos";
-            this.Text = "cal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ventana Usuario";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Interfaz_Vuelos_FormClosed);
             this.Load += new System.EventHandler(this.Interfaz_Vuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataAeropuertos)).EndInit();
